@@ -1,0 +1,62 @@
+namespace spacetrip_agency.hdbmodule;
+
+context cdsSpaceTrip {
+
+    /*@@layout{"layoutInfo":{"x":-1403,"y":-417.5}}*/
+    entity Airport {
+        key AirportId : Integer;
+            Name      : String(50);
+            Type      : String(20);
+            City      : String(20);
+            Country   : String(20);
+            Latitude  : Decimal(12, 9);
+            Longitude : Decimal(12, 9);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-1154,"y":-435.5}}*/
+    entity Route {
+        AirlineId            : String(10);
+        SourceAirportId      : String(10);
+        DestinationAirportId : String(10);
+        NumberOfStops        : String(10);
+        CarrierType          : String(10);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-1154,"y":-232.5}}*/
+    entity Airline {
+        key AirlineId : Integer;
+            Name      : String(50);
+            Country   : String(20);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-849,"y":-435.5}}*/
+    entity Booking {
+        BookingId          : String(20);
+        CustomerName       : String(50);
+        NumberOfPassengers : Integer;
+        CustomerEmail      : String(10);
+        DateOfBooking      : UTCDateTime;
+        DateOfTravel       : UTCDateTime;
+        BookingCost        : Double;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-842,"y":-248.5}}*/
+    entity Itinerary {
+        ItineraryId          : String(10);
+        sourceAirportId      : String(10);
+        destinationAirportId : String(10);
+        dateOfTravel         : UTCDateTime;
+        BookingId            : String(10);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-1417,"y":-233.5}}*/
+    entity SpaceDestination {
+        Id            : String(10);
+        Name          : String(10);
+        SolarDistance : Decimal(10, 2);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-1164,"y":-522.5}}*/
+    entity ExtraterrestrialRoute {
+    };
+};

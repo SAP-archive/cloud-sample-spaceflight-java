@@ -1,0 +1,20 @@
+ID: spacetrip_agency
+_schema-version: '2.1'
+description: Space travel agengy to book and create itinerary from any geo location to space
+version: 0.0.1
+
+modules:
+ - name: hdbmodule
+   type: hdb
+   path: hdbmodule
+   requires:
+    - name: hdi_hdbmodule
+
+resources:
+ - name: hdi_hdbmodule
+   parameters:
+      config:
+         schema: SpaceTripSchema
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
