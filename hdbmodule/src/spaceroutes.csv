@@ -1,0 +1,13 @@
+SpaceRouteId,RouteName,StartingPlanetId,DestinationPlanetId,StartingSpaceportId,DestinationSpaceportId,StartsFromOrbit,LandsOnDestinationPlanet
+1,Low Earth Orbit (LEO),3,3,6,,false,false
+2,Low Lunar Orbit,4,3,10,,false,false
+3,Low Martian Orbit,5,5,11,,false,false
+4,Transfer Orbit (Earth to Moon),3,4,,10,true,false
+5,Transfer Orbit (Earth to Mars),3,5,,11,true,false
+6,Transfer Orbit (Mars to Earth),5,3,,6,true,false
+7,Transfer Orbit (Moon to Earth),4,3,,6,true,false
+8,Free Return Transfer Orbit (Earth to Moon),3,4,,,true,false
+9,Free Return Transfer Orbit (Earth to Mars),3,5,,,true,false
+10,Earth Re-entry,3,3,,5,true,true
+11,Lunar Descent,4,4,,10,true,true
+12,Martian Descent,5,5,,11,true,true

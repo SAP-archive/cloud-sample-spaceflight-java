@@ -15,7 +15,7 @@
 	},
 	{
 		"target_table": "cdsSpaceTrip.EarthRoutes", 
-		"source_data" : { "data_type" : "CSV", "file_name" : "routes.csv", "has_header" : true }, 
+		"source_data" : { "data_type" : "CSV", "file_name" : "earthroutes.csv", "has_header" : true }, 
 		"import_settings" : { "import_columns" : [ "EarthRouteId", "AirlineId", "StartingAirportId", "DestinationAirportId", "Stops", "Equipment"] }, 
 		"column_mappings" : { "EarthRouteId":1, "AirlineId":2, "StartingAirportId":3, "DestinationAirportId":4, "Stops":5, "Equipment":6 } 
 	},
@@ -28,14 +28,20 @@
 	{
 		"target_table": "cdsSpaceTrip.AstronomicalBodies",
 		"source_data" : { "data_type" : "CSV", "file_name" : "astrobodies.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "AstroBodyId", "Name", "SolarDistance"] },
-		"column_mappings" : { "SpaceportId":1, "AstroBodyId":1, "Name":2, "SolarDistance":3 }
+		"import_settings" : { "import_columns" : [ "AstroBodyId", "Name", "SolarDistance", "SurfaceGravity"] },
+		"column_mappings" : { "SpaceportId":1, "AstroBodyId":1, "Name":2, "SolarDistance":3, "SurfaceGravity":4 }
 	},
 	{
 		"target_table": "cdsSpaceTrip.SpaceFlightCompanies",
 		"source_data" : { "data_type" : "CSV", "file_name" : "spaceflightcompanies.csv", "has_header" : true },
 		"import_settings" : { "import_columns" : [ "SpaceFlightCompanyId", "SpaceFlightCompanyName", "OperatesFrom1", "OperatesFrom2", "OperatesFrom3"] },
 		"column_mappings" : { "SpaceportId":1, "SpaceFlightCompanyId":1, "SpaceFlightCompanyName":2, "OperatesFrom1":3, "OperatesFrom2":4, "OperatesFrom3":5 }
+	},
+	{
+		"target_table": "cdsSpaceTrip.SpaceRoutes",
+		"source_data" : { "data_type" : "CSV", "file_name" : "spaceroutes.csv", "has_header" : true },
+		"import_settings" : { "import_columns" : [ "SpaceRouteId", "RouteName", "StartingPlanetId", "DestinationPlanetId", "StartingSpaceportId", "DestinationSpaceportId", "StartsFromOrbit", "LandsOnDestinationPlanet"] },
+		"column_mappings" : { "SpaceRouteId":1, "RouteName":2, "StartingPlanetId":3, "DestinationPlanetId":4, "StartingSpaceportId":5, "DestinationSpaceportId":6, "StartsFromOrbit":7, "LandsOnDestinationPlanet":8 }
 	}
   ] 
 }
