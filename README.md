@@ -94,6 +94,11 @@ Alternatively, a space tourism flight will not want to land on the destination p
 1. Enter LEO (Low Earth Orbit)
 1. Re-enter Earth's atmosphere and descend to the surface
 
+Also, notice that there are two Boolean fields in this table: `StartsFromOrbit` and `LandsOnDestinationPlanet`.
+
+If you are about to fire the motors to enter a Transfer Orbit, then by definition, you cannot be on the surface of the planet!  Therefore, the `StartsFromOrbit` flag is always switched on for Transfer Orbits; which in turn means that the `StartingSpaceportId` field needs to be empty.
+
+Similarly, if you have entered a Free Return Orbit, by definition, you will not be landing on the surface of your destination planet - you'll be swinging past and immediately returning home.  Therefore, for Free Return orbits, the `LandsOnDestinationPlanet` flag will always be switched off, which in turn means that the `DestinationSpaceportId` needs to be empty.
 
 
 ## Using the Data Model
