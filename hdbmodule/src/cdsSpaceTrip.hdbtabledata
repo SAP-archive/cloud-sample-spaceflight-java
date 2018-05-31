@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "imports":
+  [ {
+		"target_table": "cdsSpaceTrip.Airlines",
+		"source_data" : { "data_type" : "CSV", "file_name" : "airlines.csv", "has_header" : true },
+		"import_settings" : { "import_columns" : [ "AirlineId", "Name", "Country" ] },
+		"column_mappings" : { "AirlineId":1, "Name":2, "Country":3 }
+	},
+	{
+		"target_table": "cdsSpaceTrip.Airports", 
+		"source_data" : { "data_type" : "CSV", "file_name" : "airports.csv", "has_header" : true }, 
+		"import_settings" : { "import_columns" : [ "IATA", "Name", "City", "Country", "Altitude", "Latitude", "Longitude"] }, 
+		"column_mappings" : { "IATA":1, "Name":2, "City":3, "Country":4, "Altitude":5, "Latitude":6, "Longitude":6 } 
+	},
+	{
+		"target_table": "cdsSpaceTrip.EarthRoutes", 
+		"source_data" : { "data_type" : "CSV", "file_name" : "routes.csv", "has_header" : true }, 
+		"import_settings" : { "import_columns" : [ "EarthRouteId", "AirlineId", "StartingAirportId", "DestinationAirportId", "Stops", "Equipment"] }, 
+		"column_mappings" : { "EarthRouteId":1, "AirlineId":2, "StartingAirportId":3, "DestinationAirportId":4, "Stops":5, "Equipment":6 } 
+	},
+	{
+		"target_table": "cdsSpaceTrip.Spaceports",
+		"source_data" : { "data_type" : "CSV", "file_name" : "spaceports.csv", "has_header" : true },
+		"import_settings" : { "import_columns" : [ "SpaceportId", "SpaceportName", "OnPlanetId", "Latitude", "Longitude"] },
+		"column_mappings" : { "SpaceportId":1, "SpaceportName":2, "OnPlanetId":3, "Latitude":4, "Longitude":5 }
+	},
+	{
+		"target_table": "cdsSpaceTrip.AstronomicalBodies",
+		"source_data" : { "data_type" : "CSV", "file_name" : "astrobodies.csv", "has_header" : true },
+		"import_settings" : { "import_columns" : [ "AstroBodyId", "Name", "SolarDistance"] },
+		"column_mappings" : { "SpaceportId":1, "AstroBodyId":1, "Name":2, "SolarDistance":3 }
+	},
+	{
+		"target_table": "cdsSpaceTrip.SpaceFlightCompanies",
+		"source_data" : { "data_type" : "CSV", "file_name" : "spaceflightcompanies.csv", "has_header" : true },
+		"import_settings" : { "import_columns" : [ "SpaceFlightCompanyId", "SpaceFlightCompanyName", "OperatesFrom1", "OperatesFrom2", "OperatesFrom3"] },
+		"column_mappings" : { "SpaceportId":1, "SpaceFlightCompanyId":1, "SpaceFlightCompanyName":2, "OperatesFrom1":3, "OperatesFrom2":4, "OperatesFrom3":5 }
+	}
+  ] 
+}

@@ -2,61 +2,113 @@ namespace spacetrip_agency.hdbmodule;
 
 context cdsSpaceTrip {
 
-    /*@@layout{"layoutInfo":{"x":-1403,"y":-417.5}}*/
-    entity Airport {
-        key AirportId : Integer;
-            Name      : String(50);
-            Type      : String(20);
-            City      : String(20);
-            Country   : String(20);
-            Latitude  : Decimal(12, 9);
-            Longitude : Decimal(12, 9);
+    /*@@layout{"layoutInfo":{"x":-1451,"y":-877.5}}*/
+    entity Airports {
+        key IATA                   : String(3)      not null;
+            Name                   : String(50)     not null;
+            City                   : String(20);
+            Country                : String(20);
+            Altitude               : Integer        default 0 not null;
+            Latitude               : Decimal(12, 9) not null;
+            Longitude              : Decimal(12, 9) not null;
+            ToStartingAirportId    : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { StartingAirportId };
+            ToDestinationAirportID : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { DestinationAirportId };
     };
 
-    /*@@layout{"layoutInfo":{"x":-1154,"y":-435.5}}*/
-    entity Route {
-        AirlineId            : String(10);
-        SourceAirportId      : String(10);
-        DestinationAirportId : String(10);
-        NumberOfStops        : String(10);
-        CarrierType          : String(10);
+    /*@@layout{"layoutInfo":{"x":-1136,"y":-784.5}}*/
+    entity EarthRoutes {
+        key EarthRouteId         : Integer   not null;
+            AirlineId            : String(2) default 0 not null;
+            StartingAirportId    : String(3) not null;
+            DestinationAirportId : String(3) not null;
+            Stops                : Integer   default 0;
+            Equipment            : String(50);
     };
 
-    /*@@layout{"layoutInfo":{"x":-1154,"y":-232.5}}*/
-    entity Airline {
-        key AirlineId : Integer;
-            Name      : String(50);
-            Country   : String(20);
+    /*@@layout{"layoutInfo":{"x":-1451,"y":-1017.5}}*/
+    entity Airlines {
+        key AirlineId : String(2)  not null;
+            Name      : String(50) not null;
+            Country   : String(20) not null;
+            AirlineID : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { AirlineId };
     };
 
-    /*@@layout{"layoutInfo":{"x":-849,"y":-435.5}}*/
-    entity Booking {
-        BookingId          : String(20);
-        CustomerName       : String(50);
-        NumberOfPassengers : Integer;
-        CustomerEmail      : String(10);
-        DateOfBooking      : UTCDateTime;
-        DateOfTravel       : UTCDateTime;
-        BookingCost        : Double;
+    /*@@layout{"layoutInfo":{"x":-513,"y":-653.5}}*/
+    entity Bookings {
+        key BookingId          : Integer     not null;
+            ItineraryId        : Integer     not null;
+            CustomerName       : String(50)  not null;
+            NumberOfPassengers : Integer     not null default 1;
+            EmailAddress       : String(10)  not null;
+            DateOfBooking      : UTCDateTime not null;
+            DateOfTravel       : UTCDateTime not null;
+            Cost               : Decimal(10, 2);
     };
 
-    /*@@layout{"layoutInfo":{"x":-842,"y":-248.5}}*/
-    entity Itinerary {
-        ItineraryId          : String(10);
-        sourceAirportId      : String(10);
-        destinationAirportId : String(10);
-        dateOfTravel         : UTCDateTime;
-        BookingId            : String(10);
+    /*@@layout{"layoutInfo":{"x":-840,"y":-625.5}}*/
+    entity Itineraries {
+        key ItineraryId        : Integer not null;
+            EarthLegs          : cdsSpaceTrip.EarthLegs;
+            SpaceLegs          : cdsSpaceTrip.SpaceLegs;
+            ToBookingItinerary : association[1, 0..*] to cdsSpaceTrip.Bookings { ItineraryId };
     };
 
-    /*@@layout{"layoutInfo":{"x":-1417,"y":-233.5}}*/
-    entity SpaceDestination {
-        Id            : String(10);
-        Name          : String(10);
-        SolarDistance : Decimal(10, 2);
+    /*@@layout{"layoutInfo":{"x":-840,"y":-445.5}}*/
+    entity AstronomicalBodies {
+        key AstroBodyId           : Integer not null;
+            Name                  : String(20);
+            SolarDistance         : Decimal(10, 8);
+            ToStartingPlanetId    : association[1, 0..*] to cdsSpaceTrip.SpaceRoutes { StartingPlanetId };
+            ToDestinationPlanetId : association[1, 0..*] to cdsSpaceTrip.SpaceRoutes { DestinationPlanetId };
+            ToOnPlanetId          : association[1, 0..*] to cdsSpaceTrip.Spaceports { OnPlanetId };
     };
 
-    /*@@layout{"layoutInfo":{"x":-1164,"y":-522.5}}*/
-    entity ExtraterrestrialRoute {
+    /*@@layout{"layoutInfo":{"x":-1137,"y":-478.5}}*/
+    entity SpaceRoutes {
+        key SpaceRouteId             : Integer not null;
+            StartingPlanetId         : Integer not null;
+            DestinationPlanetId      : Integer not null;
+            StartingSpaceportId      : Integer;
+            StartsFromOrbit          : Boolean default 'false';
+            LandsOnDestinationPlanet : Boolean default 'false';
+    };
+
+    /*@@layout{"layoutInfo":{"x":-1451,"y":-486.5}}*/
+    entity Spaceports {
+        key SpaceportId           : Integer        not null;
+            SpaceportName         : String(50)     not null;
+            OnPlanetId            : Integer;
+            Latitude              : Decimal(10, 8) not null;
+            Longitude             : Decimal(10, 8) not null;
+            ToStartingSpaceportId : association[1, 1..1] to cdsSpaceTrip.SpaceRoutes { StartingSpaceportId };
+            ToOperatesFrom1       : association[1, 0..*] to cdsSpaceTrip.SpaceFlightCompanies { OperatesFrom1 };
+            ToOperatesFrom2       : association[1, 0..*] to cdsSpaceTrip.SpaceFlightCompanies { OperatesFrom2 };
+            ToOperatesFrom3       : association[1, 0..*] to cdsSpaceTrip.SpaceFlightCompanies { OperatesFrom3 };
+    };
+
+    /*@@layout{"layoutInfo":{"x":-1768,"y":-376.5}}*/
+    entity SpaceFlightCompanies {
+        key SpaceFlightCompanyId   : Integer    not null;
+            SpaceFlightCompanyName : String(50) not null;
+            OperatesFrom1          : Integer    not null;
+            OperatesFrom2          : Integer;
+            OperatesFrom3          : Integer;
+    };
+
+    /*@@layout{"layoutInfo":{"x":-1733,"y":-1116.5}}*/
+    type EarthLegs {
+        EarthLeg1 : Integer;
+        EarthLeg2 : Integer;
+        EarthLeg3 : Integer;
+        EarthLeg4 : Integer;
+        EarthLeg5 : Integer;
+    };
+    /*@@layout{"layoutInfo":{"x":-1732.6455078125,"y":-943}}*/
+    type SpaceLegs {
+        SpaceLeg1 : Integer;
+        SpaceLeg2 : Integer;
+        SpaceLeg3 : Integer;
+        SpaceLeg4 : Integer;
+        SpaceLeg5 : Integer;
     };
 };
