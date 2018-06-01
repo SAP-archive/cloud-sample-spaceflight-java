@@ -744,8 +744,8 @@ CBB,Jorge Wilsterman International Airport,Cochabamba,Bolivia,8360,-17.42110062,
 CBE,Greater Cumberland Regional Airport,Cumberland,United States,775,39.61539841,-78.7609024
 CBF,Council Bluffs Municipal Airport,Council Bluffs,United States,1253,41.25920105,-95.76059723
 CBG,Cambridge Airport,Cambridge,United Kingdom,47,52.20500183,0.174999997
-CBH,B√©char Boudghene Ben Ali Lotfi Airport,B√©char,Algeria,2661,31.64570045,-2.269860029
-CBL,"Aeropuerto \General Tomas de Heres\"". Ciudad Bolivar""",Ciudad Bolivar,Venezuela,197,8.122160912,-63.53695679
+CBH,Bchar Boudghene Ben Ali Lotfi Airport,Bchar,Algeria,2661,31.64570045,-2.269860029
+CBL,Aeropuerto \"General Tomas de Heres\",Ciudad Bolivar,Venezuela,197,8.122160912,-63.53695679
 CBM,Columbus Air Force Base,Colombus,United States,219,33.64379883,-88.44380188
 CBN,Penggung Airport,Cirebon,Indonesia,89,-6.756140232,108.5400009
 CBO,Awang Airport,Cotabato,Philippines,189,7.165239811,124.2099991
@@ -838,7 +838,7 @@ CHM,Teniente FAP Jaime A De Montreuil Morales Airport,Chimbote,Peru,69,-9.149609
 CHN,Jeon Ju Airport,Jhunju,South Korea,96,35.8783989,127.1200027
 CHO,Charlottesville Albemarle Airport,Charlottesville VA,United States,639,38.1385994,-78.45290375
 CHQ,Chania International Airport,Chania,Greece,490,35.53170013,24.14970016
-CHR,"Ch√¢teauroux-D√©ols \Marcel Dassault\"" Airport""",Chateauroux,France,529,46.86027778,1.7211111
+CHR,Ch√¢teauroux-D√©ols \"Marcel Dassault\" Airport,Chateauroux,France,529,46.86027778,1.7211111
 CHS,Charleston Air Force Base-International Airport,Charleston,United States,46,32.89860153,-80.04049683
 CHT,Chatham Islands-Tuuta Airport,Chatham Island,New Zealand,43,-43.81000137,-176.4570007
 CHX,Cap Manuel Ni√±o International Airport,Changuinola,Panama,19,9.458640099,-82.51679993
@@ -1487,7 +1487,7 @@ FNU,Oristano-Fenosu Airport,Oristano,Italy,36,39.895308,8.642661
 FOC,Fuzhou Changle International Airport,Fuzhou,China,46,25.93510056,119.663002
 FOD,Fort Dodge Regional Airport,Fort Dodge,United States,1156,42.55149841,-94.19259644
 FOE,Topeka Regional Airport - Forbes Field,Topeka,United States,1078,38.95090103,-95.66359711
-FOG,"Foggia \Gino Lisa\"" Airport""",Foggia,Italy,265,41.432899,15.535
+FOG,Foggia \"Gino Lisa\" Airport,Foggia,Italy,265,41.432899,15.535
 FOK,Francis S Gabreski Airport,West Hampton Beach,United States,67,40.84370041,-72.63179779
 FOM,Foumban Nkounja Airport,Foumban,Cameroon,3963,5.636919975,10.75080013
 FON,Arenal Airport,La Fortuna/San Carlos,Costa Rica,342,10.47799969,-84.6344986
@@ -4491,7 +4491,7 @@ SZV,Suzhou Guangfu Airport,Suzhou,China,0,31.2631,120.401001
 SZW,Schwerin Parchim Airport,Parchim,Germany,166,53.426998,11.7834
 SZX,Shenzhen Bao'an International Airport,Shenzhen,China,13,22.63929939,113.810997
 SZY,Szczytno-Szymany International Airport,Szczytno-Szymany,Poland,463,53.48189926,20.93770027
-SZZ,"Szczecin-Goleni√≥w \Solidarno≈õƒá\"" Airport""",Szczecin,Poland,154,53.58470154,14.90219975
+SZZ,Szczecin-Goleni√≥w \"Solidarno≈õƒá\" Airport,Szczecin,Poland,154,53.58470154,14.90219975
 TAB,Tobago-Crown Point Airport,Scarborough,Trinidad and Tobago,38,11.14970016,-60.8321991
 TAC,Daniel Z. Romualdez Airport,Tacloban,Philippines,10,11.2276001,125.0279999
 TAE,Daegu Airport,Taegu,South Korea,116,35.89410019,128.6589966
@@ -4504,7 +4504,7 @@ TAM,General Francisco Javier Mina International Airport,Tampico,Mexico,80,22.296
 TAN,Taunton Municipal King Field,Taunton,United States,43,41.87440109,-71.01660156
 TAO,Liuting Airport,Qingdao,China,33,36.26610184,120.3740005
 TAP,Tapachula International Airport,Tapachula,Mexico,97,14.79430008,-92.37000275
-TAR,"Taranto-Grottaglie \Marcello Arlotta\"" Airport""",Grottaglie,Italy,215,40.517502,17.4032
+TAR,Taranto-Grottaglie \"Marcello Arlotta\" Airport,Grottaglie,Italy,215,40.517502,17.4032
 TAS,Tashkent International Airport,Tashkent,Uzbekistan,1417,41.25790024,69.28119659
 TAT,Poprad-Tatry Airport,Poprad,Slovakia,2356,49.07360077,20.24110031
 TAY,Tartu Airport,Tartu,Estonia,219,58.30749893,26.69039917
@@ -5652,4 +5652,4 @@ ZYI,Zunyi Xinzhou Airport,Zunyi,China,2920,27.5895,107.0007
 ZYL,Osmany International Airport,Sylhet Osmani,Bangladesh,50,24.96319962,91.8667984
 ZZU,Mzuzu Airport,Mzuzu,Malawi,4115,-11.44470024,34.01179886
 ZZV,Zanesville Municipal Airport,Zanesville,United States,900,39.94440079,-81.89209747
-,Liverpool South Shore Regional Airport,Liverpool,Canada,321,44.2303009,-64.85610199
+ZZY,Liverpool South Shore Regional Airport,Liverpool,Canada,321,44.2303009,-64.85610199

@@ -1,24 +1,22 @@
-namespace spacetrip_agency.hdbmodule;
-
 context cdsSpaceTrip {
 
     /*@@layout{"layoutInfo":{"x":-1451,"y":-877.5}}*/
     entity Airports {
         key IATA                   : String(3)      not null;
-            Name                   : String(50)     not null;
-            City                   : String(20);
-            Country                : String(20);
+            Name                   : String(100)     not null;
+            City                   : String(30);
+            Country                : String(50);
             Altitude               : Integer        default 0 not null;
             Latitude               : Decimal(12, 9) not null;
             Longitude              : Decimal(12, 9) not null;
             ToStartingAirportId    : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { StartingAirportId };
-            ToDestinationAirportID : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { DestinationAirportId };
+            ToDestinationAirportId : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { DestinationAirportId };
     };
 
     /*@@layout{"layoutInfo":{"x":-1136,"y":-784.5}}*/
     entity EarthRoutes {
         key EarthRouteId         : Integer   not null;
-            AirlineId            : String(2) default 0 not null;
+            AirlineId            : String(2) not null;
             StartingAirportId    : String(3) not null;
             DestinationAirportId : String(3) not null;
             Stops                : Integer   default 0;
@@ -29,8 +27,8 @@ context cdsSpaceTrip {
     entity Airlines {
         key AirlineId : String(2)  not null;
             Name      : String(50) not null;
-            Country   : String(20) not null;
-            AirlineID : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { AirlineId };
+            Country   : String(50) not null;
+            AirlineRoutes : association[1, 0..*] to cdsSpaceTrip.EarthRoutes { AirlineId };
     };
 
     /*@@layout{"layoutInfo":{"x":-513,"y":-653.5}}*/
@@ -72,8 +70,8 @@ context cdsSpaceTrip {
             DestinationPlanetId      : Integer    not null;
             StartingSpaceportId      : Integer;
             DestinationSpaceportId   : Integer;
-            StartsFromOrbit          : Boolean    default 'false';
-            LandsOnDestinationPlanet : Boolean    default 'false';
+            StartsFromOrbit          : Boolean    default false;
+            LandsOnDestinationPlanet : Boolean    default false;
     };
 
     /*@@layout{"layoutInfo":{"x":-1451,"y":-467.5}}*/
@@ -81,8 +79,8 @@ context cdsSpaceTrip {
         key SpaceportId           : Integer        not null;
             SpaceportName         : String(50)     not null;
             OnPlanetId            : Integer;
-            Latitude              : Decimal(10, 8) not null;
-            Longitude             : Decimal(10, 8) not null;
+            Latitude              : Decimal(12, 9) not null;
+            Longitude             : Decimal(12, 9) not null;
             ToStartingSpaceportId : association[1, 1..1] to cdsSpaceTrip.SpaceRoutes { StartingSpaceportId };
             ToOperatesFrom1       : association[1, 0..*] to cdsSpaceTrip.SpaceFlightCompanies { OperatesFrom1 };
             ToOperatesFrom2       : association[1, 0..*] to cdsSpaceTrip.SpaceFlightCompanies { OperatesFrom2 };

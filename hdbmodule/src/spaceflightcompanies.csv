@@ -4,5 +4,5 @@ SpaceFlightCompanyId,SpaceFlightCompanyName,OperatesFrom1,OperatesFrom2,Operates
 3,Firefly Aerospace,6,8,
 4,Lockheed Martin,5,6,8
 5,NASA,6,7,8
-5,OneSpace,1,,
-6,Virgin Galactic,6,8,
+6,OneSpace,1,,
+7,Virgin Galactic,6,8,
