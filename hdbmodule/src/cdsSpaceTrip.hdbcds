@@ -1,3 +1,5 @@
+namespace teched.hdbmodules;
+
 context cdsSpaceTrip {
 
     /*@@layout{"layoutInfo":{"x":-1451,"y":-877.5}}*/
