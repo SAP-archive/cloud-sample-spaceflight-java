@@ -1,4 +1,4 @@
-EarthRouteId,AirlineId,StartingAirportId,DestinationAirportId,Stops,Equipment
+ID,Airline_Id,StartingAirport_Id,DestinationAirport_Id,Stops,Equipment
 1,2B,AER,KZN,0,CR2
 2,2B,ASF,KZN,0,CR2
 3,2B,ASF,MRV,0,CR2
