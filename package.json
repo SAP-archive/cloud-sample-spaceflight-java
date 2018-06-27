@@ -1,0 +1,11 @@
+{
+  "name": "flightjourney",
+  "version": "0.1.0",
+  "dependencies": {
+    "@sap/cds": "*"
+  },
+  "scripts": {
+    "build": "cds build --clean"
+  },
+  "license": "ISC"
+}

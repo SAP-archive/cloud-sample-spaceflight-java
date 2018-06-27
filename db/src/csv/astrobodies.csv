@@ -1,4 +1,4 @@
-ID,Name,SolarDistance,SurfaceGravity
+ID,NAME,SOLARDISTANCE,SURFACEGRAVITY
 1,Mercury,0.387098,0.38
 2,Venus,0.723875,0.904
 3,Earth,1.0,1.0

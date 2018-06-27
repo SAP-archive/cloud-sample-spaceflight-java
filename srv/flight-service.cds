@@ -11,5 +11,5 @@ service FlightService {
     entity Spaceports as projection on space.Spaceports;
     entity Spacelines as projection on space.SpaceFlightCompanies;
     entity Planets as projection on space.AstronomicalBodies;
-    
+
 }

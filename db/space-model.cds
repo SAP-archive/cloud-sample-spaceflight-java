@@ -47,11 +47,13 @@ entity Spaceports {
         // ToStartingSpaceportId : association[1, 1..1] to cdsSpaceTrip.SpaceRoutes { StartingSpaceportId };
         // > would translate to something like the below, which seems weird
         // StartingSpaceport     : Association to SpaceRoutes on StartingSpaceport.StartingSpaceport=$self;
-        OperatedBy : Association to many SpaceFlightCompanies on (
+        OperatedBy : Association to many SpaceFlightCompanies on
+        // (
             OperatedBy.OperatesFrom1=$self or
             OperatedBy.OperatesFrom2=$self or
-            OperatedBy.OperatesFrom3=$self 
-        );
+            OperatedBy.OperatesFrom3=$self
+        // )
+        ;
 };
 
 entity SpaceFlightCompanies {

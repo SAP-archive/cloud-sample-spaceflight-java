@@ -5,7 +5,7 @@ service BookingService {
 
     entity Bookings as projection on flight.Bookings;
     entity Itineraries as projection on flight.Itineraries;
-    
+
     @readonly entity EarthRoutes as projection on flight.EarthRoutes;
     @readonly entity Airports as projection on flight.Airports;
     @readonly entity Airlines as projection on flight.Airlines;
