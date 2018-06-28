@@ -13,6 +13,23 @@ modules:
    requires:
      - name: flightjourney-hdi-container
 
+ - name: srv
+   type: java
+   path: srv
+   parameters:
+      memory: 1024M
+   provides:
+    - name: srv_api
+      properties:
+         url: ${default-url}
+   requires:
+    - name: flightjourney-hdi-container
+      properties:
+         JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
+            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
+
+ 
+
 resources:
  - name: flightjourney-hdi-container
    properties:

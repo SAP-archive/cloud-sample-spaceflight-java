@@ -1,0 +1,10 @@
+---
+applications:
+  - name: srv
+    memory: 512M
+    buildpack: sap_java_buildpack
+    path: target/srv-0.0.1-SNAPSHOT.war  
+    services:
+    - hdi
+    env:
+      destinations: '[{name: "ODataEndPoint", url: "ODataServerURL", username: "UserID", password: "Password"}]'
