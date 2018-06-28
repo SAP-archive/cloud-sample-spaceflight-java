@@ -1,10 +1,12 @@
 ---
 applications:
-  - name: srv
-    memory: 512M
+  - name: flightjourney-srv
+    memory: 768M
     buildpack: sap_java_buildpack
-    path: target/srv-0.0.1-SNAPSHOT.war  
+    path: target/flightjourney-srv-0.0.1-SNAPSHOT.war
     services:
-    - hdi
+    - flightjourney-hdi-container
     env:
       destinations: '[{name: "ODataEndPoint", url: "ODataServerURL", username: "UserID", password: "Password"}]'
+      # JBP_CONFIG_COMPONENTS: '{jres: ["JavaBuildpack::Jre::SapMachineJRE"]}'
+      # JAVA_OPTS: '--illegal-access=warn'
