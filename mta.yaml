@@ -13,7 +13,7 @@ modules:
    requires:
      - name: flightjourney-hdi-container
 
- - name: srv
+ - name: flightjourney-srv
    type: java
    path: srv
    parameters:

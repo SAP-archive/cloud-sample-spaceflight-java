@@ -7,7 +7,7 @@
 		<artifactId>projects-parent-odatav2</artifactId>
 		<version>1.18.0</version>
 	</parent>
-	<artifactId>java-srv</artifactId>
+	<artifactId>flightjourney-srv</artifactId>
 	<groupId>com.company.flightjourney</groupId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
