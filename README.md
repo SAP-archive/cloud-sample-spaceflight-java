@@ -1,14 +1,15 @@
 # [TEAM TO DO]
-[ ] Organize S/4HANA system for all participants (Daniel) or setup mock server for Business Partner service (Christian) if S/4HANA not available
-[ ] Create storyboard for agengy booker (Rui + Christian)
-[ ] Organize Global account for hands-on session (Rui). We need:
-    - HANA DB (64 GB or 128 GB)
-    - One CF Subaccount per TechEd location
-    - One Neo Subaccount (for creating re-use code)
-    - Quota per session participants (max. 50 participants for 2 sessions each)
-        - 2 app instances (1GB per instance)
-        - 1 route
-        - 1 service
+
+- [ ] Organize S/4HANA system for all participants (Daniel) or setup mock server for Business Partner service (Christian) if S/4HANA not available
+- [ ] Create storyboard for agengy booker (Rui + Christian)
+- [ ] Organize Global account for hands-on session (Rui). We need:
+	- HANA DB (64 GB or 128 GB)
+	- One CF Subaccount per TechEd location
+	- One Neo Subaccount (for creating re-use code)
+	- Quota per session participants (max. 50 participants for 2 sessions each)
+  		- 2 app instances (1GB per instance)
+  		- 1 route
+  		- 1 service
 ## [DECISIONs]
 All exercises running on Web IDE!!
 
@@ -16,6 +17,7 @@ All exercises running on Web IDE!!
 # Scenario
 You are working in the IT department of the space travel agency SPICY (SPace Itenaries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
 Timeline is tight and the legal requirements of 20 planets need to be considered.
+
 You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
 
 
