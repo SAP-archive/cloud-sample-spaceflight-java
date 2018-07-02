@@ -31,8 +31,34 @@ modules:
 
 
 
+
+ - name: app
+   type: html5
+   path: app
+   parameters:
+      disk-quota: 256M
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: srv_api
+      group: destinations
+      properties:
+         forwardAuthToken: true
+         strictSSL: false
+         name: srv_api
+         url: ~{url}
+    - name: uaa_flightjourney
+
 resources:
  - name: flightjourney-hdi-container
    properties:
      hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
+
+ - name: uaa_flightjourney
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+   type: com.sap.xs.uaa
+
