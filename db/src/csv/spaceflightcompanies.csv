@@ -1,4 +1,4 @@
-ID,NAME,OPERATESFROM1_ID,OPERATESFROM2_ID,OPERATESFROM3_ID
+ID,Name,OperatesFrom1_ID,OperatesFrom2_ID,OperatesFrom3_ID
 1,SpaceX,5,6,8
 2,Blue Origin,6,8,
 3,Firefly Aerospace,6,8,

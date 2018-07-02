@@ -1,4 +1,4 @@
-ID,NAME,STARTINGPLANET_ID,DESTINATIONPLANET_ID,STARTINGSPACEPORT_ID,DESTINATIONSPACEPORT_ID,STARTSFROMORBIT,LANDSONDESTINATIONPLANET
+ID,Name,StartingPlanet_Id,DestinationPlanet_Id,StartingSpaceport_Id,DestinationSpaceport_Id,StartsFromOrbit,LandsOnDestinationPlanet
 1,Low Earth Orbit (LEO),3,3,6,,false,false
 2,Low Lunar Orbit,4,3,10,,false,false
 3,Low Martian Orbit,5,5,11,,false,false
