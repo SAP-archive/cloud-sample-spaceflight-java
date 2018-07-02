@@ -1,3 +1,4 @@
+.DS_Store
 *.mtar
 *.log
 .che/
@@ -13,4 +14,3 @@ node/
 node_modules/
 target/
 _out/
-.cds_gen.log
