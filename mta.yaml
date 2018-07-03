@@ -25,12 +25,8 @@ modules:
    requires:
     - name: flightjourney-hdi-container
       properties:
-         JBP_CONFIG_RESOURCE_CONFIGURATION:
-           tomcat/webapps/ROOT/META-INF/context.xml:
-             service_name_for_DefaultDB: ~{hdi-container-name}
-
-
-
+         JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
+            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
 
  - name: app
    type: html5
