@@ -42,6 +42,18 @@
 		"source_data" : { "data_type" : "CSV", "file_name" : "spaceroutes.csv", "has_header" : true },
 		"import_settings" : { "import_columns" : [ "ID", "NAME", "STARTINGPLANET_ID", "DESTINATIONPLANET_ID", "STARTINGSPACEPORT_ID", "DESTINATIONSPACEPORT_ID", "STARTSFROMORBIT", "LANDSONDESTINATIONPLANET"] },
 		"column_mappings" : { "ID":1, "NAME":2, "STARTINGPLANET_ID":3, "DESTINATIONPLANET_ID":4, "STARTINGSPACEPORT_ID":5, "DESTINATIONSPACEPORT_ID":6, "STARTSFROMORBIT":7, "LANDSONDESTINATIONPLANET":8 }
+	},
+	{
+		"target_table": "TECHED_FLIGHT_TRIP_ITINERARIES",
+		"source_data" : { "data_type" : "CSV", "file_name" : "itineraries.csv", "has_header" : true },
+		"import_settings" : { "import_columns" : [ "ID", "EARTHLEGS_LEG1_ID", "EARTHLEGS_LEG2_ID", "EARTHLEGS_LEG3_ID", "EARTHLEGS_LEG4_ID", "EARTHLEGS_LEG5_ID"] },
+		"column_mappings" : { "ID":1, "EARTHLEGS_LEG1_ID":2, "EARTHLEGS_LEG2_ID":3, "EARTHLEGS_LEG3_ID":4, "EARTHLEGS_LEG4_ID":5, "EARTHLEGS_LEG5_ID":6 }
+	},
+	{
+		"target_table": "TECHED_FLIGHT_TRIP_BOOKINGS",
+		"source_data" : { "data_type" : "CSV", "file_name" : "bookings.csv", "has_header" : true },
+		"import_settings" : { "import_columns" : [ "ID", "CUSTOMERNAME", "NUMBEROFPASSENGERS", "EMAILADDRESS", "DATEOFBOOKING", "DATEOFTRAVEL", "COST", "ITINERARY_ID"] },
+		"column_mappings" : { "ID":1, "CUSTOMERNAME":2, "NUMBEROFPASSENGERS":3, "EMAILADDRESS":4, "DATEOFBOOKING":5, "DATEOFTRAVEL":6, "COST":7, "ITINERARY_ID":8 }
 	}
   ]
 }

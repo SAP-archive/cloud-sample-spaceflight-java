@@ -33,7 +33,7 @@ entity Bookings {
         Itinerary          : Association to Itineraries;
         CustomerName       : String(50)  not null;
         NumberOfPassengers : Integer     not null default 1;
-        EmailAddress       : String(10)  not null;
+        EmailAddress       : String(50)  not null;
         DateOfBooking      : DateTime    not null;
         DateOfTravel       : DateTime    not null;
         Cost               : Decimal(10, 2);
