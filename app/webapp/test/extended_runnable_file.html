@@ -63,6 +63,44 @@
                         }, true);
                     })()</script>
 
+	<script>
+	sap.ui.getCore().attachInit(function () { 
+		// Get Sinon via the UI5 third party resources 
+		sap.ui.require(["sap/ui/thirdparty/sinon"], function (sinon) { 
+			// We use text/plain in order to get the xml as a string
+			var url = window.location.origin; 
+			var request = $.ajax({ 
+				type     : "GET",
+				url      : url + "/webapp/localService/metadata.xml",
+				dataType : "text/plain"
+			}); 
+			// we get into fail because we use text/plain instead of application/xml so we get parse error but the status is success (200).
+			request.fail(function( jqXHR, textStatus ) {
+				if (jqXHR.status === 200){
+					var server = sinon.fakeServer.create(); 
+					var regex = new RegExp(/odata\/v\d.*\/\$metadata/); 
+					//Do not intercept other Ajax. intercept only the metadata Ajax 
+					server.xhr.useFilters = true; 
+					server.xhr.addFilter(function(method, url) { 
+						// we can only fake our own url, otherwise ui5 source are not loaded correctly 
+						return !url.match(regex); 
+					}); 
+					//Respond with the new annotation file from the WS (not from the JAVA)
+					server.respondWith("GET", regex, function (xhr, id) { 
+						xhr.respond(200,{"Content-Type": "application/xml;charset=UTF-8"},
+							jqXHR.responseText); 
+					}); 
+					server.autoRespondAfter=0; 
+					server.autoRespond = true; 
+				} else {
+					console.log("Fetching the metadata (including the annotations) from the local project failed: " + textStatus);
+				}
+			});
+		});
+	});
+</script>
+
+
 
 	<script type="text/javascript">
 		sap.ui.getCore().attachInit(function() {
