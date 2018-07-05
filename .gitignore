@@ -15,4 +15,5 @@ node_modules/
 target/
 _out/
 
+metadata.xml
 .cds_gen.log
