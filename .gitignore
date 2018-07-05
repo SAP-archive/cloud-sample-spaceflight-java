@@ -15,5 +15,6 @@ node_modules/
 target/
 _out/
 
+connection.properties
 metadata.xml
 .cds_gen.log
