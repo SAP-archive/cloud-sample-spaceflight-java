@@ -40,10 +40,6 @@
           <End Role="Bookings" EntitySet="Bookings"/>
           <End Role="Itineraries" EntitySet="Itineraries"/>
         </AssociationSet>
-        <AssociationSet Name="Itineraries_Bookings" Association="BookingService.Itineraries_Bookings">
-          <End Role="Itineraries" EntitySet="Itineraries"/>
-          <End Role="Bookings" EntitySet="Bookings"/>
-        </AssociationSet>
         <AssociationSet Name="Itineraries_EarthLegs_leg1" Association="BookingService.Itineraries_EarthLegs_leg1">
           <End Role="Itineraries" EntitySet="Itineraries"/>
           <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
@@ -112,18 +108,6 @@
           <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
           <End Role="Airports" EntitySet="Airports"/>
         </AssociationSet>
-        <AssociationSet Name="Airports_Departures" Association="BookingService.Airports_Departures">
-          <End Role="Airports" EntitySet="Airports"/>
-          <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
-        </AssociationSet>
-        <AssociationSet Name="Airports_Arrivals" Association="BookingService.Airports_Arrivals">
-          <End Role="Airports" EntitySet="Airports"/>
-          <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
-        </AssociationSet>
-        <AssociationSet Name="Airlines_Routes" Association="BookingService.Airlines_Routes">
-          <End Role="Airlines" EntitySet="Airlines"/>
-          <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
-        </AssociationSet>
         <AssociationSet Name="SpaceRoutes_StartingPlanet" Association="BookingService.SpaceRoutes_StartingPlanet">
           <End Role="SpaceRoutes" EntitySet="SpaceRoutes"/>
           <End Role="Planets" EntitySet="Planets"/>
@@ -160,18 +144,6 @@
           <End Role="Spacelines" EntitySet="Spacelines"/>
           <End Role="Spaceports" EntitySet="Spaceports"/>
         </AssociationSet>
-        <AssociationSet Name="Planets_Arrivals" Association="BookingService.Planets_Arrivals">
-          <End Role="Planets" EntitySet="Planets"/>
-          <End Role="SpaceRoutes" EntitySet="SpaceRoutes"/>
-        </AssociationSet>
-        <AssociationSet Name="Planets_Departures" Association="BookingService.Planets_Departures">
-          <End Role="Planets" EntitySet="Planets"/>
-          <End Role="SpaceRoutes" EntitySet="SpaceRoutes"/>
-        </AssociationSet>
-        <AssociationSet Name="Planets_Spaceports" Association="BookingService.Planets_Spaceports">
-          <End Role="Planets" EntitySet="Planets"/>
-          <End Role="Spaceports" EntitySet="Spaceports"/>
-        </AssociationSet>
       </EntityContainer>
       <EntityType Name="Bookings" Abstract="false" OpenType="false">
         <Key>
@@ -192,7 +164,7 @@
           <PropertyRef Name="ID"/>
         </Key>
         <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
-        <NavigationProperty Name="Bookings" Relationship="BookingService.Itineraries_Bookings" FromRole="Itineraries" ToRole="Bookings"/>
+        <NavigationProperty Name="Bookings" Relationship="BookingService.Bookings_Itinerary" FromRole="Itineraries" ToRole="Bookings"/>
         <NavigationProperty Name="EarthLegs_leg1" Relationship="BookingService.Itineraries_EarthLegs_leg1" FromRole="Itineraries" ToRole="EarthRoutes"/>
         <NavigationProperty Name="EarthLegs_leg2" Relationship="BookingService.Itineraries_EarthLegs_leg2" FromRole="Itineraries" ToRole="EarthRoutes"/>
         <NavigationProperty Name="EarthLegs_leg3" Relationship="BookingService.Itineraries_EarthLegs_leg3" FromRole="Itineraries" ToRole="EarthRoutes"/>
@@ -247,8 +219,8 @@
         <Property Name="Altitude" Type="Edm.Int32" Nullable="false"/>
         <Property Name="Latitude" Type="Edm.Decimal" Scale="9" Precision="12" Nullable="false"/>
         <Property Name="Longitude" Type="Edm.Decimal" Scale="9" Precision="12" Nullable="false"/>
-        <NavigationProperty Name="Departures" Relationship="BookingService.Airports_Departures" FromRole="Airports" ToRole="EarthRoutes"/>
-        <NavigationProperty Name="Arrivals" Relationship="BookingService.Airports_Arrivals" FromRole="Airports" ToRole="EarthRoutes"/>
+        <NavigationProperty Name="Departures" Relationship="BookingService.EarthRoutes_StartingAirport" FromRole="Airports" ToRole="EarthRoutes"/>
+        <NavigationProperty Name="Arrivals" Relationship="BookingService.EarthRoutes_DestinationAirport" FromRole="Airports" ToRole="EarthRoutes"/>
       </EntityType>
       <EntityType Name="Airlines" Abstract="false" OpenType="false">
         <Key>
@@ -257,7 +229,7 @@
         <Property Name="ID" Type="Edm.String" MaxLength="2" Nullable="false"/>
         <Property Name="Name" Type="Edm.String" MaxLength="50" Nullable="false"/>
         <Property Name="Country" Type="Edm.String" MaxLength="50" Nullable="false"/>
-        <NavigationProperty Name="Routes" Relationship="BookingService.Airlines_Routes" FromRole="Airlines" ToRole="EarthRoutes"/>
+        <NavigationProperty Name="Routes" Relationship="BookingService.EarthRoutes_Airline" FromRole="Airlines" ToRole="EarthRoutes"/>
       </EntityType>
       <EntityType Name="SpaceRoutes" Abstract="false" OpenType="false">
         <Key>
@@ -309,9 +281,9 @@
         <Property Name="Name" Type="Edm.String" MaxLength="20" Nullable="false"/>
         <Property Name="SolarDistance" Type="Edm.Decimal" Scale="8" Precision="10" Nullable="false"/>
         <Property Name="SurfaceGravity" Type="Edm.Decimal" Scale="6" Precision="10" Nullable="false"/>
-        <NavigationProperty Name="Arrivals" Relationship="BookingService.Planets_Arrivals" FromRole="Planets" ToRole="SpaceRoutes"/>
-        <NavigationProperty Name="Departures" Relationship="BookingService.Planets_Departures" FromRole="Planets" ToRole="SpaceRoutes"/>
-        <NavigationProperty Name="Spaceports" Relationship="BookingService.Planets_Spaceports" FromRole="Planets" ToRole="Spaceports"/>
+        <NavigationProperty Name="Arrivals" Relationship="BookingService.SpaceRoutes_DestinationPlanet" FromRole="Planets" ToRole="SpaceRoutes"/>
+        <NavigationProperty Name="Departures" Relationship="BookingService.SpaceRoutes_StartingPlanet" FromRole="Planets" ToRole="SpaceRoutes"/>
+        <NavigationProperty Name="Spaceports" Relationship="BookingService.Spaceports_OnPlanet" FromRole="Planets" ToRole="Spaceports"/>
       </EntityType>
       <Association Name="Bookings_Itinerary">
         <End Role="Bookings" Type="BookingService.Bookings" Multiplicity="*"/>
@@ -324,10 +296,6 @@
             <PropertyRef Name="Itinerary_ID"/>
           </Dependent>
         </ReferentialConstraint>
-      </Association>
-      <Association Name="Itineraries_Bookings">
-        <End Role="Itineraries" Type="BookingService.Itineraries" Multiplicity="*"/>
-        <End Role="Bookings" Type="BookingService.Bookings" Multiplicity="*"/>
       </Association>
       <Association Name="Itineraries_EarthLegs_leg1">
         <End Role="Itineraries" Type="BookingService.Itineraries" Multiplicity="*"/>
@@ -533,18 +501,6 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
-      <Association Name="Airports_Departures">
-        <End Role="Airports" Type="BookingService.Airports" Multiplicity="*"/>
-        <End Role="EarthRoutes" Type="BookingService.EarthRoutes" Multiplicity="*"/>
-      </Association>
-      <Association Name="Airports_Arrivals">
-        <End Role="Airports" Type="BookingService.Airports" Multiplicity="*"/>
-        <End Role="EarthRoutes" Type="BookingService.EarthRoutes" Multiplicity="*"/>
-      </Association>
-      <Association Name="Airlines_Routes">
-        <End Role="Airlines" Type="BookingService.Airlines" Multiplicity="*"/>
-        <End Role="EarthRoutes" Type="BookingService.EarthRoutes" Multiplicity="*"/>
-      </Association>
       <Association Name="SpaceRoutes_StartingPlanet">
         <End Role="SpaceRoutes" Type="BookingService.SpaceRoutes" Multiplicity="*"/>
         <End Role="Planets" Type="BookingService.Planets" Multiplicity="0..1"/>
@@ -644,18 +600,6 @@
             <PropertyRef Name="OperatesFrom3_ID"/>
           </Dependent>
         </ReferentialConstraint>
-      </Association>
-      <Association Name="Planets_Arrivals">
-        <End Role="Planets" Type="BookingService.Planets" Multiplicity="*"/>
-        <End Role="SpaceRoutes" Type="BookingService.SpaceRoutes" Multiplicity="*"/>
-      </Association>
-      <Association Name="Planets_Departures">
-        <End Role="Planets" Type="BookingService.Planets" Multiplicity="*"/>
-        <End Role="SpaceRoutes" Type="BookingService.SpaceRoutes" Multiplicity="*"/>
-      </Association>
-      <Association Name="Planets_Spaceports">
-        <End Role="Planets" Type="BookingService.Planets" Multiplicity="*"/>
-        <End Role="Spaceports" Type="BookingService.Spaceports" Multiplicity="*"/>
       </Association>
       <Annotations Target="BookingService.Bookings" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="UI.LineItem">
@@ -760,7 +704,6 @@
       <Annotations Target="BookingService.Bookings/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Id"/>
         <Annotation Term="Core.Immutable" Bool="true"/>
-        <Annotation Term="Core.Computed" Bool="true"/>
       </Annotations>
       <Annotations Target="BookingService.Bookings/Itinerary" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Itinerary"/>

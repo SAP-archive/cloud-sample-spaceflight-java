@@ -29,7 +29,7 @@ entity Airlines {
 };
 
 entity Bookings {
-    key ID                 : UUID        @Core.Computed;
+    key ID                 : UUID;
         Itinerary          : Association to Itineraries;
         CustomerName       : String(50)  not null;
         NumberOfPassengers : Integer     not null default 1;
