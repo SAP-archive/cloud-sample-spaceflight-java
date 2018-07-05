@@ -71,8 +71,8 @@ annotate srv.Bookings with @(
   ],
 
   UI.HeaderInfo: {
-    Title: { Value: CustomerName },
-    Description: { Value: Itinerary.Name },
+    Title: { Value: Itinerary.Name },
+    Description: { Value: CustomerName },
     TypeName: 'Booking',
     TypeNamePlural: 'Bookings'
   },
