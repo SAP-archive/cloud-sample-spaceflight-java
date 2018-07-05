@@ -623,7 +623,7 @@
               <PropertyValue Property="Value" Path="Cost"/>
             </Record>
             <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="Itinerary/ID"/>
+              <PropertyValue Property="Value" Path="Itinerary_ID"/>
             </Record>
           </Collection>
         </Annotation>
@@ -655,7 +655,7 @@
               <PropertyValue Property="Value" Path="Cost"/>
             </Record>
             <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="Itinerary/ID"/>
+              <PropertyValue Property="Value" Path="Itinerary_ID"/>
             </Record>
           </Collection>
         </Annotation>

@@ -1,19 +1,19 @@
 using BookingService as srv from './booking-service';
 
 annotate srv.Itineraries with {
-  ID 
+  ID
     @Common.Label : 'Itinerary';
 };
 
 
 annotate srv.Bookings with {
-  ID 
+  ID
     @Common.Label : 'Id'
     @Core.Immutable;
-  CustomerName 
+  CustomerName
     @Common.Label : 'Customer'
     @Common.FieldControl: #Mandatory;
-  NumberOfPassengers 
+  NumberOfPassengers
     @Common.Label : 'Passengers';
   EmailAddress
     @Common.Label : 'Email'
@@ -30,7 +30,7 @@ annotate srv.Bookings with {
     @Common.Label : 'Itinerary'
     @Common.FieldControl: #Mandatory
     // @sap.value.list: 'fixed-values'
-    @Common.ValueList: { 
+    @Common.ValueList: {
       Entity: 'Itinerary',
       type: #fixed,
       CollectionPath: 'Itinerary',
@@ -41,44 +41,44 @@ annotate srv.Bookings with {
         { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'ID'},
       ]
     };
-    
+
 };
 
 annotate srv.Bookings with @(
-  UI.LineItem: [ 
+  UI.LineItem: [
     {$Type: 'UI.DataField', Value: CustomerName},
     {$Type: 'UI.DataField', Value: NumberOfPassengers},
     {$Type: 'UI.DataField', Value: EmailAddress},
     {$Type: 'UI.DataField', Value: DateOfBooking},
     {$Type: 'UI.DataField', Value: DateOfTravel},
     {$Type: 'UI.DataField', Value: Cost},
-    {$Type: 'UI.DataField', Value: Itinerary.ID},
+    {$Type: 'UI.DataField', Value: Itinerary_ID},
   ],
-  
+
   UI.HeaderInfo: {
     Title: { Value: CustomerName },
     Description: { Value: ID },
-    TypeName: 'Booking', 
+    TypeName: 'Booking',
     TypeNamePlural: 'Bookings'
   },
-  
+
   UI.Identification:
   [
     {$Type: 'UI.DataField', Value: DateOfBooking},
     {$Type: 'UI.DataField', Value: DateOfTravel},
     {$Type: 'UI.DataField', Value: Cost},
-    {$Type: 'UI.DataField', Value: Itinerary.ID},
+    {$Type: 'UI.DataField', Value: Itinerary_ID},
   ],
-  
+
   UI.Facets:
   [
     {
-      $Type:'UI.CollectionFacet', 
+      $Type:'UI.CollectionFacet',
       Facets: [
         { $Type: 'UI.ReferenceFacet', Label: 'General Info', Target: '@UI.Identification' },
         { $Type: 'UI.ReferenceFacet', Label: 'Customer', Target: '@UI.FieldGroup#Customer' },
       ],
-      Label:'Booking Details',		
+      Label:'Booking Details',
     }
     // ,{$Type:'UI.ReferenceFacet', Label: 'Orders', Target: 'orders/@UI.LineItem'},
   ],
