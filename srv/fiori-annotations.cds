@@ -2,7 +2,17 @@ using BookingService as srv from './booking-service';
 
 annotate srv.Itineraries with {
   ID
-    @Common.Label : 'Itinerary';
+    @Common.Label : 'Itinerary ID'
+    @UI.TextArrangement: #TextOnly;
+  Name
+	@Common.Label : 'Itinerary'
+	@Capabilities.SearchRestrictions.Searchable;
+};
+annotate srv.Itineraries with @(
+  UI.Identification:  [ {$Type: 'UI.DataField', Value: Name} ]
+){ // element-level annotations
+	ID @UI.HiddenFilter;
+	Name @UI.HiddenFilter;
 };
 
 
@@ -19,7 +29,8 @@ annotate srv.Bookings with {
     @Common.Label : 'Email'
     @Common.FieldControl: #Mandatory;
   DateOfBooking
-    @Common.Label : 'Booking date';
+    @Common.Label : 'Booking date'
+    @odata.on.insert: #now;
   DateOfTravel
     @Common.Label : 'Travel date'
     @Common.FieldControl: #Mandatory;
@@ -27,19 +38,23 @@ annotate srv.Bookings with {
     @Common.Label : 'Cost'
     @Common.FieldControl: #Mandatory;
   Itinerary
-    @Common.Label : 'Itinerary'
-    @Common.FieldControl: #Mandatory
-    // @sap.value.list: 'fixed-values'
-    @Common.ValueList: {
-      Entity: 'Itinerary',
-      type: #fixed,
-      CollectionPath: 'Itinerary',
-      Label: 'Itinerary',
-      SearchSupported: 'true',
-      Parameters: [
-        { $Type: 'Common.ValueListParameterOut', LocalDataProperty: 'Itinerary_ID', ValueListProperty: 'ID'},
-        { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'ID'},
-      ]
+	// @sap.value.list: 'fixed-values'
+    @Common: {
+	    Label : 'Trip',
+	    FieldControl: #Mandatory,
+	    Text: {$value: Itinerary.Name, "@UI.TextArrangement": #TextOnly},
+	    ValueList: {
+	      entity: 'Itineraries',
+	      type: #fixed,
+	      //CollectionPath: 'Itinerary',
+	      //Label: 'Trip',
+	      SearchSupported: true,
+	      //Parameters: [
+	      //  { $Type: 'Common.ValueListParameterOut', LocalDataProperty: 'Itinerary_ID', ValueListProperty: 'ID'},
+	      //  { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'ID'},
+	      //]
+		},
+		ValueListWithFixedValues
     };
 
 };
@@ -52,36 +67,52 @@ annotate srv.Bookings with @(
     {$Type: 'UI.DataField', Value: DateOfBooking},
     {$Type: 'UI.DataField', Value: DateOfTravel},
     {$Type: 'UI.DataField', Value: Cost},
-    {$Type: 'UI.DataField', Value: Itinerary_ID},
+    {$Type: 'UI.DataField', Value: Itinerary.Name},
   ],
 
   UI.HeaderInfo: {
     Title: { Value: CustomerName },
-    Description: { Value: ID },
+    Description: { Value: Itinerary.Name },
     TypeName: 'Booking',
     TypeNamePlural: 'Bookings'
   },
-
-  UI.Identification:
-  [
-    {$Type: 'UI.DataField', Value: DateOfBooking},
-    {$Type: 'UI.DataField', Value: DateOfTravel},
-    {$Type: 'UI.DataField', Value: Cost},
-    {$Type: 'UI.DataField', Value: Itinerary_ID},
+  UI.HeaderFacets: [
+    { $Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup#HeaderInfo' }
   ],
 
-  UI.Facets:
-  [
+  UI.Identification: [
+    { $Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup#GeneralInfo' }
+  ],
+
+  UI.Facets: [
     {
       $Type:'UI.CollectionFacet',
       Facets: [
-        { $Type: 'UI.ReferenceFacet', Label: 'General Info', Target: '@UI.Identification' },
-        { $Type: 'UI.ReferenceFacet', Label: 'Customer', Target: '@UI.FieldGroup#Customer' },
+        { $Type: 'UI.ReferenceFacet', Label: 'General Info', Target: '@UI.FieldGroup#GeneralInfo' },
+        { $Type: 'UI.ReferenceFacet', Label: 'Customer',     Target: '@UI.FieldGroup#Customer' },
       ],
       Label:'Booking Details',
     }
     // ,{$Type:'UI.ReferenceFacet', Label: 'Orders', Target: 'orders/@UI.LineItem'},
   ],
+  UI.FieldGroup#HeaderInfo: {
+    Label: 'Header Info',
+    Data: [
+	    {$Type: 'UI.DataField', Value: DateOfTravel},
+	    {$Type: 'UI.DataField', Value: Cost},
+	    {$Type: 'UI.DataField', Value: Itinerary_ID},
+    	{$Type: 'UI.DataField', Value: ID}
+    ]
+  },
+  UI.FieldGroup#GeneralInfo: {
+    Label: 'General Info',
+    Data: [
+	    {$Type: 'UI.DataField', Value: DateOfBooking},
+	    {$Type: 'UI.DataField', Value: DateOfTravel},
+	    {$Type: 'UI.DataField', Value: Cost},
+	    {$Type: 'UI.DataField', Value: Itinerary_ID}
+    ]
+  },
   UI.FieldGroup#Customer: {
     Label: 'Customer',
     Data: [

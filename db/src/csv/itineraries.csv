@@ -1,3 +1,7 @@
-ID,EarthLegs_leg1_Id,EarthLegs_leg2_Id,EarthLegs_leg3_Id,EarthLegs_leg4_Id,EarthLegs_leg5_Id,SpaceLegs_leg1_Id,SpaceLegs_leg2_Id,SpaceLegs_leg3_Id,SpaceLegs_leg4_Id,SpaceLegs_leg5_Id,SpaceLegs_leg6_Id,SpaceLegs_leg7_Id,SpaceLegs_leg8_Id,SpaceLegs_leg9_Id
-1,1,2,3,4,5,,,,,,,,,
-2,6,7,8,9,10,,,,,,,,,
+ID,Name,EarthLegs_leg1_Id,EarthLegs_leg2_Id,EarthLegs_leg3_Id,EarthLegs_leg4_Id,EarthLegs_leg5_Id,SpaceLegs_leg1_Id,SpaceLegs_leg2_Id,SpaceLegs_leg3_Id,SpaceLegs_leg4_Id,SpaceLegs_leg5_Id,SpaceLegs_leg6_Id,SpaceLegs_leg7_Id,SpaceLegs_leg8_Id,SpaceLegs_leg9_Id
+1,Earth to Mars,1,9,1,10,,,,,,,,,,
+2,Earth to Moon,1,8,1,10,,,,,,,,,,
+3,Earth to Mars (landing),1,5,3,12,,,,,,,,,,
+4,Earth to Moon (landing),1,4,2,11,,,,,,,,,,
+5,Mars to Earth (landing),3,6,1,10,,,,,,,,,,
+6,Moon to Earth (landing),2,7,1,10,,,,,,,,,,

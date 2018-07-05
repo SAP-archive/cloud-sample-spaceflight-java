@@ -10,7 +10,7 @@ modules:
      memory: 256M
      disk-quota: 256M
    requires:
-     - name: flightjourney-hdi
+     - name: flightjourney-hdi2
 
  - name: flightjourney-srv
    type: java
@@ -22,7 +22,7 @@ modules:
       properties:
          url: ${default-url}
    requires:
-    - name: flightjourney-hdi
+    - name: flightjourney-hdi2
       properties:
          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
             {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
@@ -46,7 +46,7 @@ modules:
     - name: uaa_flightjourney
 
 resources:
- - name: flightjourney-hdi
+ - name: flightjourney-hdi2
    properties:
      hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container

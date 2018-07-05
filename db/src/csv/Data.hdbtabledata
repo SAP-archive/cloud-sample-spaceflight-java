@@ -46,8 +46,8 @@
 	{
 		"target_table": "TECHED_FLIGHT_TRIP_ITINERARIES",
 		"source_data" : { "data_type" : "CSV", "file_name" : "itineraries.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "EARTHLEGS_LEG1_ID", "EARTHLEGS_LEG2_ID", "EARTHLEGS_LEG3_ID", "EARTHLEGS_LEG4_ID", "EARTHLEGS_LEG5_ID"] },
-		"column_mappings" : { "ID":1, "EARTHLEGS_LEG1_ID":2, "EARTHLEGS_LEG2_ID":3, "EARTHLEGS_LEG3_ID":4, "EARTHLEGS_LEG4_ID":5, "EARTHLEGS_LEG5_ID":6 }
+		"import_settings" : { "import_columns" : [ "ID", "NAME", "EARTHLEGS_LEG1_ID", "EARTHLEGS_LEG2_ID", "EARTHLEGS_LEG3_ID", "EARTHLEGS_LEG4_ID", "EARTHLEGS_LEG5_ID"] },
+		"column_mappings" : { "ID":1, "NAME":2, "EARTHLEGS_LEG1_ID":3, "EARTHLEGS_LEG2_ID":4, "EARTHLEGS_LEG3_ID":5, "EARTHLEGS_LEG4_ID":6, "EARTHLEGS_LEG5_ID":7 }
 	},
 	{
 		"target_table": "TECHED_FLIGHT_TRIP_BOOKINGS",

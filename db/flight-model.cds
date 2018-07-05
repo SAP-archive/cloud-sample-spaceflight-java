@@ -41,6 +41,7 @@ entity Bookings {
 
 entity Itineraries {
     key ID        : Integer     not null;
+    	Name      : String(50)  not null;
         EarthLegs : {
             leg1  : Association to EarthRoutes;
             leg2  : Association to EarthRoutes;

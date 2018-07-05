@@ -40,6 +40,10 @@
           <End Role="Bookings" EntitySet="Bookings"/>
           <End Role="Itineraries" EntitySet="Itineraries"/>
         </AssociationSet>
+        <AssociationSet Name="Itineraries_Bookings" Association="BookingService.Itineraries_Bookings">
+          <End Role="Itineraries" EntitySet="Itineraries"/>
+          <End Role="Bookings" EntitySet="Bookings"/>
+        </AssociationSet>
         <AssociationSet Name="Itineraries_EarthLegs_leg1" Association="BookingService.Itineraries_EarthLegs_leg1">
           <End Role="Itineraries" EntitySet="Itineraries"/>
           <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
@@ -108,6 +112,18 @@
           <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
           <End Role="Airports" EntitySet="Airports"/>
         </AssociationSet>
+        <AssociationSet Name="Airports_Departures" Association="BookingService.Airports_Departures">
+          <End Role="Airports" EntitySet="Airports"/>
+          <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
+        </AssociationSet>
+        <AssociationSet Name="Airports_Arrivals" Association="BookingService.Airports_Arrivals">
+          <End Role="Airports" EntitySet="Airports"/>
+          <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
+        </AssociationSet>
+        <AssociationSet Name="Airlines_Routes" Association="BookingService.Airlines_Routes">
+          <End Role="Airlines" EntitySet="Airlines"/>
+          <End Role="EarthRoutes" EntitySet="EarthRoutes"/>
+        </AssociationSet>
         <AssociationSet Name="SpaceRoutes_StartingPlanet" Association="BookingService.SpaceRoutes_StartingPlanet">
           <End Role="SpaceRoutes" EntitySet="SpaceRoutes"/>
           <End Role="Planets" EntitySet="Planets"/>
@@ -144,6 +160,18 @@
           <End Role="Spacelines" EntitySet="Spacelines"/>
           <End Role="Spaceports" EntitySet="Spaceports"/>
         </AssociationSet>
+        <AssociationSet Name="Planets_Arrivals" Association="BookingService.Planets_Arrivals">
+          <End Role="Planets" EntitySet="Planets"/>
+          <End Role="SpaceRoutes" EntitySet="SpaceRoutes"/>
+        </AssociationSet>
+        <AssociationSet Name="Planets_Departures" Association="BookingService.Planets_Departures">
+          <End Role="Planets" EntitySet="Planets"/>
+          <End Role="SpaceRoutes" EntitySet="SpaceRoutes"/>
+        </AssociationSet>
+        <AssociationSet Name="Planets_Spaceports" Association="BookingService.Planets_Spaceports">
+          <End Role="Planets" EntitySet="Planets"/>
+          <End Role="Spaceports" EntitySet="Spaceports"/>
+        </AssociationSet>
       </EntityContainer>
       <EntityType Name="Bookings" Abstract="false" OpenType="false">
         <Key>
@@ -164,7 +192,8 @@
           <PropertyRef Name="ID"/>
         </Key>
         <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
-        <NavigationProperty Name="Bookings" Relationship="BookingService.Bookings_Itinerary" FromRole="Itineraries" ToRole="Bookings"/>
+        <Property Name="Name" Type="Edm.String" MaxLength="50" Nullable="false"/>
+        <NavigationProperty Name="Bookings" Relationship="BookingService.Itineraries_Bookings" FromRole="Itineraries" ToRole="Bookings"/>
         <NavigationProperty Name="EarthLegs_leg1" Relationship="BookingService.Itineraries_EarthLegs_leg1" FromRole="Itineraries" ToRole="EarthRoutes"/>
         <NavigationProperty Name="EarthLegs_leg2" Relationship="BookingService.Itineraries_EarthLegs_leg2" FromRole="Itineraries" ToRole="EarthRoutes"/>
         <NavigationProperty Name="EarthLegs_leg3" Relationship="BookingService.Itineraries_EarthLegs_leg3" FromRole="Itineraries" ToRole="EarthRoutes"/>
@@ -219,8 +248,8 @@
         <Property Name="Altitude" Type="Edm.Int32" Nullable="false"/>
         <Property Name="Latitude" Type="Edm.Decimal" Scale="9" Precision="12" Nullable="false"/>
         <Property Name="Longitude" Type="Edm.Decimal" Scale="9" Precision="12" Nullable="false"/>
-        <NavigationProperty Name="Departures" Relationship="BookingService.EarthRoutes_StartingAirport" FromRole="Airports" ToRole="EarthRoutes"/>
-        <NavigationProperty Name="Arrivals" Relationship="BookingService.EarthRoutes_DestinationAirport" FromRole="Airports" ToRole="EarthRoutes"/>
+        <NavigationProperty Name="Departures" Relationship="BookingService.Airports_Departures" FromRole="Airports" ToRole="EarthRoutes"/>
+        <NavigationProperty Name="Arrivals" Relationship="BookingService.Airports_Arrivals" FromRole="Airports" ToRole="EarthRoutes"/>
       </EntityType>
       <EntityType Name="Airlines" Abstract="false" OpenType="false">
         <Key>
@@ -229,7 +258,7 @@
         <Property Name="ID" Type="Edm.String" MaxLength="2" Nullable="false"/>
         <Property Name="Name" Type="Edm.String" MaxLength="50" Nullable="false"/>
         <Property Name="Country" Type="Edm.String" MaxLength="50" Nullable="false"/>
-        <NavigationProperty Name="Routes" Relationship="BookingService.EarthRoutes_Airline" FromRole="Airlines" ToRole="EarthRoutes"/>
+        <NavigationProperty Name="Routes" Relationship="BookingService.Airlines_Routes" FromRole="Airlines" ToRole="EarthRoutes"/>
       </EntityType>
       <EntityType Name="SpaceRoutes" Abstract="false" OpenType="false">
         <Key>
@@ -281,9 +310,9 @@
         <Property Name="Name" Type="Edm.String" MaxLength="20" Nullable="false"/>
         <Property Name="SolarDistance" Type="Edm.Decimal" Scale="8" Precision="10" Nullable="false"/>
         <Property Name="SurfaceGravity" Type="Edm.Decimal" Scale="6" Precision="10" Nullable="false"/>
-        <NavigationProperty Name="Arrivals" Relationship="BookingService.SpaceRoutes_DestinationPlanet" FromRole="Planets" ToRole="SpaceRoutes"/>
-        <NavigationProperty Name="Departures" Relationship="BookingService.SpaceRoutes_StartingPlanet" FromRole="Planets" ToRole="SpaceRoutes"/>
-        <NavigationProperty Name="Spaceports" Relationship="BookingService.Spaceports_OnPlanet" FromRole="Planets" ToRole="Spaceports"/>
+        <NavigationProperty Name="Arrivals" Relationship="BookingService.Planets_Arrivals" FromRole="Planets" ToRole="SpaceRoutes"/>
+        <NavigationProperty Name="Departures" Relationship="BookingService.Planets_Departures" FromRole="Planets" ToRole="SpaceRoutes"/>
+        <NavigationProperty Name="Spaceports" Relationship="BookingService.Planets_Spaceports" FromRole="Planets" ToRole="Spaceports"/>
       </EntityType>
       <Association Name="Bookings_Itinerary">
         <End Role="Bookings" Type="BookingService.Bookings" Multiplicity="*"/>
@@ -296,6 +325,10 @@
             <PropertyRef Name="Itinerary_ID"/>
           </Dependent>
         </ReferentialConstraint>
+      </Association>
+      <Association Name="Itineraries_Bookings">
+        <End Role="Itineraries" Type="BookingService.Itineraries" Multiplicity="*"/>
+        <End Role="Bookings" Type="BookingService.Bookings" Multiplicity="*"/>
       </Association>
       <Association Name="Itineraries_EarthLegs_leg1">
         <End Role="Itineraries" Type="BookingService.Itineraries" Multiplicity="*"/>
@@ -501,6 +534,18 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="Airports_Departures">
+        <End Role="Airports" Type="BookingService.Airports" Multiplicity="*"/>
+        <End Role="EarthRoutes" Type="BookingService.EarthRoutes" Multiplicity="*"/>
+      </Association>
+      <Association Name="Airports_Arrivals">
+        <End Role="Airports" Type="BookingService.Airports" Multiplicity="*"/>
+        <End Role="EarthRoutes" Type="BookingService.EarthRoutes" Multiplicity="*"/>
+      </Association>
+      <Association Name="Airlines_Routes">
+        <End Role="Airlines" Type="BookingService.Airlines" Multiplicity="*"/>
+        <End Role="EarthRoutes" Type="BookingService.EarthRoutes" Multiplicity="*"/>
+      </Association>
       <Association Name="SpaceRoutes_StartingPlanet">
         <End Role="SpaceRoutes" Type="BookingService.SpaceRoutes" Multiplicity="*"/>
         <End Role="Planets" Type="BookingService.Planets" Multiplicity="0..1"/>
@@ -601,6 +646,18 @@
           </Dependent>
         </ReferentialConstraint>
       </Association>
+      <Association Name="Planets_Arrivals">
+        <End Role="Planets" Type="BookingService.Planets" Multiplicity="*"/>
+        <End Role="SpaceRoutes" Type="BookingService.SpaceRoutes" Multiplicity="*"/>
+      </Association>
+      <Association Name="Planets_Departures">
+        <End Role="Planets" Type="BookingService.Planets" Multiplicity="*"/>
+        <End Role="SpaceRoutes" Type="BookingService.SpaceRoutes" Multiplicity="*"/>
+      </Association>
+      <Association Name="Planets_Spaceports">
+        <End Role="Planets" Type="BookingService.Planets" Multiplicity="*"/>
+        <End Role="Spaceports" Type="BookingService.Spaceports" Multiplicity="*"/>
+      </Association>
       <Annotations Target="BookingService.Bookings" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="UI.LineItem">
           <Collection>
@@ -623,7 +680,7 @@
               <PropertyValue Property="Value" Path="Cost"/>
             </Record>
             <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="Itinerary_ID"/>
+              <PropertyValue Property="Value" Path="Itinerary/Name"/>
             </Record>
           </Collection>
         </Annotation>
@@ -636,26 +693,24 @@
             </PropertyValue>
             <PropertyValue Property="Description">
               <Record Type="UI.DataField">
-                <PropertyValue Property="Value" Path="ID"/>
+                <PropertyValue Property="Value" Path="Itinerary/Name"/>
               </Record>
             </PropertyValue>
             <PropertyValue Property="TypeName" String="Booking"/>
             <PropertyValue Property="TypeNamePlural" String="Bookings"/>
           </Record>
         </Annotation>
+        <Annotation Term="UI.HeaderFacets">
+          <Collection>
+            <Record Type="UI.ReferenceFacet">
+              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInfo"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="UI.Identification">
           <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="DateOfBooking"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="DateOfTravel"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="Cost"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="Itinerary_ID"/>
+            <Record Type="UI.DataFieldAbstract">
+              <PropertyValue Property="Target" String="@UI.FieldGroup#GeneralInfo"/>
             </Record>
           </Collection>
         </Annotation>
@@ -666,7 +721,7 @@
                 <Collection>
                   <Record Type="UI.ReferenceFacet">
                     <PropertyValue Property="Label" String="General Info"/>
-                    <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                    <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInfo"/>
                   </Record>
                   <Record Type="UI.ReferenceFacet">
                     <PropertyValue Property="Label" String="Customer"/>
@@ -677,6 +732,48 @@
               <PropertyValue Property="Label" String="Booking Details"/>
             </Record>
           </Collection>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="HeaderInfo">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Label" String="Header Info"/>
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="DateOfTravel"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="Cost"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="Itinerary_ID"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="ID"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="GeneralInfo">
+          <Record Type="UI.FieldGroupType">
+            <PropertyValue Property="Label" String="General Info"/>
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="DateOfBooking"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="DateOfTravel"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="Cost"/>
+                </Record>
+                <Record Type="UI.DataField">
+                  <PropertyValue Property="Value" Path="Itinerary_ID"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
         </Annotation>
         <Annotation Term="UI.FieldGroup" Qualifier="Customer">
           <Record Type="UI.FieldGroupType">
@@ -706,28 +803,30 @@
         <Annotation Term="Core.Immutable" Bool="true"/>
       </Annotations>
       <Annotations Target="BookingService.Bookings/Itinerary" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Itinerary"/>
+        <Annotation Term="Common.Label" String="Trip"/>
         <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+        <Annotation Term="Common.Text" Path="Itinerary/Name">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        </Annotation>
         <Annotation Term="Common.ValueList">
           <Record Type="Common.ValueListType">
-            <PropertyValue Property="Entity" String="Itinerary"/>
-            <PropertyValue Property="type" EnumMember="Common.ValueListType//fixed"/>
-            <PropertyValue Property="CollectionPath" String="Itinerary"/>
-            <PropertyValue Property="Label" String="Itinerary"/>
-            <PropertyValue Property="SearchSupported" Bool="true"/>
+            <PropertyValue Property="Label" String="Trip"/>
+            <PropertyValue Property="CollectionPath" String="Itineraries"/>
             <PropertyValue Property="Parameters">
               <Collection>
-                <Record Type="Common.ValueListParameterOut">
+                <Record Type="Common.ValueListParameterInOut">
                   <PropertyValue Property="LocalDataProperty" PropertyPath="Itinerary_ID"/>
                   <PropertyValue Property="ValueListProperty" String="ID"/>
                 </Record>
                 <Record Type="Common.ValueListParameterDisplayOnly">
-                  <PropertyValue Property="ValueListProperty" String="ID"/>
+                  <PropertyValue Property="ValueListProperty" String="Name"/>
                 </Record>
               </Collection>
             </PropertyValue>
+            <PropertyValue Property="SearchSupported" Bool="true"/>
           </Record>
         </Annotation>
+        <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
       </Annotations>
       <Annotations Target="BookingService.Bookings/CustomerName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Customer"/>
@@ -752,31 +851,55 @@
         <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
       </Annotations>
       <Annotations Target="BookingService.Bookings/Itinerary_ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Itinerary"/>
+        <Annotation Term="Common.Label" String="Trip"/>
         <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+        <Annotation Term="Common.Text" Path="Itinerary/Name">
+          <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        </Annotation>
         <Annotation Term="Common.ValueList">
           <Record Type="Common.ValueListType">
-            <PropertyValue Property="Entity" String="Itinerary"/>
-            <PropertyValue Property="type" EnumMember="Common.ValueListType//fixed"/>
-            <PropertyValue Property="CollectionPath" String="Itinerary"/>
-            <PropertyValue Property="Label" String="Itinerary"/>
-            <PropertyValue Property="SearchSupported" Bool="true"/>
+            <PropertyValue Property="Label" String="Trip"/>
+            <PropertyValue Property="CollectionPath" String="Itineraries"/>
             <PropertyValue Property="Parameters">
               <Collection>
-                <Record Type="Common.ValueListParameterOut">
+                <Record Type="Common.ValueListParameterInOut">
                   <PropertyValue Property="LocalDataProperty" PropertyPath="Itinerary_ID"/>
                   <PropertyValue Property="ValueListProperty" String="ID"/>
                 </Record>
                 <Record Type="Common.ValueListParameterDisplayOnly">
-                  <PropertyValue Property="ValueListProperty" String="ID"/>
+                  <PropertyValue Property="ValueListProperty" String="Name"/>
                 </Record>
               </Collection>
             </PropertyValue>
+            <PropertyValue Property="SearchSupported" Bool="true"/>
           </Record>
+        </Annotation>
+        <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+      </Annotations>
+      <Annotations Target="BookingService.Itineraries" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="UI.Identification">
+          <Collection>
+            <Record Type="UI.DataField">
+              <PropertyValue Property="Value" Path="Name"/>
+            </Record>
+          </Collection>
         </Annotation>
       </Annotations>
       <Annotations Target="BookingService.Itineraries/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Common.Label" String="Itinerary ID"/>
+        <Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
+      <Annotations Target="BookingService.Itineraries/Name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Common.Label" String="Itinerary"/>
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+      </Annotations>
+      <Annotations Target="BookingService.EntityContainer/Itineraries/Name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Annotation Term="Capabilities.SearchRestrictions">
+          <Record Type="Capabilities.SearchRestrictionsType">
+            <PropertyValue Property="Searchable" Bool="true"/>
+          </Record>
+        </Annotation>
       </Annotations>
       <Annotations Target="BookingService.EarthRoutes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
         <Annotation Term="Core.Immutable" Bool="true"/>
