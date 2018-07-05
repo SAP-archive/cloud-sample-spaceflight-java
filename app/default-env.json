@@ -1,0 +1,13 @@
+{
+  "destinations": [
+
+    {
+      "name": "srv_api",
+      "url": "http://localhost:8080/flightjourney-srv/",
+      "forwardAuthToken": true,
+      "strictSSL": false
+    }
+
+  ]
+
+}

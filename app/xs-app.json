@@ -1,6 +1,6 @@
 {
   "welcomeFile": "/app/test/flpSandbox.html",
-  "authenticationMethod": "route",
+  "authenticationMethod": "none",
   "logout": {
     "logoutEndpoint": "/do/logout"
   },
