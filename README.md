@@ -14,7 +14,10 @@ Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/
 
 # [TEAM TO DO]
 
-- [ ] Organize S/4HANA system for all participants (Daniel) or setup mock server for Business Partner service (Christian) if S/4HANA not available
+- [ ] Organize S/4HANA system for all participants or setup mock server for Business Partner service if S/4HANA not available
+	- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN).  See [sample Business Partner query](https://my300448.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner?$top=10) on EAY.
+	- [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
+	- [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
 - [ ] Create storyboard for agengy booker (Rui + Christian)
 - [ ] Organize Global account for hands-on session (Rui). We need:
 	- HANA DB (64 GB or 128 GB)
@@ -26,12 +29,6 @@ Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/
   		- 1 service
 ## [DECISIONs]
 All exercises running on Web IDE!!
-
-## S/4 Systems
-- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN).
-  - [Sample Business Partner query](https://my300448.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner?$top=10) on EAY.
-- [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
-- [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
 
 
 # Exercises
