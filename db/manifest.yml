@@ -1,7 +1,6 @@
 ---
 applications:
 - name: flightjourney-db
-  buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git#v1.6.24
   no-route: true
   path: ./
   memory: 256M
@@ -28,5 +27,5 @@ applications:
     }'
     MTA_MODULE_PROVIDED_DEPENDENCIES: '[]'
     MTA_SERVICES: '[
-      "flightjourney-hdi-container"
+      "flightjourney-hdi2"
     ]'
