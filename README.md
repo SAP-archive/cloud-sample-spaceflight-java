@@ -1,3 +1,16 @@
+# Scenario
+You are working in the IT department of the space travel agency SPICY (SPace Itenaries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
+Timeline is tight and the legal requirements of 20 planets need to be considered.
+
+You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
+
+![GitHub Logo](pictures/scenarioUI.jpg)
+![GitHub Logo](pictures/scenario.jpg)
+
+## Preview
+Deployed on https://cdsteched2018-cna376-app.cfapps.sap.hana.ondemand.com/.
+Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/cockpit#/globalaccount/6a8e3c4e-77ea-482c-b37b-4ce687a8bfe0/subaccount/c64e888a-20be-4bec-a15e-58e81ab4e857/org/4ac89a3b-e56e-4c48-81e1-e6d6008d0751/space/68c15de5-b940-48f3-819e-3f1d89e58ac2/).
+
 # [TEAM TO DO]
 
 - [ ] Organize S/4HANA system for all participants (Daniel) or setup mock server for Business Partner service (Christian) if S/4HANA not available
@@ -13,21 +26,10 @@
 ## [DECISIONs]
 All exercises running on Web IDE!!
 
-
-# Scenario
-You are working in the IT department of the space travel agency SPICY (SPace Itenaries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
-Timeline is tight and the legal requirements of 20 planets need to be considered.
-
-You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
-
-![GitHub Logo](pictures/scenario.jpg)
-
-
-![GitHub Logo](pictures/scenarioUI.jpg)
-
-## Preview
-Deployed on https://cdsteched2018-cna376-app.cfapps.sap.hana.ondemand.com/.
-Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/cockpit#/globalaccount/6a8e3c4e-77ea-482c-b37b-4ce687a8bfe0/subaccount/c64e888a-20be-4bec-a15e-58e81ab4e857/org/4ac89a3b-e56e-4c48-81e1-e6d6008d0751/space/68c15de5-b940-48f3-819e-3f1d89e58ac2/).
+## S/4 Systems
+- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN)
+- [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
+- [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
 
 
 # Exercises
