@@ -9,6 +9,7 @@ You start with the SAP Cloud Platform that will bring you where no app developer
 
 ## Preview
 Deployed on https://cdsteched2018-cna376-app.cfapps.sap.hana.ondemand.com/.
+
 Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/cockpit#/globalaccount/6a8e3c4e-77ea-482c-b37b-4ce687a8bfe0/subaccount/c64e888a-20be-4bec-a15e-58e81ab4e857/org/4ac89a3b-e56e-4c48-81e1-e6d6008d0751/space/68c15de5-b940-48f3-819e-3f1d89e58ac2/).
 
 # [TEAM TO DO]
@@ -27,7 +28,8 @@ Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/
 All exercises running on Web IDE!!
 
 ## S/4 Systems
-- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN)
+- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN).
+  - [Sample Business Partner query](https://my300448.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner?$top=10) on EAY.
 - [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
 - [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
 
