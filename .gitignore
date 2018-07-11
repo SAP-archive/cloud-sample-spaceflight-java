@@ -5,7 +5,9 @@
 .classpath
 .mta/
 .project
-.settings/
+srv/.settings/.jsdt*
+srv/.settings/org.eclipse.m2e.*
+srv/.settings/org.eclipse.wst.*
 .xmake/
 edmx/
 gen/

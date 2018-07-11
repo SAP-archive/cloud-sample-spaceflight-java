@@ -5,8 +5,9 @@ applications:
     buildpack: sap_java_buildpack
     path: target/flightjourney-srv-0.0.1-SNAPSHOT.war
     services:
-    - flightjourney-hdi-container
-    env:
-      destinations: '[{name: "ODataEndPoint", url: "ODataServerURL", username: "UserID", password: "Password"}]'
+    - flightjourney-hdi2
+    - flightjourney-dest
+    # env:
+    #   destinations: '[{name: "ODataEndPoint", url: "ODataServerURL", username: "UserID", password: "Password"}]'
       # JBP_CONFIG_COMPONENTS: '{jres: ["JavaBuildpack::Jre::SapMachineJRE"]}'
       # JAVA_OPTS: '--illegal-access=warn'

@@ -1,5 +1,5 @@
 {
-  "xsappname": "teched2018-cro2",
+  "xsappname": "flightjourney",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [

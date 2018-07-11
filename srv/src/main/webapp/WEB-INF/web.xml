@@ -60,7 +60,7 @@
 	</listener>
 	<context-param>
 		<param-name>package</param-name>
-		<param-value>${packageName}</param-value>
+		<param-value>com.sap.cloudsamples.spaceflight</param-value>
 	</context-param>
 	<!--listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

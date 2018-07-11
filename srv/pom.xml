@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -7,20 +8,28 @@
 		<artifactId>projects-parent-odatav2</artifactId>
 		<version>1.18.0</version>
 	</parent>
-	<artifactId>flightjourney-srv</artifactId>
-	<groupId>com.company.flightjourney</groupId>
+	<groupId>com.sap.cloudsamples.spaceflight</groupId>
+	<artifactId>spaceflight-srv-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
 		<packageName>${project.groupId}</packageName>
 	</properties>
+	<dependencies>
+<!-- 		<dependency>
+			<groupId>com.sap.cloud.s4hana</groupId>
+			<artifactId>sdk-bom</artifactId>
+			<version>${sdk.bom.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+ -->	</dependencies>
 	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>
-		<plugins >
+		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
 				<executions>
 					<execution>
 						<id>npm install(initialize)</id>
@@ -43,7 +52,7 @@
 						</goals>
 						<phase>generate-sources</phase>
 						<configuration>
-							<!--assuming npm is in the $PATH-->
+							<!--assuming npm is in the $PATH -->
 							<executable>npm</executable>
 							<workingDirectory>${project.basedir}/../</workingDirectory>
 							<arguments>
