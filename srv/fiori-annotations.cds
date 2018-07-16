@@ -5,14 +5,23 @@ annotate srv.Itineraries with {
     @Common.Label : 'Itinerary ID'
     @UI.TextArrangement: #TextOnly;
   Name
-	@Common.Label : 'Itinerary'
-	@Capabilities.SearchRestrictions.Searchable;
+    @Common.Label : 'Itinerary'
+    @Capabilities.SearchRestrictions.Searchable;
 };
 annotate srv.Itineraries with @(
   UI.Identification:  [ {$Type: 'UI.DataField', Value: Name} ]
 ){ // element-level annotations
-	ID @UI.HiddenFilter;
-	Name @UI.HiddenFilter;
+  ID @UI.HiddenFilter;
+  Name @UI.HiddenFilter;
+};
+
+annotate srv.Customers with {
+  ID
+    @Common.Label : 'Id';
+  Name
+    @Common.Label : 'Name';
+  Email
+    @Common.Label : 'Email';
 };
 
 
@@ -20,14 +29,16 @@ annotate srv.Bookings with {
   ID
     @Common.Label : 'Id'
     @Core.Immutable;
-  CustomerName
+  Customer
     @Common.Label : 'Customer'
-    @Common.FieldControl: #Mandatory;
+    @Common.FieldControl: #Mandatory
+    @Common.Text: {$value: CustomerName, "@UI.TextArrangement": #TextFirst};
+  CustomerName
+    @Common.Label : 'Customer Name';
   NumberOfPassengers
     @Common.Label : 'Passengers';
   EmailAddress
-    @Common.Label : 'Email'
-    @Common.FieldControl: #Mandatory;
+    @Common.Label : 'Email';
   DateOfBooking
     @Common.Label : 'Booking date'
     @odata.on.insert: #now;
@@ -63,7 +74,6 @@ annotate srv.Bookings with @(
   UI.LineItem: [
     {$Type: 'UI.DataField', Value: CustomerName},
     {$Type: 'UI.DataField', Value: NumberOfPassengers},
-    {$Type: 'UI.DataField', Value: EmailAddress},
     {$Type: 'UI.DataField', Value: DateOfBooking},
     {$Type: 'UI.DataField', Value: DateOfTravel},
     {$Type: 'UI.DataField', Value: Cost},
@@ -116,10 +126,9 @@ annotate srv.Bookings with @(
   UI.FieldGroup#Customer: {
     Label: 'Customer',
     Data: [
-      {$Type: 'UI.DataField', Value: '???', Label: 'ID'}, // customer ID from external service
-      {$Type: 'UI.DataField', Value: CustomerName},
+      {$Type: 'UI.DataField', Value: Customer}, // customer ID from external service
       {$Type: 'UI.DataField', Value: EmailAddress},
-	  {$Type: 'UI.DataField', Value: NumberOfPassengers}
+      {$Type: 'UI.DataField', Value: NumberOfPassengers}
     ]
   },
 

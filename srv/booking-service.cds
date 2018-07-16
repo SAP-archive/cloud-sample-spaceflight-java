@@ -8,9 +8,8 @@ service BookingService {
   @cds.persistence.skip
   @readonly entity Customers as projection on bp.A_BusinessPartnerType {
     BusinessPartner as ID,
-    LastName,
-    FirstName
-    // to_BusinessPartnerAddress.to_EmailAddress.EmailAddress as email
+    BusinessPartnerFullName as Name,
+    to_BusinessPartnerAddress.to_EmailAddress.EmailAddress as Email
   };
 
   extend entity flight.Bookings {
