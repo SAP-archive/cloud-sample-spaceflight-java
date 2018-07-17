@@ -1,3 +1,4 @@
 ID,CustomerName,NumberOfPassengers,EmailAddress,DateOfBooking,DateOfTravel,Cost,Customer,Itinerary_ID
-0f839a4f-0e62-4433-8d85-92af0842562d,Alice Wonderland,1,alice@wonderland.com,2018-07-03 00:00:00,2018-08-01 00:00:00,1000,1003764,1
-d4beccfc-4f6f-432b-bdcc-00908b34afc7,Major Tom,1,major@to.m,2018-07-03 00:00:00,2018-08-01 00:00:00,1000,1003765,2
+0f839a4f-0e62-4433-8d85-92af0842562d,Ellen Ripley,7,ellen.ripley@nostromo.com,2018-07-03 00:00:00,2018-08-01 00:00:00,1000,1003764,1
+d4beccfc-4f6f-432b-bdcc-00908b34afc7,Major Tom,1,major.tom@groundcontrol.com,2018-07-03 00:00:00,2018-08-01 00:00:00,1000,1003765,2
+14beccfc-4f6f-432b-bdcc-00908b34afc7,Mark Watney,4,major.tom@groundcontrol.com,2018-07-03 00:00:00,2018-08-01 00:00:00,1000,USSU_V9007,3

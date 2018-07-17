@@ -34,11 +34,12 @@ annotate srv.Bookings with {
     @Common.FieldControl: #Mandatory
     @Common.Text: {$value: CustomerName, "@UI.TextArrangement": #TextFirst};
   CustomerName
-    @Common.Label : 'Customer Name';
+    @Common.Label : 'Customer';
   NumberOfPassengers
     @Common.Label : 'Passengers';
   EmailAddress
-    @Common.Label : 'Email';
+    @Common.Label : 'Email'
+    @Common.FieldControl: #Optional;
   DateOfBooking
     @Common.Label : 'Booking date'
     @odata.on.insert: #now;
@@ -73,11 +74,11 @@ annotate srv.Bookings with {
 annotate srv.Bookings with @(
   UI.LineItem: [
     {$Type: 'UI.DataField', Value: CustomerName},
-    {$Type: 'UI.DataField', Value: NumberOfPassengers},
-    {$Type: 'UI.DataField', Value: DateOfBooking},
-    {$Type: 'UI.DataField', Value: DateOfTravel},
-    {$Type: 'UI.DataField', Value: Cost},
     {$Type: 'UI.DataField', Value: Itinerary.Name},
+    {$Type: 'UI.DataField', Value: DateOfTravel},
+    {$Type: 'UI.DataField', Value: NumberOfPassengers},
+    {$Type: 'UI.DataField', Value: Cost},
+    {$Type: 'UI.DataField', Value: DateOfBooking},
   ],
 
   UI.HeaderInfo: {
@@ -98,8 +99,8 @@ annotate srv.Bookings with @(
     {
       $Type:'UI.CollectionFacet',
       Facets: [
-        { $Type: 'UI.ReferenceFacet', Label: 'General Info', Target: '@UI.FieldGroup#GeneralInfo' },
-        { $Type: 'UI.ReferenceFacet', Label: 'Customer',     Target: '@UI.FieldGroup#Customer' },
+        { $Type: 'UI.ReferenceFacet', Label: 'General Info',  Target: '@UI.FieldGroup#GeneralInfo' },
+        { $Type: 'UI.ReferenceFacet', Label: 'Customer Info', Target: '@UI.FieldGroup#Customer' },
       ],
       Label:'Booking Details',
     }
