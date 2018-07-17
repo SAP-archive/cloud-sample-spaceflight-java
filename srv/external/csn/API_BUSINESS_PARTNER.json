@@ -2,6 +2,7 @@
     "definitions": {
         "API_BUSINESS_PARTNER.A_AddressEmailAddressType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "AddressID": {
                     "key": true,
@@ -33,6 +34,7 @@
         },
         "API_BUSINESS_PARTNER.A_AddressFaxNumberType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "AddressID": {
                     "key": true,
@@ -72,6 +74,7 @@
         },
         "API_BUSINESS_PARTNER.A_AddressHomePageURLType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "AddressID": {
                     "key": true,
@@ -111,6 +114,7 @@
         },
         "API_BUSINESS_PARTNER.A_AddressPhoneNumberType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "AddressID": {
                     "key": true,
@@ -154,6 +158,7 @@
         },
         "API_BUSINESS_PARTNER.A_BPContactToAddressType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "RelationshipNumber": {
                     "key": true,
@@ -357,6 +362,7 @@
         },
         "API_BUSINESS_PARTNER.A_BPContactToFuncAndDeptType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "RelationshipNumber": {
                     "key": true,
@@ -413,6 +419,7 @@
         },
         "API_BUSINESS_PARTNER.A_BuPaAddressUsageType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "BusinessPartner": {
                     "key": true,
@@ -447,6 +454,7 @@
         },
         "API_BUSINESS_PARTNER.A_BuPaIdentificationType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "BusinessPartner": {
                     "key": true,
@@ -492,6 +500,7 @@
         },
         "API_BUSINESS_PARTNER.A_BusinessPartnerType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "BusinessPartner": {
                     "key": true,
@@ -743,6 +752,7 @@
         },
         "API_BUSINESS_PARTNER.A_BusinessPartnerAddressType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "BusinessPartner": {
                     "key": true,
@@ -952,6 +962,7 @@
         },
         "API_BUSINESS_PARTNER.A_BusinessPartnerBankType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "BusinessPartner": {
                     "key": true,
@@ -1027,6 +1038,7 @@
         },
         "API_BUSINESS_PARTNER.A_BusinessPartnerContactType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "RelationshipNumber": {
                     "key": true,
@@ -1072,6 +1084,7 @@
         },
         "API_BUSINESS_PARTNER.A_BusinessPartnerRoleType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "BusinessPartner": {
                     "key": true,
@@ -1097,6 +1110,7 @@
         },
         "API_BUSINESS_PARTNER.A_BusinessPartnerTaxNumberType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "BusinessPartner": {
                     "key": true,
@@ -1120,6 +1134,7 @@
         },
         "API_BUSINESS_PARTNER.A_CustomerType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Customer": {
                     "key": true,
@@ -1269,6 +1284,7 @@
         },
         "API_BUSINESS_PARTNER.A_CustomerCompanyType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Customer": {
                     "key": true,
@@ -1406,6 +1422,7 @@
         },
         "API_BUSINESS_PARTNER.A_CustomerDunningType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Customer": {
                     "key": true,
@@ -1460,6 +1477,7 @@
         },
         "API_BUSINESS_PARTNER.A_CustomerSalesAreaType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Customer": {
                     "key": true,
@@ -1620,6 +1638,7 @@
         },
         "API_BUSINESS_PARTNER.A_CustomerSalesAreaTaxType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Customer": {
                     "key": true,
@@ -1659,6 +1678,7 @@
         },
         "API_BUSINESS_PARTNER.A_CustomerWithHoldingTaxType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Customer": {
                     "key": true,
@@ -1719,6 +1739,7 @@
         },
         "API_BUSINESS_PARTNER.A_CustSalesPartnerFuncType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Customer": {
                     "key": true,
@@ -1769,6 +1790,7 @@
         },
         "API_BUSINESS_PARTNER.A_SupplierType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Supplier": {
                     "key": true,
@@ -1918,6 +1940,7 @@
         },
         "API_BUSINESS_PARTNER.A_SupplierCompanyType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Supplier": {
                     "key": true,
@@ -2076,6 +2099,7 @@
         },
         "API_BUSINESS_PARTNER.A_SupplierDunningType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Supplier": {
                     "key": true,
@@ -2122,6 +2146,7 @@
         },
         "API_BUSINESS_PARTNER.A_SupplierPartnerFuncType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Supplier": {
                     "key": true,
@@ -2175,6 +2200,7 @@
         },
         "API_BUSINESS_PARTNER.A_SupplierPurchasingOrgType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Supplier": {
                     "key": true,
@@ -2283,6 +2309,7 @@
         },
         "API_BUSINESS_PARTNER.A_SupplierWithHoldingTaxType": {
             "kind": "entity",
+            "@cds.persistence.skip": true,
             "elements": {
                 "Supplier": {
                     "key": true,

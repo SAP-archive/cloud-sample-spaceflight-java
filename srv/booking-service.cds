@@ -29,35 +29,5 @@ service BookingService {
   @readonly entity Spacelines as projection on space.SpaceFlightCompanies;
   @readonly entity Planets as projection on space.AstronomicalBodies;
 
-
-  // workaround until edm2csn 1.0.1, which includes these annotations automatically
-  annotate bp.A_AddressEmailAddressType with @cds.persistence.skip;
-  annotate bp.A_AddressFaxNumberType with @cds.persistence.skip;
-  annotate bp.A_AddressHomePageURLType with @cds.persistence.skip;
-  annotate bp.A_AddressPhoneNumberType with @cds.persistence.skip;
-  annotate bp.A_BPContactToAddressType with @cds.persistence.skip;
-  annotate bp.A_BPContactToFuncAndDeptType with @cds.persistence.skip;
-  annotate bp.A_BuPaAddressUsageType with @cds.persistence.skip;
-  annotate bp.A_BuPaIdentificationType with @cds.persistence.skip;
-  annotate bp.A_BusinessPartnerAddressType with @cds.persistence.skip;
-  annotate bp.A_BusinessPartnerBankType with @cds.persistence.skip;
-  annotate bp.A_BusinessPartnerContactType with @cds.persistence.skip;
-  annotate bp.A_BusinessPartnerRoleType with @cds.persistence.skip;
-  annotate bp.A_BusinessPartnerTaxNumberType with @cds.persistence.skip;
-  annotate bp.A_BusinessPartnerType with @cds.persistence.skip;
-  annotate bp.A_CustSalesPartnerFuncType with @cds.persistence.skip;
-  annotate bp.A_CustomerCompanyType with @cds.persistence.skip;
-  annotate bp.A_CustomerDunningType with @cds.persistence.skip;
-  annotate bp.A_CustomerSalesAreaTaxType with @cds.persistence.skip;
-  annotate bp.A_CustomerSalesAreaType with @cds.persistence.skip;
-  annotate bp.A_CustomerType with @cds.persistence.skip;
-  annotate bp.A_CustomerWithHoldingTaxType with @cds.persistence.skip;
-  annotate bp.A_SupplierCompanyType with @cds.persistence.skip;
-  annotate bp.A_SupplierDunningType with @cds.persistence.skip;
-  annotate bp.A_SupplierPartnerFuncType with @cds.persistence.skip;
-  annotate bp.A_SupplierPurchasingOrgType with @cds.persistence.skip;
-  annotate bp.A_SupplierType with @cds.persistence.skip;
-  annotate bp.A_SupplierWithHoldingTaxType with @cds.persistence.skip;
-
 }
 
