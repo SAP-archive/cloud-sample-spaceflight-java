@@ -1,19 +1,20 @@
 namespace teched.flight.trip;
 
-entity Airports {
-    key IATA                   : String(3)      not null;
-        Name                   : String(100)    not null;
+using { common.Named, common.Managed } from './common';
+
+entity Airports : Named {
+    key IATA                   : String(3);
         City                   : String(30);
         Country                : String(50);
-        Altitude               : Integer        default 0 not null;
-        Latitude               : Decimal(12, 9) not null;
-        Longitude              : Decimal(12, 9) not null;
+        Altitude               : Integer        default 0 ;
+        Latitude               : Decimal(12, 9) ;
+        Longitude              : Decimal(12, 9) ;
         Departures             : Association to many EarthRoutes on Departures.StartingAirport=$self;
         Arrivals               : Association to many EarthRoutes on Arrivals.DestinationAirport=$self;
 };
 
 entity EarthRoutes {
-    key ID                   : Integer   not null;
+    key ID                   : Integer;
         Airline              : Association to Airlines;
         StartingAirport      : Association to Airports;
         DestinationAirport   : Association to Airports;
@@ -21,33 +22,34 @@ entity EarthRoutes {
         Equipment            : String(50);
 };
 
-entity Airlines {
-    key ID        : String(2)  not null;
-        Name      : String(50) not null;
-        Country   : String(50) not null;
+entity Airlines : Named {
+    key IATA      : String(2);
+        Country   : String(50) ;
         Routes    : Association to many EarthRoutes on Routes.Airline=$self;
 };
 
-entity Bookings {
-    key ID                 : UUID;
-        Itinerary          : Association to Itineraries;
-        CustomerName       : String(50)  not null;
-        NumberOfPassengers : Integer     not null default 1;
-        EmailAddress       : String(50)  not null;
-        DateOfBooking      : DateTime    not null;
-        DateOfTravel       : DateTime    not null;
-        Cost               : Decimal(10, 2);
+abstract entity Itineraries : Named {
+    key ID : Integer;
+}
+
+entity EarthItineraries : Itineraries {
+    EarthLegs : {
+        leg1  : Association to EarthRoutes;
+        leg2  : Association to EarthRoutes;
+        leg3  : Association to EarthRoutes;
+        leg4  : Association to EarthRoutes;
+        leg5  : Association to EarthRoutes;
+    };
+    Bookings  : Association to many Bookings on Bookings.EarthItinerary=$self;
 };
 
-entity Itineraries {
-    key ID        : Integer     not null;
-    	Name      : String(50)  not null;
-        EarthLegs : {
-            leg1  : Association to EarthRoutes;
-            leg2  : Association to EarthRoutes;
-            leg3  : Association to EarthRoutes;
-            leg4  : Association to EarthRoutes;
-            leg5  : Association to EarthRoutes;
-        };
-        Bookings  : Association to many Bookings on Bookings.Itinerary=$self;
+entity Bookings : Managed {
+    BookingNo          : String(33);  // yyyyMMddhhmmss-SP-[UUID]
+    EarthItinerary     : Association to EarthItineraries;
+    CustomerName       : String(50)  not null;
+    NumberOfPassengers : Integer     default 1;
+    EmailAddress       : String(50)  not null;
+    DateOfBooking      : DateTime    not null;
+    DateOfTravel       : DateTime    not null;
+    Cost               : Decimal(10, 2) not null;
 };

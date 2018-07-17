@@ -18,12 +18,13 @@ service BookingService {
   };
 
   entity Bookings as projection on flight.Bookings;
-  entity Itineraries as projection on flight.Itineraries;
 
+  @readonly entity EarthItineraries as projection on flight.EarthItineraries;
   @readonly entity EarthRoutes as projection on flight.EarthRoutes;
-  @readonly entity Airports as projection on flight.Airports;
   @readonly entity Airlines as projection on flight.Airlines;
+  @readonly entity Airports as projection on flight.Airports;
 
+  @readonly entity SpaceItineraries as projection on space.SpaceItineraries;
   @readonly entity SpaceRoutes as projection on space.SpaceRoutes;
   @readonly entity Spaceports as projection on space.Spaceports;
   @readonly entity Spacelines as projection on space.SpaceFlightCompanies;

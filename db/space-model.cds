@@ -1,8 +1,10 @@
 namespace teched.space.trip;
 
+using  common.Named from './common';
 // The space flight model extends the underlying flight model
-using teched.flight.trip.Itineraries from './flight-model';
-extend entity Itineraries with {
+using teched.flight.trip as flight from './flight-model';
+
+entity SpaceItineraries : flight.Itineraries {
     SpaceLegs : {
         leg1  : Association to SpaceRoutes;
         leg2  : Association to SpaceRoutes;
@@ -16,33 +18,34 @@ extend entity Itineraries with {
     };
 };
 
-entity AstronomicalBodies {
-    key ID              : Integer        not null;
-        Name            : String(20)     not null;
-        SolarDistance   : Decimal(10, 8) not null;
-        SurfaceGravity  : Decimal(10, 6) not null;
-        Arrivals        : Association to many SpaceRoutes on Arrivals.DestinationPlanet=$self;
-        Departures      : Association to many SpaceRoutes on Departures.StartingPlanet=$self;
-        Spaceports      : Association to many Spaceports on Spaceports.OnPlanet=$self;
+extend flight.Bookings with {
+    SpaceItinerary     : Association to SpaceItineraries;
+}
+
+entity AstronomicalBodies : Named {
+    key ID          : Integer;
+    SolarDistance   : Decimal(10, 8) ;
+    SurfaceGravity  : Decimal(10, 6) ;
+    Arrivals        : Association to many SpaceRoutes on Arrivals.DestinationPlanet=$self;
+    Departures      : Association to many SpaceRoutes on Departures.StartingPlanet=$self;
+    Spaceports      : Association to many Spaceports on Spaceports.OnPlanet=$self;
 };
 
-entity SpaceRoutes {
-    key ID                       : Integer    not null;
-        Name                     : String(50) not null;
-        StartingPlanet           : Association to AstronomicalBodies;
-        DestinationPlanet        : Association to AstronomicalBodies;
-        StartingSpaceport        : Association to Spaceports;
-        DestinationSpaceport     : Association to Spaceports;
-        StartsFromOrbit          : Boolean    default false;
-        LandsOnDestinationPlanet : Boolean    default false;
+entity SpaceRoutes : Named {
+    key ID                   : Integer;
+    StartingPlanet           : Association to AstronomicalBodies;
+    DestinationPlanet        : Association to AstronomicalBodies;
+    StartingSpaceport        : Association to Spaceports;
+    DestinationSpaceport     : Association to Spaceports;
+    StartsFromOrbit          : Boolean    default false;
+    LandsOnDestinationPlanet : Boolean    default false;
 };
 
-entity Spaceports {
-    key ID         : Integer        not null;
-        Name       : String(50)     not null;
+entity Spaceports : Named {
+    key ID         : Integer;
         OnPlanet   : Association to AstronomicalBodies;
-        Latitude   : Decimal(12, 9) not null;
-        Longitude  : Decimal(12, 9) not null;
+        Latitude   : Decimal(12, 9) ;
+        Longitude  : Decimal(12, 9) ;
         // Didn't understand the meaning of that one:
         // ToStartingSpaceportId : association[1, 1..1] to cdsSpaceTrip.SpaceRoutes { StartingSpaceportId };
         // > would translate to something like the below, which seems weird
@@ -56,9 +59,8 @@ entity Spaceports {
         ;
 };
 
-entity SpaceFlightCompanies {
-    key ID            : Integer    not null;
-        name          : String(50) not null;
+entity SpaceFlightCompanies :  Named {
+    key ID            : Integer;
         OperatesFrom1 : Association to Spaceports;
         OperatesFrom2 : Association to Spaceports;
         OperatesFrom3 : Association to Spaceports;

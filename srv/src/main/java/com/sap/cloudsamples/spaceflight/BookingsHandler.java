@@ -30,9 +30,11 @@ public class BookingsHandler {
 
 	private static final String PROPERTY_ID = "ID";
 	private static final String BOOKING_SERVICE = "BookingService";
-	private static final String ENTITY_ITINERARIES = BOOKING_SERVICE + ".Itineraries";
+	private static final String ENTITY_EARTHITINERARIES = BOOKING_SERVICE + ".EarthItineraries";
+	private static final String ENTITY_SPACEITINERARIES = BOOKING_SERVICE + ".SpaceItineraries";
 	private static final String ENTITY_BOOKINGS = "Bookings";
-	private static final String PROPERTY_BOOKING_ITINERARYID = "Itinerary_ID";
+	private static final String PROPERTY_BOOKING_EARTHITINERARYID = "EarthItinerary_ID";
+	private static final String PROPERTY_BOOKING_SPACEITINERARYID = "SpaceItinerary_ID";
 	private static final String PROPERTY_BOOKING_CUSTOMER = "Customer";
 	private static final String PROPERTY_BOOKING_EMAIL = "EmailAddress";
 
@@ -54,6 +56,16 @@ public class BookingsHandler {
 			throws ODataException, DatasourceException {
 		EntityDataBuilder entityBuilder = EntityData.getBuilder(reqData);
 		BusinessPartner bPartner = null;
+
+		PreExtensionResponseWithBody response = validateItinerary(reqData, ENTITY_EARTHITINERARIES,
+				PROPERTY_BOOKING_EARTHITINERARYID, dataSource);
+		if (response != null) {
+			return response;
+		}
+		response = validateItinerary(reqData, ENTITY_SPACEITINERARIES, PROPERTY_BOOKING_SPACEITINERARYID, dataSource);
+		if (response != null) {
+			return response;
+		}
 
 		// fetch BP
 		if (reqData.contains(PROPERTY_BOOKING_CUSTOMER)) {
@@ -78,16 +90,20 @@ public class BookingsHandler {
 					.buildEntityData(ENTITY_BOOKINGS);
 		}
 
-		if (reqData.contains(PROPERTY_BOOKING_ITINERARYID)) {
-			Object itineraryId = reqData.getElementValue(PROPERTY_BOOKING_ITINERARYID);
-			EntityData itinerary = dataSource.executeRead(ENTITY_ITINERARIES,
-					Collections.singletonMap(PROPERTY_ID, itineraryId), Collections.singletonList(PROPERTY_ID));
+		return new PreExtensionResponseBuilderWithBody(entityBuilder.buildEntityData(ENTITY_BOOKINGS)).response();
+	}
+
+	private static PreExtensionResponseWithBody validateItinerary(EntityData reqData, String entity, String property,
+			DataSourceHandler dataSource) throws DatasourceException {
+		if (reqData.contains(property)) {
+			Object itineraryId = reqData.getElementValue(property);
+			EntityData itinerary = dataSource.executeRead(entity, Collections.singletonMap(PROPERTY_ID, itineraryId),
+					Collections.singletonList(PROPERTY_ID));
 			if (itinerary == null) {
-				return constraintError("NoSuchItinerary", itineraryId, PROPERTY_BOOKING_ITINERARYID);
+				return constraintError("NoSuchItinerary", itineraryId, property);
 			}
 		}
-
-		return new PreExtensionResponseBuilderWithBody(entityBuilder.buildEntityData(ENTITY_BOOKINGS)).response();
+		return null;
 	}
 
 	private static PreExtensionResponseWithBody constraintError(String messageKey, Object id, String target) {
