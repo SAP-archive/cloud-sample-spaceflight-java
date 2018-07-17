@@ -4,8 +4,8 @@
   [ {
 		"target_table": "TECHED_FLIGHT_TRIP_AIRLINES",
 		"source_data" : { "data_type" : "CSV", "file_name" : "airlines.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "NAME", "COUNTRY" ] },
-		"column_mappings" : { "ID":1, "NAME":2, "COUNTRY":3 }
+		"import_settings" : { "import_columns" : [ "IATA", "NAME", "COUNTRY" ] },
+		"column_mappings" : { "IATA":1, "NAME":2, "COUNTRY":3 }
 	},
 	{
 		"target_table": "TECHED_FLIGHT_TRIP_AIRPORTS",
@@ -16,8 +16,8 @@
 	{
 		"target_table": "TECHED_FLIGHT_TRIP_EARTHROUTES",
 		"source_data" : { "data_type" : "CSV", "file_name" : "earthroutes.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "AIRLINE_ID", "STARTINGAIRPORT_IATA", "DESTINATIONAIRPORT_IATA", "STOPS", "EQUIPMENT"] },
-		"column_mappings" : { "ID":1, "AIRLINE_ID":2, "STARTINGAIRPORT_IATA":3, "DESTINATIONAIRPORT_IATA":4, "STOPS":5, "EQUIPMENT":6 }
+		"import_settings" : { "import_columns" : [ "ID", "AIRLINE_IATA", "STARTINGAIRPORT_IATA", "DESTINATIONAIRPORT_IATA", "STOPS", "EQUIPMENT"] },
+		"column_mappings" : { "ID":1, "AIRLINE_IATA":2, "STARTINGAIRPORT_IATA":3, "DESTINATIONAIRPORT_IATA":4, "STOPS":5, "EQUIPMENT":6 }
 	},
 	{
 		"target_table": "TECHED_SPACE_TRIP_SPACEPORTS",
@@ -44,16 +44,16 @@
 		"column_mappings" : { "ID":1, "NAME":2, "STARTINGPLANET_ID":3, "DESTINATIONPLANET_ID":4, "STARTINGSPACEPORT_ID":5, "DESTINATIONSPACEPORT_ID":6, "STARTSFROMORBIT":7, "LANDSONDESTINATIONPLANET":8 }
 	},
 	{
-		"target_table": "TECHED_FLIGHT_TRIP_ITINERARIES",
-		"source_data" : { "data_type" : "CSV", "file_name" : "itineraries.csv", "has_header" : true },
+		"target_table": "TECHED_FLIGHT_TRIP_EARTHITINERARIES",
+		"source_data" : { "data_type" : "CSV", "file_name" : "earth_itineraries.csv", "has_header" : true },
 		"import_settings" : { "import_columns" : [ "ID", "NAME", "EARTHLEGS_LEG1_ID", "EARTHLEGS_LEG2_ID", "EARTHLEGS_LEG3_ID", "EARTHLEGS_LEG4_ID", "EARTHLEGS_LEG5_ID"] },
 		"column_mappings" : { "ID":1, "NAME":2, "EARTHLEGS_LEG1_ID":3, "EARTHLEGS_LEG2_ID":4, "EARTHLEGS_LEG3_ID":5, "EARTHLEGS_LEG4_ID":6, "EARTHLEGS_LEG5_ID":7 }
 	},
 	{
 		"target_table": "TECHED_FLIGHT_TRIP_BOOKINGS",
 		"source_data" : { "data_type" : "CSV", "file_name" : "bookings.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "CUSTOMERNAME", "NUMBEROFPASSENGERS", "EMAILADDRESS", "DATEOFBOOKING", "DATEOFTRAVEL", "COST", "ITINERARY_ID"] },
-		"column_mappings" : { "ID":1, "CUSTOMERNAME":2, "NUMBEROFPASSENGERS":3, "EMAILADDRESS":4, "DATEOFBOOKING":5, "DATEOFTRAVEL":6, "COST":7, "ITINERARY_ID":8 }
+		"import_settings" : { "import_columns" : [ "ID", "CUSTOMERNAME", "NUMBEROFPASSENGERS", "EMAILADDRESS", "DATEOFBOOKING", "DATEOFTRAVEL", "COST", "EARTHITINERARY_ID", "SPACEITINERARY_ID"] },
+		"column_mappings" : { "ID":1, "CUSTOMERNAME":2, "NUMBEROFPASSENGERS":3, "EMAILADDRESS":4, "DATEOFBOOKING":5, "DATEOFTRAVEL":6, "COST":7, "EARTHITINERARY_ID":8, "SPACEITINERARY_ID": 9 }
 	}
   ]
 }

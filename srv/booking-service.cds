@@ -4,7 +4,8 @@ using teched.space.trip as space from '../db/space-model';
 service BookingService {
 
     entity Bookings as projection on flight.Bookings;
-    entity Itineraries as projection on flight.Itineraries;
+    entity EarthItineraries as projection on flight.EarthItineraries;
+    entity SpaceItineraries as projection on space.SpaceItineraries;
 
     @readonly entity EarthRoutes as projection on flight.EarthRoutes;
     @readonly entity Airports as projection on flight.Airports;
