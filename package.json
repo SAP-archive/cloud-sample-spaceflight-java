@@ -1,8 +1,9 @@
 {
-  "name": "flightjourney",
+  "name": "spaceflight-java",
   "version": "0.1.0",
   "dependencies": {
-    "@sap/cds": "*"
+    "@sap/cds": "*",
+    "spaceflight-model": "git://github.wdf.sap.corp/te18/cloud-samples-spaceflight"
   },
   "scripts": {
     "build": "cds build --clean"

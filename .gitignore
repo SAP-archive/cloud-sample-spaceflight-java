@@ -21,3 +21,4 @@ dist/
 connection.properties
 metadata.xml
 .cds_gen.log
+default-env.json
