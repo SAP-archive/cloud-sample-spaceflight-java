@@ -31,7 +31,6 @@ annotate srv.Customers with {
     @Common.Label : 'Email';
 };
 
-
 annotate srv.Bookings with {
   ID
     @Common.Label : 'Id'
