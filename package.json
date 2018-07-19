@@ -6,7 +6,8 @@
     "spaceflight-model": "git://github.wdf.sap.corp/te18/cloud-samples-spaceflight"
   },
   "scripts": {
-    "build": "cds build --clean"
+    "build": "cds build --clean && npm run reuseCSV",
+    "reuseCSV": "node db/reuseCSV.js"
   },
   "license": "ISC"
 }

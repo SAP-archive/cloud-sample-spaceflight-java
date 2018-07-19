@@ -1,7 +1,0 @@
-ID,Name,EarthLegs_leg1_Id,EarthLegs_leg2_Id,EarthLegs_leg3_Id,EarthLegs_leg4_Id,EarthLegs_leg5_Id
-1,Earth to Mars,1,9,1,10,
-2,Earth to Moon,1,8,1,10,
-3,Earth to Mars (landing),1,5,3,12,
-4,Earth to Moon (landing),1,4,2,11,
-5,Mars to Earth (landing),3,6,1,10,
-6,Moon to Earth (landing),2,7,1,10,

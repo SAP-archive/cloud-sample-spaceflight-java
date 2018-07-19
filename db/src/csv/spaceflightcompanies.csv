@@ -1,8 +1,0 @@
-ID,Name,OperatesFrom1_ID,OperatesFrom2_ID,OperatesFrom3_ID
-1,SpaceX,5,6,8
-2,Blue Origin,6,8,
-3,Firefly Aerospace,6,8,
-4,Lockheed Martin,5,6,8
-5,NASA,6,7,8
-6,OneSpace,1,,
-7,Virgin Galactic,6,8,

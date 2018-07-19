@@ -1,59 +1,11 @@
 {
   "format_version": 1,
-  "imports":
-  [ {
-		"target_table": "TECHED_FLIGHT_TRIP_AIRLINES",
-		"source_data" : { "data_type" : "CSV", "file_name" : "airlines.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "IATA2", "NAME", "COUNTRY" ] },
-		"column_mappings" : { "IATA2":1, "NAME":2, "COUNTRY":3 }
-	},
-	{
-		"target_table": "TECHED_FLIGHT_TRIP_AIRPORTS",
-		"source_data" : { "data_type" : "CSV", "file_name" : "airports.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "IATA3", "NAME", "CITY", "COUNTRY", "ALTITUDE", "LATITUDE", "LONGITUDE"] },
-		"column_mappings" : { "IATA3":1, "NAME":2, "CITY":3, "COUNTRY":4, "ALTITUDE":5, "LATITUDE":6, "LONGITUDE":6 }
-	},
-	{
-		"target_table": "TECHED_FLIGHT_TRIP_EARTHROUTES",
-		"source_data" : { "data_type" : "CSV", "file_name" : "earthroutes.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "AIRLINE_IATA2", "STARTINGAIRPORT_IATA3", "DESTINATIONAIRPORT_IATA3", "EQUIPMENT"] },
-		"column_mappings" : { "ID":1, "AIRLINE_IATA2":2, "STARTINGAIRPORT_IATA3":3, "DESTINATIONAIRPORT_IATA3":4, "EQUIPMENT":5 }
-	},
-	{
-		"target_table": "TECHED_SPACE_TRIP_SPACEPORTS",
-		"source_data" : { "data_type" : "CSV", "file_name" : "spaceports.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "NAME", "ONPLANET_ID", "LATITUDE", "LONGITUDE"] },
-		"column_mappings" : { "ID":1, "NAME":2, "ONPLANET_ID":3, "LATITUDE":4, "LONGITUDE":5 }
-	},
-	{
-		"target_table": "TECHED_SPACE_TRIP_ASTRONOMICALBODIES",
-		"source_data" : { "data_type" : "CSV", "file_name" : "astrobodies.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "NAME", "SOLARDISTANCE", "SURFACEGRAVITY"] },
-		"column_mappings" : { "SPACEPORT_ID":1, "ID":1, "NAME":2, "SOLARDISTANCE":3, "SURFACEGRAVITY":4 }
-	},
-	{
-		"target_table": "TECHED_SPACE_TRIP_SPACEFLIGHTCOMPANIES",
-		"source_data" : { "data_type" : "CSV", "file_name" : "spaceflightcompanies.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "NAME", "OPERATESFROM1_ID", "OPERATESFROM2_ID", "OPERATESFROM3_ID"] },
-		"column_mappings" : { "SPACEPORT_ID":1, "ID":1, "NAME":2, "OPERATESFROM1_ID":3, "OPERATESFROM2_ID":4, "OPERATESFROM3_ID":5 }
-	},
-	{
-		"target_table": "TECHED_SPACE_TRIP_SPACEROUTES",
-		"source_data" : { "data_type" : "CSV", "file_name" : "spaceroutes.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "NAME", "STARTINGPLANET_ID", "DESTINATIONPLANET_ID", "STARTINGSPACEPORT_ID", "DESTINATIONSPACEPORT_ID", "STARTSFROMORBIT", "LANDSONDESTINATIONPLANET"] },
-		"column_mappings" : { "ID":1, "NAME":2, "STARTINGPLANET_ID":3, "DESTINATIONPLANET_ID":4, "STARTINGSPACEPORT_ID":5, "DESTINATIONSPACEPORT_ID":6, "STARTSFROMORBIT":7, "LANDSONDESTINATIONPLANET":8 }
-	},
-	{
-		"target_table": "TECHED_FLIGHT_TRIP_EARTHITINERARIES",
-		"source_data" : { "data_type" : "CSV", "file_name" : "earth_itineraries.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "NAME", "EARTHLEGS_LEG1_ID", "EARTHLEGS_LEG2_ID", "EARTHLEGS_LEG3_ID", "EARTHLEGS_LEG4_ID", "EARTHLEGS_LEG5_ID"] },
-		"column_mappings" : { "ID":1, "NAME":2, "EARTHLEGS_LEG1_ID":3, "EARTHLEGS_LEG2_ID":4, "EARTHLEGS_LEG3_ID":5, "EARTHLEGS_LEG4_ID":6, "EARTHLEGS_LEG5_ID":7 }
-	},
-	{
-		"target_table": "TECHED_FLIGHT_TRIP_BOOKINGS",
-		"source_data" : { "data_type" : "CSV", "file_name" : "bookings.csv", "has_header" : true },
-		"import_settings" : { "import_columns" : [ "ID", "CUSTOMERNAME", "NUMBEROFPASSENGERS", "EMAILADDRESS", "DATEOFBOOKING", "DATEOFTRAVEL", "COST", "CUSTOMER", "EARTHITINERARY_ID", "SPACEITINERARY_ID"] },
-		"column_mappings" : { "ID":1, "CUSTOMERNAME":2, "NUMBEROFPASSENGERS":3, "EMAILADDRESS":4, "DATEOFBOOKING":5, "DATEOFTRAVEL":6, "COST":7, "CUSTOMER":8, "EARTHITINERARY_ID":9, "SPACEITINERARY_ID":10 }
-	}
+  "imports": [
+		{
+			"target_table": "TECHED_FLIGHT_TRIP_BOOKINGS",
+			"source_data" : { "data_type" : "CSV", "file_name" : "bookings.csv", "has_header" : true },
+			"import_settings" : { "import_columns" : [ "ID", "CUSTOMERNAME", "NUMBEROFPASSENGERS", "EMAILADDRESS", "DATEOFBOOKING", "DATEOFTRAVEL", "COST", "CUSTOMER", "EARTHITINERARY_ID", "SPACEITINERARY_ID"] },
+			"column_mappings" : { "ID":1, "CUSTOMERNAME":2, "NUMBEROFPASSENGERS":3, "EMAILADDRESS":4, "DATEOFBOOKING":5, "DATEOFTRAVEL":6, "COST":7, "CUSTOMER":8, "EARTHITINERARY_ID":9, "SPACEITINERARY_ID":10 }
+		}
   ]
 }
