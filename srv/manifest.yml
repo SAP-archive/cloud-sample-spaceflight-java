@@ -1,12 +1,12 @@
 ---
 applications:
-  - name: flightjourney-srv
+  - name: spacetravel-srv
     memory: 768M
     buildpack: sap_java_buildpack
-    path: target/flightjourney-srv-0.0.1-SNAPSHOT.war
+    path: target/spacetravel-srv-0.0.1-SNAPSHOT.war
     services:
-    - flightjourney-hdi2
-    - flightjourney-dest
+    - spacetravel-hdi
+    - spacetravel-dest
     # env:
     #   destinations: '[{name: "ODataEndPoint", url: "ODataServerURL", username: "UserID", password: "Password"}]'
       # JBP_CONFIG_COMPONENTS: '{jres: ["JavaBuildpack::Jre::SapMachineJRE"]}'

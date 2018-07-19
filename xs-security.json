@@ -1,5 +1,5 @@
 {
-  "xsappname": "flightjourney",
+  "xsappname": "spacetravel",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [

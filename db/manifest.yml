@@ -1,6 +1,6 @@
 ---
 applications:
-- name: flightjourney-db
+- name: spacetravel-db
   no-route: true
   path: ./
   memory: 256M
@@ -19,13 +19,13 @@ applications:
     }'
     DEPLOY_ID: deploy-223572135
     MTA_METADATA: '{
-      "id": "flightjourney",
+      "id": "spacetravel",
       "version": "1.0.0"
     }'
     MTA_MODULE_METADATA: '{
-      "name": "flightjourney-db"
+      "name": "spacetravel-db"
     }'
     MTA_MODULE_PROVIDED_DEPENDENCIES: '[]'
     MTA_SERVICES: '[
-      "flightjourney-hdi2"
+      "spacetravel-hdi"
     ]'

@@ -1,5 +1,5 @@
 {
-  "name": "spaceflight-java",
+  "name": "spaceflight",
   "version": "0.1.0",
   "dependencies": {
     "@sap/cds": "*",
