@@ -4,7 +4,7 @@
 		"@sap/hdi-deploy": "3.7.0"
 	},
 	"scripts": {
-		"postinstall": "node conditionalBuild.js",
+		"postinstall": "node build.js",
 		"start": "node node_modules/@sap/hdi-deploy/deploy.js  --auto-undeploy"
 	}
 }
