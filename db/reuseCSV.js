@@ -11,6 +11,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const EOL = require('os').EOL
 const dependencyFilter = dep => dep.startsWith("space") // only  consider space* modules
 
 const localTableData = _getTableDataSync(path.join(__dirname, 'src/csv')) // local *.hdbtabledata to be filtered out
@@ -26,6 +27,7 @@ Object.keys(packages.dependencies).filter(dependencyFilter).forEach(dependency =
   _getTableDataSync(path.join(__dirname, '../node_modules', dependency), reuseTableDataFiles)
 })
 
+const newFiles = []
 reuseTableDataFiles.forEach(filePath => { // filter out tables declared locally and copy csv data
   console.log(`Reusing csv mappings from '${path.relative(process.cwd(), filePath)}'`)
   const jsonTableDataContent = JSON.parse(fs.readFileSync(filePath))
@@ -48,6 +50,7 @@ reuseTableDataFiles.forEach(filePath => { // filter out tables declared locally 
     if (fs.existsSync(srcFile)) {
       const destFile = path.join(baseDestPath, entry.source_data.file_name)
       _writeContentSync(destFile, fs.readFileSync(srcFile))
+      newFiles.push(destFile)
     } else {
       console.log('No csv file was found for table: ' + entry.target_table)
     }
@@ -57,10 +60,19 @@ reuseTableDataFiles.forEach(filePath => { // filter out tables declared locally 
     const tableData = {}
     tableData.format_version = 1
     tableData.imports = copiedTableDataImports // assumption: simple *.hdbtabledata
-    _writeContentSync(path.join(baseDestPath, path.basename(filePath)), JSON.stringify(tableData, null, 2))
+    const destFile = path.join(baseDestPath, path.basename(filePath))
+    _writeContentSync(destFile, JSON.stringify(tableData, null, 2))
+    newFiles.push(destFile)
   }
 })
 console.log(reuseTableDataFiles.length + ' *.hdbtabledata filtered and copied')
+
+// add our new files to the list that Web IDE will copy back to the workspace
+if (process.env.GENERATION_LOG && newFiles.length > 0) {
+	let log = fs.readFileSync(process.env.GENERATION_LOG)
+	log += newFiles.map(f => path.relative(process.cwd(), f)).join(EOL)
+	fs.writeFileSync(process.env.GENERATION_LOG, log)
+}
 
 function _writeContentSync(fileName, data) {
   const pathName = path.dirname(fileName)
