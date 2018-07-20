@@ -10,7 +10,7 @@ annotate srv.Bookings with {
 annotate srv.Bookings with @(
   UI.HeaderInfo: {
     Title: { Value: CustomerName },
-    // Description: { Value: EarthItinerary.Name },
+    Description: { Value: Itinerary.Name },
     TypeName: 'Booking',
     TypeNamePlural: 'Bookings'
   },
@@ -36,8 +36,7 @@ annotate srv.Bookings with @(
       Data: [
         {$Type: 'UI.DataField', Value: DateOfTravel},
         {$Type: 'UI.DataField', Value: Cost},
-        {$Type: 'UI.DataField', Value: EarthItinerary_ID},
-        {$Type: 'UI.DataField', Value: SpaceItinerary_ID},
+        {$Type: 'UI.DataField', Value: Itinerary_ID},
         {$Type: 'UI.DataField', Value: ID}
       ]
     },
@@ -47,8 +46,7 @@ annotate srv.Bookings with @(
         {$Type: 'UI.DataField', Value: DateOfBooking},
         {$Type: 'UI.DataField', Value: DateOfTravel},
         {$Type: 'UI.DataField', Value: Cost},
-        {$Type: 'UI.DataField', Value: EarthItinerary_ID},
-        {$Type: 'UI.DataField', Value: SpaceItinerary_ID},
+        {$Type: 'UI.DataField', Value: Itinerary_ID},
       ]
     },
     UI.FieldGroup#Customer: {
