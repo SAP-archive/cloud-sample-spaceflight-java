@@ -79,7 +79,7 @@ public class BookingsHandler {
 		if (bPartner != null && !reqData.contains(PROPERTY_BOOKING_EMAIL)) {
 			entityBuilder
 					.addElement(PROPERTY_BOOKING_EMAIL,
-							bPartner.getCustomField(CustomersHandler.PROPERTY_CUSTOMERS_EMAIL))
+							bPartner.getCustomField(CustomersHandler.CUSTOMERS_EMAIL))
 					.buildEntityData(ENTITY_BOOKINGS);
 		}
 
