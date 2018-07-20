@@ -29,7 +29,7 @@ modules:
     - name: spacetravel-dest
     - name: spacetravel-uaa
 
- - name: app
+ - name: spacetravel-app
    type: html5
    path: app
    parameters:
