@@ -3,14 +3,9 @@ package com.sap.cloudsamples.spaceflight;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.sap.cloud.sdk.odatav2.connectivity.ODataException;
 import com.sap.cloud.sdk.s4hana.connectivity.ErpConfigContext;
-import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.AddressEmailAddress;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.BusinessPartner;
-import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.BusinessPartnerAddress;
 import com.sap.cloud.sdk.service.prov.api.operations.Query;
 import com.sap.cloud.sdk.service.prov.api.operations.Read;
 import com.sap.cloud.sdk.service.prov.api.request.QueryRequest;
@@ -23,23 +18,18 @@ import com.sap.cloudsamples.spaceflight.s4.BusinessPartnerRead;
 public class CustomersHandler {
 
 	private static final String BOOKING_SERVICE = "BookingService";
-	private static final String CUSTOMERS = "Customers";
-	private static final String CUSTOMERS_ID = "ID";
-	private static final String CUSTOMERS_NAME = "Name";
-	static final String CUSTOMERS_EMAIL = "Email";
+	static final String CUSTOMERS = "Customers";
 
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	// private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Read(serviceName = BOOKING_SERVICE, entity = CUSTOMERS)
 	public ReadResponse readSingleCustomerByKey(ReadRequest readRequest) throws ODataException {
-		logger.info("Received the following keys: {} ", readRequest.getKeys().entrySet().stream()
-				.map(x -> x.getKey() + ":" + x.getValue()).collect(Collectors.joining(" | ")));
+		String id = String.valueOf(readRequest.getKeys().get(Customer.ID_PROP));
+		BusinessPartner bp = new BusinessPartnerRead(new ErpConfigContext(), id).execute();
+		Customer customer = Customer.fromBusinessPartner(bp);
+		CustomersLoader.fetchAddressData(customer);
 
-		String id = String.valueOf(readRequest.getKeys().get(CUSTOMERS_ID));
-		BusinessPartner partner = new BusinessPartnerRead(new ErpConfigContext(), id).execute();
-		completeResponseData(partner, true);
-
-		ReadResponse readResponse = ReadResponse.setSuccess().setData(partner).response();
+		ReadResponse readResponse = ReadResponse.setSuccess().setData(customer).response();
 		return readResponse;
 	}
 
@@ -54,28 +44,18 @@ public class CustomersHandler {
 				BusinessPartner.CUSTOMER.ne(""));
 
 		List<BusinessPartner> businessPartners = query.execute();
+		boolean includeAddress = qryRequest.getSelectProperties().contains(Customer.EMAIL_PROP);
 
-		boolean includeAddress = qryRequest.getSelectProperties().contains(CUSTOMERS_EMAIL);
-		for (BusinessPartner bp : businessPartners) {
-			completeResponseData(bp, includeAddress);
-		}
-
-		QueryResponse queryResponse = QueryResponse.setSuccess().setData(businessPartners).response();
-		return queryResponse;
-	}
-
-	public static void completeResponseData(BusinessPartner partner, boolean includeAddress) throws ODataException {
-		partner.setCustomField(CUSTOMERS_ID, partner.getBusinessPartner());
-		partner.setCustomField(CUSTOMERS_NAME, partner.getBusinessPartnerFullName());
-		if (includeAddress) {
-			List<BusinessPartnerAddress> addresses = partner.getBusinessPartnerAddressOrFetch();
-			if (addresses.size() > 0) {
-				List<AddressEmailAddress> emailAddresses = addresses.get(0).getEmailAddressOrFetch();
-				if (emailAddresses.size() > 0) {
-					partner.setCustomField(CUSTOMERS_EMAIL, emailAddresses.get(0).getEmailAddress());
-				}
+		List<Customer> customers = businessPartners.stream().map(bp -> {
+			Customer customer = Customer.fromBusinessPartner(bp);
+			if (includeAddress) {
+				CustomersLoader.fetchAddressData(customer);
 			}
-		}
+			return customer;
+		}).collect(Collectors.toList());
+
+		QueryResponse queryResponse = QueryResponse.setSuccess().setData(customers).response();
+		return queryResponse;
 	}
 
 }
