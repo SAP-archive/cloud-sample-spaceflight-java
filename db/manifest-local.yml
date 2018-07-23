@@ -1,0 +1,10 @@
+---
+applications:
+- name: spacetravel-db-local
+  no-route: true
+  path: ./
+  memory: 256M
+  disk_quota: 256M
+  instances: 1
+  services:
+    - spacetravel-db-local
