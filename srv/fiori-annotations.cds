@@ -1,15 +1,21 @@
 using BookingService as srv from './booking-service';
 
+annotate srv.Customers with {
+  ID
+    @title: 'ID'
+    @UI.TextArrangement: #TextOnly;
+  Name  @title: 'Customer';
+  Email @title: 'Email';
+};
+annotate srv.Customers with @(
+  UI.Identification:  [ {$Type: 'UI.DataField', Value: Name} ]
+);
+
 annotate srv.Bookings with {
   ID
     @title: 'Id';
-  CustomerName
-    @title: 'Customer';
   NumberOfPassengers
     @title: 'Passengers';
-  EmailAddress
-    @title: 'Email'
-    @Common.FieldControl: #Optional;
   DateOfBooking
     @title: 'Booking date'
     @odata.on.insert: #now;
@@ -38,17 +44,17 @@ annotate srv.Bookings with {
       },
       ValueListWithFixedValues
     };
-};
-
-annotate srv.Bookings with {
   Customer
-    @Common.FieldControl: #Mandatory
-    @Common.Text: {$value: CustomerName, "@UI.TextArrangement": #TextFirst};
+    @Common: {
+      Label: 'Customer',
+      FieldControl: #Mandatory,
+      Text: {$value: Customer.Name, "@UI.TextArrangement": #TextOnly}
+    };
 };
 
 annotate srv.Bookings with @(
   UI.LineItem: [
-    {$Type: 'UI.DataField', Value: CustomerName},
+    {$Type: 'UI.DataField', Value: Customer.Name},
     {$Type: 'UI.DataField', Value: Itinerary.Name},
     {$Type: 'UI.DataField', Value: DateOfTravel},
     {$Type: 'UI.DataField', Value: NumberOfPassengers},
@@ -57,8 +63,8 @@ annotate srv.Bookings with @(
   ],
 
   UI.HeaderInfo: {
-    Title: { Value: CustomerName },
-    Description: { Value: Itinerary.Name },
+    Title: { Value: Itinerary.Name },
+    Description: { Value: Customer.Name },
     TypeName: 'Booking',
     TypeNamePlural: 'Bookings'
   },
@@ -94,14 +100,14 @@ annotate srv.Bookings with @(
         {$Type: 'UI.DataField', Value: DateOfBooking},
         {$Type: 'UI.DataField', Value: DateOfTravel},
         {$Type: 'UI.DataField', Value: Cost},
-        {$Type: 'UI.DataField', Value: Itinerary_ID},
+        {$Type: 'UI.DataField', Value: Itinerary_ID, Label: 'Trip'},
       ]
     },
     UI.FieldGroup#Customer: {
       Label: 'Customer',
       Data: [
-        {$Type: 'UI.DataField', Value: Customer}, // customer ID from external service
-        {$Type: 'UI.DataField', Value: EmailAddress},
+        {$Type: 'UI.DataField', Value: Customer_ID, Label: 'Customer'}, // customer ID from external service
+        {$Type: 'UI.DataField', Value: Customer.Email},
         {$Type: 'UI.DataField', Value: NumberOfPassengers}
       ]
     }

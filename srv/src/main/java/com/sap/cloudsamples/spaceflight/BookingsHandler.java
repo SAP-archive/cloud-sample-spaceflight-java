@@ -26,9 +26,13 @@ public class BookingsHandler {
 
 	private static final String PROPERTY_ID = "ID";
 	private static final String BOOKING_SERVICE = "BookingService";
-	private static final String ENTITY_ITINERARIES = BOOKING_SERVICE + ".Itineraries";
 	private static final String ENTITY_BOOKINGS = "Bookings";
+
+	private static final String ENTITY_ITINERARIES = BOOKING_SERVICE + ".Itineraries";
 	private static final String PROPERTY_BOOKING_ITINERARYID = "Itinerary_ID";
+
+	private static final String ENTITY_CUSTOMERS = BOOKING_SERVICE + ".Customers";
+	private static final String PROPERTY_BOOKING_CUSTOMERID = "Customer_ID";
 
 	// private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -46,11 +50,13 @@ public class BookingsHandler {
 
 	private PreExtensionResponseWithBody beforeUpsert(EntityData reqData, DataSourceHandler dataSource)
 			throws ODataException, DatasourceException {
-		ErrorResponseBuilder errorResponseBuilder = ErrorResponse.getBuilder();
+		ErrorResponseBuilder errorResponseBuilder = null;
 		EntityDataBuilder entityBuilder = EntityData.getBuilder(reqData);
 
-		errorResponseBuilder = validateItinerary(reqData, ENTITY_ITINERARIES, PROPERTY_BOOKING_ITINERARYID,
-				dataSource, errorResponseBuilder);
+		errorResponseBuilder = validateForeignKey(reqData, ENTITY_ITINERARIES, PROPERTY_BOOKING_ITINERARYID,
+				"NoSuchItinerary", dataSource, errorResponseBuilder);
+		errorResponseBuilder = validateForeignKey(reqData, ENTITY_CUSTOMERS, PROPERTY_BOOKING_CUSTOMERID,
+				"NoSuchCustomer", dataSource, errorResponseBuilder);
 
 		if (errorResponseBuilder != null) {
 			return new PreExtensionResponseImpl(errorResponseBuilder.response());
@@ -59,14 +65,15 @@ public class BookingsHandler {
 		return new PreExtensionResponseBuilderWithBody(entityBuilder.buildEntityData(ENTITY_BOOKINGS)).response();
 	}
 
-	private static ErrorResponseBuilder validateItinerary(EntityData reqData, String entity, String property,
-			DataSourceHandler dataSource, ErrorResponseBuilder responseBuilder) throws DatasourceException {
-		if (reqData.contains(property)) {
-			Object itineraryId = reqData.getElementValue(property);
-			EntityData itinerary = dataSource.executeRead(entity, Collections.singletonMap(PROPERTY_ID, itineraryId),
+	private static ErrorResponseBuilder validateForeignKey(EntityData reqData, String entity, String fkProperty,
+			String messageKey, DataSourceHandler dataSource, ErrorResponseBuilder responseBuilder)
+			throws DatasourceException {
+		if (reqData.contains(fkProperty)) {
+			Object value = reqData.getElementValue(fkProperty);
+			EntityData itinerary = dataSource.executeRead(entity, Collections.singletonMap(PROPERTY_ID, value),
 					Collections.singletonList(PROPERTY_ID));
 			if (itinerary == null) {
-				return constraintError("NoSuchItinerary", itineraryId, property, responseBuilder);
+				return constraintError(messageKey, value, fkProperty, responseBuilder);
 			}
 		}
 		return responseBuilder;
