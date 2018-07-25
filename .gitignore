@@ -9,7 +9,7 @@ srv/.settings/.jsdt*
 srv/.settings/org.eclipse.m2e.*
 srv/.settings/org.eclipse.wst.*
 .xmake/
-edmx/
+srv/src/main/resources/edmx/
 gen/
 imports/
 node/
