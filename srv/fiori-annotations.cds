@@ -5,9 +5,19 @@ annotate srv.Customers with {
     @title: 'ID'
     @UI.TextArrangement: #TextOnly;
   Name  @title: 'Name';
-  Email @title: 'Email';
+  Email
+    @title: 'Email'
+    @Common.FieldControl: #ReadOnly;
 };
 annotate srv.Customers with @(
+  UI.Identification:  [ {$Type: 'UI.DataField', Value: Name} ]
+);
+annotate srv.CustomersRemote with {
+  ID    @title: 'ID';
+  Name  @title: 'Name';
+  Email @title: 'Email';
+};
+annotate srv.CustomersRemote with @(
   UI.Identification:  [ {$Type: 'UI.DataField', Value: Name} ]
 );
 
@@ -37,7 +47,7 @@ annotate srv.Bookings with {
       Label: 'Customer',
       FieldControl: #Mandatory,
       Text: {$value: Customer.Name, "@UI.TextArrangement": #TextOnly},
-      ValueList: { entity: 'Customers' }
+      ValueList: { entity: 'CustomersRemote' }
     };
 };
 

@@ -3,6 +3,8 @@ package com.sap.cloudsamples.spaceflight;
 import java.util.Collections;
 
 import org.apache.http.HttpStatus;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sap.cloud.sdk.odatav2.connectivity.ODataException;
 import com.sap.cloud.sdk.service.prov.api.DataSourceHandler;
@@ -24,17 +26,16 @@ import com.sap.cloud.sdk.service.prov.api.response.ErrorResponseBuilder;
 
 public class BookingsHandler {
 
+	private static final Logger logger = LoggerFactory.getLogger(BookingsHandler.class);
+
+	static final String BOOKING_SERVICE = "BookingService";
 	private static final String PROPERTY_ID = "ID";
-	private static final String BOOKING_SERVICE = "BookingService";
 	private static final String ENTITY_BOOKINGS = "Bookings";
 
 	private static final String ENTITY_ITINERARIES = BOOKING_SERVICE + ".Itineraries";
 	private static final String PROPERTY_BOOKING_ITINERARYID = "Itinerary_ID";
 
-	private static final String ENTITY_CUSTOMERS = BOOKING_SERVICE + ".Customers";
 	private static final String PROPERTY_BOOKING_CUSTOMERID = "Customer_ID";
-
-	// private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@BeforeCreate(serviceName = BOOKING_SERVICE, entity = ENTITY_BOOKINGS)
 	public BeforeCreateResponse beforeBookingCreate(CreateRequest req, ExtensionHelper helper)
@@ -50,41 +51,54 @@ public class BookingsHandler {
 
 	private PreExtensionResponseWithBody beforeUpsert(EntityData reqData, DataSourceHandler dataSource)
 			throws ODataException, DatasourceException {
-		ErrorResponseBuilder errorResponseBuilder = null;
+		ErrorResponseBuilder errorResponseBuilder = ErrorResponse.getBuilder();
+		boolean error = false;
 		EntityDataBuilder entityBuilder = EntityData.getBuilder(reqData);
 
-		errorResponseBuilder = validateForeignKey(reqData, ENTITY_ITINERARIES, PROPERTY_BOOKING_ITINERARYID,
-				"NoSuchItinerary", dataSource, errorResponseBuilder);
-		errorResponseBuilder = validateForeignKey(reqData, ENTITY_CUSTOMERS, PROPERTY_BOOKING_CUSTOMERID,
-				"NoSuchCustomer", dataSource, errorResponseBuilder);
+		error |= validateForeignKey(reqData, ENTITY_ITINERARIES, PROPERTY_BOOKING_ITINERARYID, "NoSuchItinerary",
+				dataSource, errorResponseBuilder);
+		error |= fetchAndSaveCustomer(reqData, dataSource, errorResponseBuilder);
 
-		if (errorResponseBuilder != null) {
-			return new PreExtensionResponseImpl(errorResponseBuilder.response());
+		if (error) {
+			return new PreExtensionResponseImpl(
+					errorResponseBuilder.setStatusCode(HttpStatus.SC_BAD_REQUEST).response());
 		}
 
 		return new PreExtensionResponseBuilderWithBody(entityBuilder.buildEntityData(ENTITY_BOOKINGS)).response();
 	}
 
-	private static ErrorResponseBuilder validateForeignKey(EntityData reqData, String entity, String fkProperty,
+	private static boolean fetchAndSaveCustomer(EntityData reqData, DataSourceHandler dataSource,
+			ErrorResponseBuilder errorResponseBuilder) {
+		if (reqData.contains(PROPERTY_BOOKING_CUSTOMERID)) {
+			String custId = String.valueOf(reqData.getElementValue(PROPERTY_BOOKING_CUSTOMERID));
+			try {
+				Customer customer = CustomersLoader.loadCustomer(custId, true);
+				CustomersLoader.saveCustomer(customer, dataSource);
+			} catch (Exception e) {
+				logger.error(e.getMessage(), e);
+				return addErrorMessage(errorResponseBuilder, PROPERTY_BOOKING_CUSTOMERID, "NoSuchCustomer", custId);
+			}
+		}
+		return false;
+	}
+
+	private static boolean validateForeignKey(EntityData reqData, String entityName, String fkProperty,
 			String messageKey, DataSourceHandler dataSource, ErrorResponseBuilder responseBuilder)
 			throws DatasourceException {
 		if (reqData.contains(fkProperty)) {
 			Object value = reqData.getElementValue(fkProperty);
-			EntityData itinerary = dataSource.executeRead(entity, Collections.singletonMap(PROPERTY_ID, value),
+			EntityData entity = dataSource.executeRead(entityName, Collections.singletonMap(PROPERTY_ID, value),
 					Collections.singletonList(PROPERTY_ID));
-			if (itinerary == null) {
-				return constraintError(messageKey, value, fkProperty, responseBuilder);
+			if (entity == null) {
+				return addErrorMessage(responseBuilder, fkProperty, messageKey, value);
 			}
 		}
-		return responseBuilder;
+		return false;
 	}
 
-	private static ErrorResponseBuilder constraintError(String messageKey, Object id, String target,
-			ErrorResponseBuilder responseBuilder) {
-		if (responseBuilder == null) {
-			responseBuilder = ErrorResponse.getBuilder();
-		}
-		return responseBuilder.setStatusCode(HttpStatus.SC_BAD_REQUEST).setMessage(messageKey, id)
-				.addErrorDetail(messageKey, target, id);
+	private static boolean addErrorMessage(ErrorResponseBuilder responseBuilder, String target, String messageKey,
+			Object... messageArgs) {
+		responseBuilder.setMessage(messageKey, messageArgs).addErrorDetail(messageKey, target, messageArgs);
+		return true;
 	}
 }

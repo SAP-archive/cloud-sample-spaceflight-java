@@ -2,7 +2,7 @@
   "name": "spaceflight",
   "version": "0.1.0",
   "dependencies": {
-    "@sap/cds": "*",
+    "@sap/cds": "git://github.wdf.sap.corp/cdx/cds",
     "spaceflight-model": "git://github.wdf.sap.corp/te18/cloud-samples-spaceflight"
   },
   "scripts": {

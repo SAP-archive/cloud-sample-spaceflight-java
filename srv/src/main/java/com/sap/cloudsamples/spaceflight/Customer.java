@@ -18,9 +18,9 @@ public class Customer {
 	}
 
 	@Key
-	private volatile String id;
-	private volatile String name;
-	private volatile String email;
+	private volatile String ID;
+	private volatile String Name;
+	private volatile String Email;
 
 	transient volatile BusinessPartner businessPartner;
 
@@ -28,37 +28,37 @@ public class Customer {
 	}
 
 	public Customer(String id, String name) {
-		this.id = id;
-		this.name = name;
+		this.ID = id;
+		this.Name = name;
 	}
 
 	public String getId() {
-		return id;
+		return ID;
 	}
 
 	public void setId(String id) {
-		this.id = id;
+		this.ID = id;
 	}
 
 	public String getName() {
-		return name;
+		return Name;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.Name = name;
 	}
 
 	public String getEmail() {
-		return email;
+		return Email;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.Email = email;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "Customer [id=" + ID + ", name=" + Name + ", email=" + Email + "]";
 	}
 
 

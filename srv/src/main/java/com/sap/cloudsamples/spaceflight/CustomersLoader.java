@@ -22,6 +22,7 @@ import com.sap.cloud.sdk.service.prov.api.exception.DatasourceException;
 import com.sap.cloud.sdk.service.prov.api.request.OperationRequest;
 import com.sap.cloud.sdk.service.prov.api.response.OperationResponse;
 import com.sap.cloudsamples.spaceflight.s4.BusinessPartnerQuery;
+import com.sap.cloudsamples.spaceflight.s4.BusinessPartnerRead;
 
 public class CustomersLoader {
 
@@ -30,9 +31,29 @@ public class CustomersLoader {
 
 	@Function(Name = "loadCustomers")
 	public OperationResponse loadCustomers(OperationRequest opReq, ExtensionHelper extHelper) throws ODataException {
+		List<Customer> customers = loadCustomers(true, -1, -1);
+
+		// save to local DB
+		DataSourceHandler dataSource = extHelper.getHandler();
+		customers.stream().forEach(customer -> saveCustomer(customer, dataSource));
+
+		// return number of fetched customers
+		return OperationResponse.setSuccess().setPrimitiveData(Collections.singletonList(customers.size())).response();
+	}
+
+	static Customer loadCustomer(String id, boolean includeAddressData) {
+		BusinessPartner bp = new BusinessPartnerRead(new ErpConfigContext(), id).execute();
+		Customer customer = Customer.fromBusinessPartner(bp);
+		if (includeAddressData) {
+			fetchAddressData(customer);
+		}
+		return customer;
+	}
+
+	static List<Customer> loadCustomers(boolean includeAddressData, int top, int skip) {
 		BusinessPartnerQuery query = new BusinessPartnerQuery( //
 				new ErpConfigContext(), //
-				MAX_NO_TO_REPLICATE, -1, // restrict number of records to fetch
+				top >= 0 ? top : MAX_NO_TO_REPLICATE, skip >= 0 ? skip : -1, // restrict number of records to fetch
 				Arrays.asList( // properties to fetch
 						BusinessPartner.BUSINESS_PARTNER.getFieldName(),
 						BusinessPartner.BUSINESS_PARTNER_FULL_NAME.getFieldName() //
@@ -49,17 +70,13 @@ public class CustomersLoader {
 				.collect(Collectors.toList());
 
 		// fetch additional address data (in parallel threads to improve performance)
-		customers.parallelStream().forEach(customer -> fetchAddressData(customer));
-
-		// save to local DB
-		DataSourceHandler dataSource = extHelper.getHandler();
-		customers.stream().forEach(customer -> saveCustomer(customer, dataSource));
-
-		// return number of fetched customers
-		return OperationResponse.setSuccess().setPrimitiveData(Collections.singletonList(customers.size())).response();
+		if (includeAddressData) {
+			customers.parallelStream().forEach(customer -> fetchAddressData(customer));
+		}
+		return customers;
 	}
 
-	private Customer saveCustomer(Customer customer, DataSourceHandler dataSource) {
+	static Customer saveCustomer(Customer customer, DataSourceHandler dataSource) {
 		try {
 			logger.info("Storing " + customer.getId());
 			upsert(customer, Customer.ENTITY_NAME, Customer.ID_PROP, customer.getId(), dataSource);
@@ -80,7 +97,7 @@ public class CustomersLoader {
 		}
 	}
 
-	static Customer fetchAddressData(Customer customer) {
+	private static Customer fetchAddressData(Customer customer) {
 		try {
 			logger.info("Fetching address for " + customer.getId());
 			BusinessPartner bp = customer.businessPartner;
