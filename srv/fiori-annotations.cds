@@ -4,7 +4,7 @@ annotate srv.Customers with {
   ID
     @title: 'ID'
     @UI.TextArrangement: #TextOnly;
-  Name  @title: 'Customer';
+  Name  @title: 'Name';
   Email @title: 'Email';
 };
 annotate srv.Customers with @(
@@ -48,13 +48,14 @@ annotate srv.Bookings with {
     @Common: {
       Label: 'Customer',
       FieldControl: #Mandatory,
-      Text: {$value: Customer.Name, "@UI.TextArrangement": #TextOnly}
+      Text: {$value: Customer.Name, "@UI.TextArrangement": #TextOnly},
+      ValueList: { entity: 'Customers' }
     };
 };
 
 annotate srv.Bookings with @(
   UI.LineItem: [
-    {$Type: 'UI.DataField', Value: Customer.Name},
+    {$Type: 'UI.DataField', Value: Customer.Name, Label: 'Customer'},
     {$Type: 'UI.DataField', Value: Itinerary.Name},
     {$Type: 'UI.DataField', Value: DateOfTravel},
     {$Type: 'UI.DataField', Value: NumberOfPassengers},
