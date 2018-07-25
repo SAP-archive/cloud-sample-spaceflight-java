@@ -26,23 +26,11 @@ annotate srv.Bookings with {
     @title: 'Cost'
     @Common.FieldControl: #Mandatory;
   Itinerary
-    // @sap.value.list: 'fixed-values'
     @Common: {
       Label : 'Trip',
       FieldControl: #Mandatory,
       Text: {$value: Itinerary.Name, "@UI.TextArrangement": #TextOnly},
-      ValueList: {
-        entity: 'Itineraries',
-        type: #fixed,
-        //CollectionPath: 'Itinerary',
-        //Label: 'Trip',
-        SearchSupported: true,
-        //Parameters: [
-        //  { $Type: 'Common.ValueListParameterOut', LocalDataProperty: Itinerary_ID', ValueListProperty: 'ID'},
-        //  { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'ID'},
-        //]
-      },
-      ValueListWithFixedValues
+      ValueList: { entity: 'Itineraries' }
     };
   Customer
     @Common: {
@@ -76,40 +64,39 @@ annotate srv.Bookings with @(
     { $Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup#GeneralInfo' }
   ],
   UI.Facets: [
-      {
-        $Type:'UI.CollectionFacet',
-        Facets: [
-          { $Type: 'UI.ReferenceFacet', Label: 'General Info',  Target: '@UI.FieldGroup#GeneralInfo' },
-          { $Type: 'UI.ReferenceFacet', Label: 'Customer Info', Target: '@UI.FieldGroup#Customer' },
-        ],
-        Label:'Booking Details',
-      }
-      // ,{$Type:'UI.ReferenceFacet', Label: 'Orders', Target: 'orders/@UI.LineItem'},
-    ],
-    UI.FieldGroup#HeaderInfo: {
-      Label: 'Header Info',
-      Data: [
-        {$Type: 'UI.DataField', Value: DateOfTravel},
-        {$Type: 'UI.DataField', Value: Cost},
-        {$Type: 'UI.DataField', Value: Itinerary_ID},
-        {$Type: 'UI.DataField', Value: ID}
-      ]
-    },
-    UI.FieldGroup#GeneralInfo: {
-      Label: 'General Info',
-      Data: [
-        {$Type: 'UI.DataField', Value: DateOfBooking},
-        {$Type: 'UI.DataField', Value: DateOfTravel},
-        {$Type: 'UI.DataField', Value: Cost},
-        {$Type: 'UI.DataField', Value: Itinerary_ID, Label: 'Trip'},
-      ]
-    },
-    UI.FieldGroup#Customer: {
-      Label: 'Customer',
-      Data: [
-        {$Type: 'UI.DataField', Value: Customer_ID, Label: 'Customer'}, // customer ID from external service
-        {$Type: 'UI.DataField', Value: Customer.Email},
-        {$Type: 'UI.DataField', Value: NumberOfPassengers}
-      ]
+    {
+      $Type:'UI.CollectionFacet',
+      Facets: [
+        { $Type: 'UI.ReferenceFacet', Label: 'General Info',  Target: '@UI.FieldGroup#GeneralInfo' },
+        { $Type: 'UI.ReferenceFacet', Label: 'Customer Info', Target: '@UI.FieldGroup#Customer' },
+      ],
+      Label:'Booking Details',
     }
+  ],
+  UI.FieldGroup#HeaderInfo: {
+    Label: 'Header Info',
+    Data: [
+      {$Type: 'UI.DataField', Value: DateOfTravel},
+      {$Type: 'UI.DataField', Value: Cost},
+      {$Type: 'UI.DataField', Value: Itinerary_ID},
+      {$Type: 'UI.DataField', Value: ID}
+    ]
+  },
+  UI.FieldGroup#GeneralInfo: {
+    Label: 'General Info',
+    Data: [
+      {$Type: 'UI.DataField', Value: DateOfBooking},
+      {$Type: 'UI.DataField', Value: DateOfTravel},
+      {$Type: 'UI.DataField', Value: Cost},
+      {$Type: 'UI.DataField', Value: Itinerary_ID, Label: 'Trip'},
+    ]
+  },
+  UI.FieldGroup#Customer: {
+    Label: 'Customer',
+    Data: [
+      {$Type: 'UI.DataField', Value: Customer_ID, Label: 'Customer'}, // customer ID from external service
+      {$Type: 'UI.DataField', Value: Customer.Email},
+      {$Type: 'UI.DataField', Value: NumberOfPassengers}
+    ]
+  }
 );
