@@ -4,8 +4,8 @@
 		{
 			"target_table": "TECHED_FLIGHT_TRIP_BOOKINGS",
 			"source_data" : { "data_type" : "CSV", "file_name" : "bookings.csv", "has_header" : true },
-			"import_settings" : { "import_columns" : [ "ID", "NUMBEROFPASSENGERS", "DATEOFBOOKING", "DATEOFTRAVEL", "COST", "CUSTOMER_ID", "ITINERARY_ID"] },
-			"column_mappings" : { "ID":1, "NUMBEROFPASSENGERS":2, "DATEOFBOOKING":3, "DATEOFTRAVEL":4, "COST":5, "CUSTOMER_ID":6, "ITINERARY_ID":7 }
+			"import_settings" : { "import_columns" : [ "ID", "BOOKINGNO", "CREATEDAT", "CREATEDBY", "NUMBEROFPASSENGERS", "DATEOFTRAVEL", "COST", "CUSTOMER_ID", "ITINERARY_ID"] },
+			"column_mappings" : { "ID":1, "BOOKINGNO":2, "CREATEDAT":3, "CREATEDBY":4, "NUMBEROFPASSENGERS":5, "DATEOFTRAVEL":6, "COST":7, "CUSTOMER_ID":8, "ITINERARY_ID":9 }
 		},
 		{
 			"target_table": "TECHED_FLIGHT_TRIP_CUSTOMERS",

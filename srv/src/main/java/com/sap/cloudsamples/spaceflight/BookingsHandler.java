@@ -1,7 +1,11 @@
 package com.sap.cloudsamples.spaceflight;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.Locale;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,26 +34,27 @@ public class BookingsHandler {
 
 	static final String BOOKING_SERVICE = "BookingService";
 	private static final String PROPERTY_ID = "ID";
+
 	private static final String ENTITY_BOOKINGS = "Bookings";
 
 	private static final String ENTITY_ITINERARIES = BOOKING_SERVICE + ".Itineraries";
+	private static final String PROPERTY_BOOKING_BOOKINGNO = "BookingNo";
 	private static final String PROPERTY_BOOKING_ITINERARYID = "Itinerary_ID";
-
 	private static final String PROPERTY_BOOKING_CUSTOMERID = "Customer_ID";
 
 	@BeforeCreate(serviceName = BOOKING_SERVICE, entity = ENTITY_BOOKINGS)
 	public BeforeCreateResponse beforeBookingCreate(CreateRequest req, ExtensionHelper helper)
 			throws ODataException, DatasourceException {
-		return beforeUpsert(req.getData(), helper.getHandler());
+		return beforeUpsert(req.getData(), helper.getHandler(), true);
 	}
 
 	@BeforeUpdate(serviceName = BOOKING_SERVICE, entity = ENTITY_BOOKINGS)
 	public BeforeUpdateResponse beforeBookingUpdate(UpdateRequest req, ExtensionHelper helper)
 			throws ODataException, DatasourceException {
-		return beforeUpsert(req.getData(), helper.getHandler());
+		return beforeUpsert(req.getData(), helper.getHandler(), false);
 	}
 
-	private PreExtensionResponseWithBody beforeUpsert(EntityData reqData, DataSourceHandler dataSource)
+	private PreExtensionResponseWithBody beforeUpsert(EntityData reqData, DataSourceHandler dataSource, boolean insert)
 			throws ODataException, DatasourceException {
 		ErrorResponseBuilder errorResponseBuilder = ErrorResponse.getBuilder();
 		boolean error = false;
@@ -62,6 +67,10 @@ public class BookingsHandler {
 		if (error) {
 			return new PreExtensionResponseImpl(
 					errorResponseBuilder.setStatusCode(HttpStatus.SC_BAD_REQUEST).response());
+		}
+
+		if (insert) {
+			entityBuilder.addElement(PROPERTY_BOOKING_BOOKINGNO, computeBookingNo());
 		}
 
 		return new PreExtensionResponseBuilderWithBody(entityBuilder.buildEntityData(ENTITY_BOOKINGS)).response();
@@ -101,4 +110,11 @@ public class BookingsHandler {
 		responseBuilder.setMessage(messageKey, messageArgs).addErrorDetail(messageKey, target, messageArgs);
 		return true;
 	}
+
+	private static String computeBookingNo() {
+		String no = DateTimeFormatter.BASIC_ISO_DATE.format(LocalDate.now());
+		no += "/" + RandomStringUtils.randomAlphanumeric(5).toUpperCase(Locale.ENGLISH);
+		return no;
+	}
+
 }

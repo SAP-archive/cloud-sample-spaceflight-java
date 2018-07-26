@@ -24,14 +24,17 @@ annotate srv.CustomersRemote with @(
 annotate srv.Bookings with {
   ID
     @title: 'Id';
-  NumberOfPassengers
-    @title: 'Passengers';
-  DateOfBooking
-    @title: 'Booking date'
-    @odata.on.insert: #now;
+  BookingNo
+    @title: 'Booking number';
+  createdAt
+    @title: 'Booking date';
+  createdBy
+    @title: 'Booked by';
   DateOfTravel
     @title: 'Travel date'
     @Common.FieldControl: #Mandatory;
+  NumberOfPassengers
+    @title: 'Passengers';
   Cost
     @title: 'Cost'
     @Common.FieldControl: #Mandatory;
@@ -86,19 +89,17 @@ annotate srv.Bookings with @(
   UI.FieldGroup#HeaderInfo: {
     Label: 'Header Info',
     Data: [
-      {$Type: 'UI.DataField', Value: DateOfTravel},
-      {$Type: 'UI.DataField', Value: Cost},
-      {$Type: 'UI.DataField', Value: Itinerary_ID},
-      {$Type: 'UI.DataField', Value: ID}
+      {$Type: 'UI.DataField', Value: BookingNo},
+      {$Type: 'UI.DataField', Value: createdAt},
+      {$Type: 'UI.DataField', Value: createdBy},
     ]
   },
   UI.FieldGroup#GeneralInfo: {
     Label: 'General Info',
     Data: [
-      {$Type: 'UI.DataField', Value: DateOfBooking},
+      {$Type: 'UI.DataField', Value: Itinerary_ID, Label: 'Trip'},
       {$Type: 'UI.DataField', Value: DateOfTravel},
       {$Type: 'UI.DataField', Value: Cost},
-      {$Type: 'UI.DataField', Value: Itinerary_ID, Label: 'Trip'},
     ]
   },
   UI.FieldGroup#Customer: {
