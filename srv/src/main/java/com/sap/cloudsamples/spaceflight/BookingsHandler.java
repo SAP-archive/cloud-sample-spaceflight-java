@@ -81,8 +81,8 @@ public class BookingsHandler {
 		if (reqData.contains(PROPERTY_BOOKING_CUSTOMERID)) {
 			String custId = String.valueOf(reqData.getElementValue(PROPERTY_BOOKING_CUSTOMERID));
 			try {
-				Customer customer = CustomersLoader.loadCustomer(custId, true);
-				CustomersLoader.saveCustomer(customer, dataSource);
+				Customer customer = CustomersReplicator.fetchCustomer(custId, true);
+				CustomersReplicator.saveCustomer(customer, dataSource);
 			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 				return addErrorMessage(errorResponseBuilder, PROPERTY_BOOKING_CUSTOMERID, "NoSuchCustomer", custId);

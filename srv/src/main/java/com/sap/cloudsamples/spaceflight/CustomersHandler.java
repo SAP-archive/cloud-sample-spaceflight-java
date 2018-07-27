@@ -19,7 +19,7 @@ public class CustomersHandler {
 	@Read(serviceName = BookingsHandler.BOOKING_SERVICE, entity = CUSTOMERSREMOTE)
 	public ReadResponse readSingleCustomerByKey(ReadRequest readRequest) throws ODataException {
 		String id = String.valueOf(readRequest.getKeys().get(Customer.ID_PROP));
-		Customer customer = CustomersLoader.loadCustomer(id, true);
+		Customer customer = CustomersReplicator.fetchCustomer(id, true);
 
 		ReadResponse readResponse = ReadResponse.setSuccess().setData(customer).response();
 		return readResponse;
@@ -30,7 +30,7 @@ public class CustomersHandler {
 		boolean includeAddress = qryRequest.getSelectProperties().contains(Customer.EMAIL_PROP);
 		int top = qryRequest.getTopOptionValue();
 		int skip = qryRequest.getSkipOptionValue();
-		List<Customer> customers = CustomersLoader.loadCustomers(includeAddress, top, skip);
+		List<Customer> customers = CustomersReplicator.fetchCustomers(includeAddress, top, skip);
 
 		QueryResponse queryResponse = QueryResponse.setSuccess().setData(customers).response();
 		return queryResponse;

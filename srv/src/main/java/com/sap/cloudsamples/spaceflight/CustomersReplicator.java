@@ -24,14 +24,14 @@ import com.sap.cloud.sdk.service.prov.api.response.OperationResponse;
 import com.sap.cloudsamples.spaceflight.s4.BusinessPartnerQuery;
 import com.sap.cloudsamples.spaceflight.s4.BusinessPartnerRead;
 
-public class CustomersLoader {
+public class CustomersReplicator {
 
-	private static final int MAX_NO_TO_REPLICATE = 50;
-	private static final Logger logger = LoggerFactory.getLogger(CustomersLoader.class);
+	private static final int MAX_NO_TO_REPLICATE = 50; // restrict number of records to fetch
+	private static final Logger logger = LoggerFactory.getLogger(CustomersReplicator.class);
 
-	@Function(Name = "loadCustomers")
-	public OperationResponse loadCustomers(OperationRequest opReq, ExtensionHelper extHelper) throws ODataException {
-		List<Customer> customers = loadCustomers(true, -1, -1);
+	@Function(Name = "fetchCustomers")
+	public OperationResponse fetchCustomers(OperationRequest opReq, ExtensionHelper extHelper) throws ODataException {
+		List<Customer> customers = fetchCustomers(true, -1, -1);
 
 		// save to local DB
 		DataSourceHandler dataSource = extHelper.getHandler();
@@ -41,7 +41,7 @@ public class CustomersLoader {
 		return OperationResponse.setSuccess().setPrimitiveData(Collections.singletonList(customers.size())).response();
 	}
 
-	static Customer loadCustomer(String id, boolean includeAddressData) {
+	static Customer fetchCustomer(String id, boolean includeAddressData) {
 		BusinessPartner bp = new BusinessPartnerRead(new ErpConfigContext(), id).execute();
 		Customer customer = Customer.fromBusinessPartner(bp);
 		if (includeAddressData) {
@@ -50,10 +50,11 @@ public class CustomersLoader {
 		return customer;
 	}
 
-	static List<Customer> loadCustomers(boolean includeAddressData, int top, int skip) {
+	static List<Customer> fetchCustomers(boolean includeAddressData, int top, int skip) {
 		BusinessPartnerQuery query = new BusinessPartnerQuery( //
 				new ErpConfigContext(), //
-				top >= 0 ? top : MAX_NO_TO_REPLICATE, skip >= 0 ? skip : -1, // restrict number of records to fetch
+				top >= 0 ? top : MAX_NO_TO_REPLICATE, //
+				skip >= 0 ? skip : -1, //
 				Arrays.asList( // properties to fetch
 						BusinessPartner.BUSINESS_PARTNER.getFieldName(),
 						BusinessPartner.BUSINESS_PARTNER_FULL_NAME.getFieldName() //
