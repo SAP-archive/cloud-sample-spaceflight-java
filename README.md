@@ -1,14 +1,17 @@
 # Scenario
 You are working in the IT department of the space travel agency SPICY (SPace Itenaries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
-Timeline is tight and the legal requirements of 20 planets need to be considered.
+Timeline is tight and the legal requirements of 20 planets need to be considered.  You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
 
-You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
-
-![GitHub Logo](pictures/scenarioUI.jpg)
-![GitHub Logo](pictures/scenario.jpg)
+## Bookings UI
+### Concept
+![Conceptual UI](pictures/scenarioUI.jpg)
+### List of bookings
+![Bookings UI](pictures/BookingsUI.png)
+### Detail screen
+![Booking UI](pictures/BookingUI.png)
 
 ## Preview
-Deployed [here](https://cdsteched2018-cna376-spacetravel-app.cfapps.sap.hana.ondemand.com/app/test/flpSandbox.html#Bookings-display).
+Deployed on [https://cdsteched2018-cna376-spacetravel-app.cfapps.sap.hana.ondemand.com](https://cdsteched2018-cna376-spacetravel-app.cfapps.sap.hana.ondemand.com/app/test/flpSandbox.html#Bookings-display).
 
 Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/cockpit#/globalaccount/6a8e3c4e-77ea-482c-b37b-4ce687a8bfe0/subaccount/c64e888a-20be-4bec-a15e-58e81ab4e857/org/4ac89a3b-e56e-4c48-81e1-e6d6008d0751/space/68c15de5-b940-48f3-819e-3f1d89e58ac2/).
 
