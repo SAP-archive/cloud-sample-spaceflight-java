@@ -5,8 +5,19 @@
     "@sap/cds": "git://github.wdf.sap.corp/cdx/cds",
     "spaceflight-model": "git://github.wdf.sap.corp/te18/cloud-samples-spaceflight"
   },
+  "devDependencies": {
+    "npm-watch": "^0.3.0"
+  },
+  "watch": {
+    "build": {
+      "patterns": ["db", "srv"],
+      "extensions": "cds",
+      "inherit": true
+    }
+  },
   "scripts": {
-    "build": "cds build --clean && reuseTableData"
+    "build": "cds build --clean && reuseTableData",
+    "watch": "npm-watch"
   },
   "license": "ISC"
 }
