@@ -8,7 +8,6 @@ modules:
    path: db
    parameters:
      memory: 256M
-     disk-quota: 256M
    requires:
      - name: spacetravel-hdi
 
@@ -33,7 +32,6 @@ modules:
    type: html5
    path: app
    parameters:
-      disk-quota: 256M
       memory: 256M
    build-parameters:
       builder: grunt
