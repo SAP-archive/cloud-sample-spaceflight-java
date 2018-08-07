@@ -33,6 +33,7 @@ Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/
 ## [DECISIONs]
 All exercises running on Web IDE!!
 
+...
 
 # Exercises
 
