@@ -43,7 +43,7 @@ Audit logging? GDPR compliance??
 ## Exercise 02: Understand the data model and deplopy app to SAP Cloud Platform (15 minutes)
 
 ## Exercise 03: Connect an S/4HANA business service (business partner) (20 - 25 minutes)
-
+Adjust UI to show business partner (15 minutes)
 
 ## Exercise 04: Build your own reusable Business Service and consume it in your app (20 minutes)
 flight model vs space model?
@@ -55,8 +55,15 @@ Destinations ....
 
 Stay tuned... Caching coming soon...
 
-## Exercise 05: Adjust UI to show business partner (15 minutes)
+## Exercise 08: Bonus 1 - I18N
+Extract some texts
 
-## Exersice 07: Bonus 1 - Authentication & Authorization
+Deploy
 
-## Exercise 08: Bonus 2 - Audit Logging
+Change browser language, see effect
+
+## Exersice 07: Bonus 2 - Authentication
+
+UAA binding
+
+Effect: logon needed
