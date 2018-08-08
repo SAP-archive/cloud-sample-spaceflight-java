@@ -17,7 +17,8 @@ entity CustomersRemote as SELECT from bp.A_BusinessPartnerType {
 // ---------------------------------------------------------------------------------------------------------------------
 // Customers: Cache table for replicated customer records
 // ---------------------------------------------------------------------------------------------------------------------
-@cds.persistence.table  // TODO experimental API
+@cds.persistence.table
+@cds.persistence.skip: false
 entity Customers as projection on CustomersRemote;
 
 // ---------------------------------------------------------------------------------------------------------------------
