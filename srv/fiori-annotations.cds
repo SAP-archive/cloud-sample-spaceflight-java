@@ -57,7 +57,7 @@ annotate srv.Bookings with {
 annotate srv.Bookings with @(
   UI.LineItem: [
     {$Type: 'UI.DataField', Value: Customer.Name, Label: 'Customer'},
-    {$Type: 'UI.DataField', Value: Itinerary.Name},
+    {$Type: 'UI.DataField', Value: Itinerary.Name, Label : 'Trip'},
     {$Type: 'UI.DataField', Value: DateOfTravel},
     {$Type: 'UI.DataField', Value: NumberOfPassengers},
     {$Type: 'UI.DataField', Value: Cost},

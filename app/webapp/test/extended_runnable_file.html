@@ -48,21 +48,6 @@
 	<!-- Bootstrap the UI5 core library -->
 	<script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m, sap.ushell, sap.collaboration" data-sap-ui-theme="sap_belize" data-sap-ui-compatversion="edge" data-sap-ui-resourceroots="{&quot;app&quot;: &quot;../&quot;}" data-sap-ui-frameoptions="allow"> 	// NON-SECURE setting for testing environment
 	</script>
-	<script src="../../changes_preview.js"></script>
-
-	<script>(function functionToLoadChangesInOpaFrame() {
-                        document.addEventListener('load', function (event) {
-                            var element = event.target;
-                            if (element.id == 'OpaFrame') {
-                                var opaFrameElementDocument = document.getElementById("OpaFrame").contentWindow.document;
-                                var scriptObject = opaFrameElementDocument.createElement("script");
-                                scriptObject.type = "text/javascript";
-                                scriptObject.innerHTML = "sap.ui.getCore().loadLibrary('sap.ui.fl'); jQuery.getScript('../../changes_preview.js')";
-                                opaFrameElementDocument.head.appendChild(scriptObject);
-                            }
-                        }, true);
-                    })()</script>
-
 	<script>
 	sap.ui.getCore().attachInit(function () { 
 		// Get Sinon via the UI5 third party resources 
