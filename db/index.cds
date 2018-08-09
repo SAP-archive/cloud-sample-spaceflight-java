@@ -15,10 +15,9 @@ entity CustomersRemote as SELECT from bp.A_BusinessPartnerType {
 } where IsNaturalPerson = 'X';
 
 // ---------------------------------------------------------------------------------------------------------------------
-// Customers: Cache table for replicated customer records
+// Customers: for replicated customer records
 // ---------------------------------------------------------------------------------------------------------------------
-@cds.persistence.table
-@cds.persistence.skip: false
+@cds.persistence: { skip: false, table: true }  // make the entity a table on DB
 entity Customers as projection on CustomersRemote;
 
 // ---------------------------------------------------------------------------------------------------------------------
