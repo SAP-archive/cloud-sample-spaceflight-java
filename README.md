@@ -40,15 +40,17 @@ Branches: `master`
 ## Exercise 03: Connect an S/4HANA business service (business partner) (25 minutes)
 Branches: `s4bp-start`, `s4bp-final`
 - Import S/4 service
+  - Start in Web IDE import wizard, but use upload edmx from [API hub](https://api.sap.com/api/API_BUSINESS_PARTNER/overview)
 - Change model: add `Bookings.Customer`
 - Change custom code: add S/4 calls
+  - Destinations to S/4 already prepared
 - Adjust UI to show business partner
-- Destinations ....
 
 ## Exercise 04: How to build your own reuse model and consume it in your app (25 minutes)
 Branches: `reuse-start`, `reuse-final`
-- Add dependency to `@sap/cds/common` to add admin data
 - Add dependency to base model repo
+- Remove redundant model code
+- Add dependency to `@sap/cds/common` to add admin data
 
 
 ## Exercise 08: Bonus 1 - I18N
