@@ -2,7 +2,7 @@
   "name": "spaceflight",
   "version": "0.1.0",
   "dependencies": {
-    "@sap/cds": "git://github.wdf.sap.corp/cdx/cds"
+    "@sap/cds": "2.x"
   },
   "devDependencies": {
     "npm-watch": "^0.3.0"
