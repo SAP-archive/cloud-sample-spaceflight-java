@@ -15,25 +15,6 @@ Deployed on [https://cdsteched2018-cna376-spacetravel-app.cfapps.sap.hana.ondema
 
 Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/cockpit#/globalaccount/6a8e3c4e-77ea-482c-b37b-4ce687a8bfe0/subaccount/c64e888a-20be-4bec-a15e-58e81ab4e857/org/4ac89a3b-e56e-4c48-81e1-e6d6008d0751/space/68c15de5-b940-48f3-819e-3f1d89e58ac2/).
 
-# [TEAM TO DO]
-
-- [ ] Organize S/4HANA system for all participants or setup mock server for Business Partner service if S/4HANA not available
-	- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN).  See [sample Business Partner query](https://my300448.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner?$top=10) on EAY.
-	- [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
-	- [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
-- [ ] Create storyboard for agengy booker (Rui + Christian)
-- [ ] Organize Global account for hands-on session (Rui). We need:
-	- HANA DB (64 GB or 128 GB)
-	- One CF Subaccount per TechEd location
-	- One Neo Subaccount (for creating re-use code)
-	- Quota per session participants (max. 50 participants for 2 sessions each)
-  		- 2 app instances (1GB per instance)
-  		- 1 route
-  		- 1 service
-## [DECISIONs]
-All exercises running on Web IDE!!
-
-...
 
 # Exercises
 
@@ -58,29 +39,47 @@ Branches: `master`
 
 ## Exercise 03: Connect an S/4HANA business service (business partner) (25 minutes)
 Branches: `s4bp-start`, `s4bp-final`
-Adjust UI to show business partner (15 minutes)
+- Import S/4 service
+- Change model: add `Bookings.Customer`
+- Change custom code: add S/4 calls
+- Adjust UI to show business partner
+- Destinations ....
 
 ## Exercise 04: How to build your own reuse model and consume it in your app (25 minutes)
 Branches: `reuse-start`, `reuse-final`
+- Add dependency to `@sap/cds/common` to add admin data
+- Add dependency to base model repo
 
-
-Check https://api.sap.com/api/API_BUSINESS_PARTNER for business partner
-
-Destinations ....
-
-Stay tuned... Caching coming soon...
 
 ## Exercise 08: Bonus 1 - I18N
-Extract some texts
-
-Deploy
-
-Change browser language, see effect
+- Extract some texts
+- Deploy
+- Change browser language, see effect
 
 ## Exersice 07: Bonus 2 - Authentication
-
-UAA binding
-
-Effect: logon needed
+- UAA binding
+- Effect: logon needed
 
 ## Exercise  Bonus 3 - Switch destination
+
+
+# [TEAM TO DO]
+
+- [ ] Organize S/4HANA system for all participants or setup mock server for Business Partner service if S/4HANA not available
+	- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN).  See [sample Business Partner query](https://my300448.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner?$top=10) on EAY.
+	- [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
+	- [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
+- [ ] Create storyboard for agengy booker (Rui + Christian)
+- [ ] Organize Global account for hands-on session (Rui). We need:
+	- HANA DB (64 GB or 128 GB)
+	- One CF Subaccount per TechEd location
+	- One Neo Subaccount (for creating re-use code)
+	- Quota per session participants (max. 50 participants for 2 sessions each)
+  		- 2 app instances (1GB per instance)
+  		- 1 route
+  		- 1 service
+## [DECISIONs]
+All exercises running on Web IDE!!
+
+...
+
