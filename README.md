@@ -79,7 +79,12 @@ All exercises running on Web IDE!!
 
 ### Concept
 ![Conceptual UI](pictures/scenarioUI.jpg)
+
+### Entity model
+![Entity model](pictures/FlightModel.png)
+
 ### List of bookings
 ![Bookings UI](pictures/BookingsUI.png)
+
 ### Detail screen
 ![Booking UI](pictures/BookingUI.png)
