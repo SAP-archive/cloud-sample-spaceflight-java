@@ -1,13 +1,19 @@
-using teched.flight.trip as flight from '../db';
-using BookingService from 'spaceflight-model/srv';
+using teched.flight.trip as flight from '../db/space-model';
+using teched.space.trip as space from '../db/space-model';
 
-// ---------------------------------------------------------------------------------------------------------------------
-// Add projections on Customers to BookingService
-// ---------------------------------------------------------------------------------------------------------------------
-extend service BookingService with {
+service BookingService {
 
-  entity Customers as projection on flight.Customers;
+    entity Bookings    as projection on flight.Bookings;
+    entity Itineraries as projection on flight.Itineraries;
 
-  @cds.persistence.skip
-  entity CustomersRemote as projection on flight.CustomersRemote;
+    @readonly entity EarthRoutes   as projection on flight.EarthRoutes;
+    @readonly entity Airports      as projection on flight.Airports;
+    @readonly entity Airlines      as projection on flight.Airlines;
+    @readonly entity AircraftCodes as projection on flight.AircraftCodes;
+
+    @readonly entity SpaceRoutes as projection on space.SpaceRoutes;
+    @readonly entity Spaceports  as projection on space.Spaceports;
+    @readonly entity Spacelines  as projection on space.SpaceFlightCompanies;
+    @readonly entity Planets     as projection on space.AstronomicalBodies;
+
 }
