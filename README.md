@@ -2,19 +2,12 @@
 You are working in the IT department of the space travel agency SPICY (SPace Itenaries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
 Timeline is tight and the legal requirements of 20 planets need to be considered.  You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
 
-## Bookings UI
-### Concept
-![Conceptual UI](pictures/scenarioUI.jpg)
-### List of bookings
-![Bookings UI](pictures/BookingsUI.png)
-### Detail screen
-![Booking UI](pictures/BookingUI.png)
+## Setup
+- Subaccounts: [Neo](https://account.hana.ondemand.com/cockpit#/globalaccount/8fd39023-a237-4d71-9b6a-ed9d1719d275/neosubaccount/14adb57e-f61c-4c24-8f26-097bc53a3d7c/services), [Cloud Foundry](https://account.hana.ondemand.com/cockpit#/globalaccount/8fd39023-a237-4d71-9b6a-ed9d1719d275/subaccount/309ec1a5-dd47-4e3b-88a7-56e88a8a6e8a/details)
+- [Web IDE](https://webidecp-jgxcdnv3bs.dispatcher.hana.ondemand.com/)
 
-## Preview
+### Preview
 Deployed on [https://cdsteched2018-cna376-spacetravel-app.cfapps.sap.hana.ondemand.com](https://cdsteched2018-cna376-spacetravel-app.cfapps.sap.hana.ondemand.com/app/test/flpSandbox.html#Bookings-display).
-
-Administer via [cdsteched2018/cna376](https://account.int.sap.hana.ondemand.com/cockpit#/globalaccount/6a8e3c4e-77ea-482c-b37b-4ce687a8bfe0/subaccount/c64e888a-20be-4bec-a15e-58e81ab4e857/org/4ac89a3b-e56e-4c48-81e1-e6d6008d0751/space/68c15de5-b940-48f3-819e-3f1d89e58ac2/).
-
 
 # Exercises
 
@@ -65,14 +58,15 @@ Branches: `reuse-start`, `reuse-final`
 ## Exercise  Bonus 3 - Switch destination
 
 
-# [TEAM TO DO]
+# [Orga]
 
-- [ ] Organize S/4HANA system for all participants or setup mock server for Business Partner service if S/4HANA not available
+## TODOs
+- [X] Organize S/4HANA system for all participants or setup mock server for Business Partner service if S/4HANA not available
 	- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN).  See [sample Business Partner query](https://my300448.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner?$top=10) on EAY.
 	- [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
 	- [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
-- [ ] Create storyboard for agengy booker (Rui + Christian)
-- [ ] Organize Global account for hands-on session (Rui). We need:
+- [X] Create storyboard for agengy booker (Rui + Christian)
+- [X] Organize Global account for hands-on session (Rui). We need:
 	- HANA DB (64 GB or 128 GB)
 	- One CF Subaccount per TechEd location
 	- One Neo Subaccount (for creating re-use code)
@@ -83,5 +77,9 @@ Branches: `reuse-start`, `reuse-final`
 ## [DECISIONs]
 All exercises running on Web IDE!!
 
-...
-
+### Concept
+![Conceptual UI](pictures/scenarioUI.jpg)
+### List of bookings
+![Bookings UI](pictures/BookingsUI.png)
+### Detail screen
+![Booking UI](pictures/BookingUI.png)
