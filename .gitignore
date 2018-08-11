@@ -17,7 +17,7 @@ node_modules/
 target/
 _out/
 dist/
-
+.DS_Store
 connection.properties
 metadata.xml
 .cds_gen.log
