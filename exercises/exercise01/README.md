@@ -9,3 +9,19 @@
 In this exercise you'll learn how to clone the Git repository that contains the sample project of this tutorial.
 
 #Exercise description
+
+
+![Log on screen](../../pictures/pic003.png)
+
+![Log on screen](../../pictures/pic004.png)
+
+![Log on screen](../../pictures/pic005.png)
+
+![Log on screen](../../pictures/pic006.png)
+
+![Log on screen](../../pictures/pic007.png)
+
+![Log on screen](../../pictures/pic008.png)
+
+![Log on screen](../../pictures/pic009.png)
+
