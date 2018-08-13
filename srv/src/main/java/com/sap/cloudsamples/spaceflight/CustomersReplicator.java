@@ -16,11 +16,7 @@ import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.Busin
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.businesspartner.BusinessPartnerAddress;
 import com.sap.cloud.sdk.service.prov.api.DataSourceHandler;
 import com.sap.cloud.sdk.service.prov.api.EntityData;
-import com.sap.cloud.sdk.service.prov.api.ExtensionHelper;
-import com.sap.cloud.sdk.service.prov.api.annotations.Function;
 import com.sap.cloud.sdk.service.prov.api.exception.DatasourceException;
-import com.sap.cloud.sdk.service.prov.api.request.OperationRequest;
-import com.sap.cloud.sdk.service.prov.api.response.OperationResponse;
 import com.sap.cloudsamples.spaceflight.s4.BusinessPartnerQuery;
 import com.sap.cloudsamples.spaceflight.s4.BusinessPartnerRead;
 
@@ -38,23 +34,6 @@ public class CustomersReplicator {
 	private static final int MAX_NO_TO_REPLICATE = 50; // restrict number of records to fetch
 	private static final String CUSTOMERS_ENTITY = "teched.flight.trip.Customers";
 	private static final Logger logger = LoggerFactory.getLogger(CustomersReplicator.class);
-
-	/**
-	 * Called on execution of the <code>fetchCustomers</code> function
-	 */
-	@Function(Name = "fetchCustomers")
-	public OperationResponse fetchAndStoreCustomers(OperationRequest opReq, ExtensionHelper extHelper)
-			throws ODataException {
-		// fetch from remote
-		List<Customer> customers = fetchCustomers(true, -1, -1);
-
-		// save to local DB
-		DataSourceHandler dataSource = extHelper.getHandler();
-		customers.stream().forEach(customer -> saveCustomer(customer, dataSource));
-
-		// return number of fetched customers
-		return OperationResponse.setSuccess().setPrimitiveData(Collections.singletonList(customers.size())).response();
-	}
 
 	/**
 	 * Fetches one customer
