@@ -2,7 +2,6 @@ package com.sap.cloudsamples.spaceflight;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
 import java.util.Locale;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -72,11 +71,6 @@ public class BookingsHandler {
 		boolean success = true;
 		EntityDataBuilder entityBuilder = EntityData.getBuilder(reqData);
 
-		// make sure the changed Itinerary is valid, i.e. refers to an existing
-		// Itineraries instance
-		success &= validateForeignKey(reqData, PROPERTY_BOOKING_ITINERARYID, ENTITY_ITINERARIES, "NoSuchItinerary",
-				dataSource, errorResponseBuilder);
-
 		// get the booking's customer from remote, and store it in the local DB
 		success &= fetchAndSaveCustomer(reqData, dataSource, errorResponseBuilder);
 
@@ -108,26 +102,6 @@ public class BookingsHandler {
 			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 				addErrorMessage(errorResponseBuilder, PROPERTY_BOOKING_CUSTOMERID, "NoSuchCustomer", custId);
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * Checks if the given foreign key of an entity exists on the DB
-	 *
-	 * @return <code>false</code> in case of errors
-	 */
-	private static boolean validateForeignKey(EntityData reqData, String fkProperty, String targetEntity,
-			String messageKey, DataSourceHandler dataSource, ErrorResponseBuilder responseBuilder)
-			throws DatasourceException {
-		if (reqData.contains(fkProperty)) {
-			Object value = reqData.getElementValue(fkProperty);
-			EntityData entity = dataSource.executeRead(targetEntity, Collections.singletonMap(PROPERTY_ID, value),
-					Collections.singletonList(PROPERTY_ID));
-			if (entity == null) {
-				addErrorMessage(responseBuilder, fkProperty, messageKey, value);
 				return false;
 			}
 		}
