@@ -1,5 +1,7 @@
-using teched.flight.trip as flight from '../db/space-model';
-using teched.space.trip as space from '../db/space-model';
+using {
+    teched.flight.trip as flight,
+    teched.space.trip  as space
+} from '../db';
 
 service BookingService {
 
@@ -16,4 +18,9 @@ service BookingService {
     @readonly entity Spacelines  as projection on space.SpaceFlightCompanies;
     @readonly entity Planets     as projection on space.AstronomicalBodies;
 
+    // ---------------------------------------------------------------------------------------------------------------------
+    // Add projections on Customers to BookingService
+    // ---------------------------------------------------------------------------------------------------------------------
+    entity Customers as projection on flight.Customers;
+    entity CustomersRemote as projection on flight.CustomersRemote;
 }

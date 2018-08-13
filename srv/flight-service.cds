@@ -1,5 +1,7 @@
-using teched.flight.trip as flight from '../db/space-model';
-using teched.space.trip as space from '../db/space-model';
+using {
+    teched.flight.trip as flight,
+    teched.space.trip  as space
+} from '../db';
 
 service FlightService {
     entity EarthRoutes   as projection on flight.EarthRoutes;

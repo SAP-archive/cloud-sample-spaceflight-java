@@ -276,8 +276,7 @@
 			"has_header": true
 		},
 		"import_settings": {
-			"import_columns": ["ID", "BOOKINGNO", "NUMBEROFPASSENGERS", "DATEOFTRAVEL", "COST", "CUSTOMERNAME", "EMAILADDRESS",
-				"ITINERARY_ID"
+			"import_columns": ["ID", "BOOKINGNO", "NUMBEROFPASSENGERS", "DATEOFTRAVEL", "COST", "CUSTOMER_ID", "ITINERARY_ID"
 			],
 			"include_filter": []
 		},
@@ -287,9 +286,25 @@
 			"NUMBEROFPASSENGERS": "NumberOfPassengers",
 			"DATEOFTRAVEL": "DateOfTravel",
 			"COST": "Cost",
-			"CUSTOMERNAME": "CustomerName",
-			"EMAILADDRESS": "EmailAddress",
+			"CUSTOMER_ID": "Customer_ID",
 			"ITINERARY_ID": "Itinerary_ID"
+		}
+	}
+  , {
+		"target_table": "TECHED_FLIGHT_TRIP_CUSTOMERS",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "customers.csv",
+			"has_header": true
+		},
+		"import_settings": {
+			"import_columns": ["ID", "NAME", "EMAIL"],
+			"include_filter": []
+		},
+		"column_mappings": {
+			"ID": "ID",
+			"NAME": "Name",
+			"EMAIL": "Email"
 		}
 	}
 	]
