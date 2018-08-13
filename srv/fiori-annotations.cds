@@ -1,5 +1,8 @@
 using BookingService as srv from './booking-service';
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Customers
+// ---------------------------------------------------------------------------------------------------------------------
 annotate srv.Customers with {
   ID
     @title: 'ID'
@@ -21,6 +24,9 @@ annotate srv.CustomersRemote with @(
   UI.Identification:  [ {$Type: 'UI.DataField', Value: Name} ]
 );
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Itineraries
+// ---------------------------------------------------------------------------------------------------------------------
 annotate srv.Itineraries with {
   ID   @UI.TextArrangement: #TextOnly;
 };
@@ -28,6 +34,9 @@ annotate srv.Itineraries with @(
   UI.Identification:  [ {$Type: 'UI.DataField', Value: Name} ]
 );
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Bookings
+// ---------------------------------------------------------------------------------------------------------------------
 annotate srv.Bookings with {
   ID
     @title: 'Id';
@@ -56,8 +65,8 @@ annotate srv.Bookings with {
       ValueList: { entity: 'CustomersRemote' }
     };
 };
-
 annotate srv.Bookings with @(
+  // for ListPage (list of bookings)
   UI.LineItem: [
     {$Type: 'UI.DataField', Value: Customer.Name, Label: 'Customer'},
     {$Type: 'UI.DataField', Value: Itinerary.Name, Label : 'Trip'},
@@ -66,7 +75,7 @@ annotate srv.Bookings with @(
     {$Type: 'UI.DataField', Value: Cost},
     {$Type: 'UI.DataField', Value: DateOfBooking},
   ],
-
+  // for object page (booking details)
   UI.HeaderInfo: {
     Title: { Value: Itinerary.Name },
     Description: { Value: Customer.Name },
