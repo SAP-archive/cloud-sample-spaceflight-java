@@ -58,33 +58,7 @@ Branches: `reuse-start`, `reuse-final`
 ## Exercise  Bonus 3 - Switch destination
 
 
-# [Orga]
+## License
 
-## TODOs
-- [X] Organize S/4HANA system for all participants or setup mock server for Business Partner service if S/4HANA not available
-	- [Demo Landscape](https://jam4.sapjam.com/groups/UyIlwc82Pn5KAvJSamK7CW/overview_page/jKX5WXNdMMqSphsl5RFOFN).  See [sample Business Partner query](https://my300448.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner?$top=10) on EAY.
-	- [VLAB Systems](https://wiki.wdf.sap.corp/wiki/display/S4CDPublic/Access+to+VLAB+systems)
-	- [Mock server for Business Partner](https://github.com/SAP/cloud-s4-sdk-book/tree/mock-server)
-- [X] Create storyboard for agengy booker (Rui + Christian)
-- [X] Organize Global account for hands-on session (Rui). We need:
-	- HANA DB (64 GB or 128 GB)
-	- One CF Subaccount per TechEd location
-	- One Neo Subaccount (for creating re-use code)
-	- Quota per session participants (max. 50 participants for 2 sessions each)
-  		- 2 app instances (1GB per instance)
-  		- 1 route
-  		- 1 service
-## [DECISIONs]
-All exercises running on Web IDE!!
-
-### Concept
-![Conceptual UI](pictures/scenarioUI.jpg)
-
-### Entity model
-![Entity model](pictures/FlightModel.png)
-
-### List of bookings
-![Bookings UI](pictures/BookingsUI.png)
-
-### Detail screen
-![Booking UI](pictures/BookingUI.png)
+Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
+This project is licensed under the Apache Software License, Version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
