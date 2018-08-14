@@ -11,9 +11,8 @@ In this exercise you'll learn how to clone the Git repository that contains the 
 #Exercise description
 
 
+Login with user id on WebIDE directly!
 ![Log on screen](../../pictures/pic003.png)
-
-![Log on screen](../../pictures/pic004.png)
 
 ![Log on screen](../../pictures/pic005.png)
 
