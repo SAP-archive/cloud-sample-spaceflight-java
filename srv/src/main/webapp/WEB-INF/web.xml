@@ -58,10 +58,6 @@
 	<listener>
 		<listener-class>com.sap.cloud.sdk.service.prov.v2.rt.core.web.ServletListener</listener-class>
 	</listener>
-	<context-param>
-		<param-name>package</param-name>
-		<param-value>com.sap.cloudsamples.spaceflight</param-value>
-	</context-param>
 	<!--listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
