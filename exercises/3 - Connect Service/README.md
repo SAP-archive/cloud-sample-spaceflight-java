@@ -1,4 +1,4 @@
-# Exercise 03: Connect an S/4HANA business service (business partner)
+# Exercise 03: Connect an S/4HANA service (business partner)
 
 ## Estimated time
 
