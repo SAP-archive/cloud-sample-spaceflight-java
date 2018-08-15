@@ -50,15 +50,22 @@ In this exercise you'll learn how to ....
 12. xxxx
 ![TBD](pic311.png)
 
-13. xxxx
+## 2. Change model
+
+1. xxxx
 ![TBD](pic312.png)
 
-14. xxxx
+2. xxxx
 ![TBD](pic313.png)
 
+3. xxxx
+![TBD](pic314.png)
 
-## 2. Change model: add Bookings.Customer
 
 ## 3. Change custom code: add S/4 calls
+
+1. xxxx
+![TBD](pic315.png)
+![TBD](pic316.png)
 
 ## 4. Adjust UI to show business partner
