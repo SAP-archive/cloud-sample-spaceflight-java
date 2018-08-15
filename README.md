@@ -22,7 +22,7 @@ Branches: `master`
 - Build (and deploy) _db_ module
   - Check logs
   - Open HDI container, browse data
-  - Explore data model (no reuse of spaceflight, but all in one project)
+  - Explore data model (no reuse of spaceflight, but all in one project). [Entity model picture](pictures/FlightModel.png) can be used.
 - Run _srv_ module, open URL
   - Browse edmx (`$metadata`), and entities, e.g. _Airlines_, `$count`
   - Browse _srv_ folder
