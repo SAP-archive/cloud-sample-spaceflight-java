@@ -72,7 +72,7 @@ public class BookingsHandler {
 		EntityDataBuilder entityBuilder = EntityData.getBuilder(reqData);
 
 		// get the booking's customer from remote, and store it in the local DB
-		success &= fetchAndSaveCustomer(reqData, dataSource, errorResponseBuilder);
+//		success &= fetchAndSaveCustomer(reqData, dataSource, errorResponseBuilder);
 
 		if (!success) {
 			return new PreExtensionResponseImpl(
@@ -92,21 +92,21 @@ public class BookingsHandler {
 	 * 
 	 * @return <code>false</code> in case of errors
 	 */
-	private static boolean fetchAndSaveCustomer(EntityData reqData, DataSourceHandler dataSource,
-			ErrorResponseBuilder errorResponseBuilder) {
-		if (reqData.contains(PROPERTY_BOOKING_CUSTOMERID)) {
-			String custId = String.valueOf(reqData.getElementValue(PROPERTY_BOOKING_CUSTOMERID));
-			try {
-				Customer customer = CustomersReplicator.fetchCustomer(custId, true);
-				CustomersReplicator.saveCustomer(customer, dataSource);
-			} catch (Exception e) {
-				logger.error(e.getMessage(), e);
-				addErrorMessage(errorResponseBuilder, PROPERTY_BOOKING_CUSTOMERID, "NoSuchCustomer", custId);
-				return false;
-			}
-		}
-		return true;
-	}
+//	private static boolean fetchAndSaveCustomer(EntityData reqData, DataSourceHandler dataSource,
+//			ErrorResponseBuilder errorResponseBuilder) {
+//		if (reqData.contains(PROPERTY_BOOKING_CUSTOMERID)) {
+//			String custId = String.valueOf(reqData.getElementValue(PROPERTY_BOOKING_CUSTOMERID));
+//			try {
+//				Customer customer = CustomersReplicator.fetchCustomer(custId, true);
+//				CustomersReplicator.saveCustomer(customer, dataSource);
+//			} catch (Exception e) {
+//				logger.error(e.getMessage(), e);
+//				addErrorMessage(errorResponseBuilder, PROPERTY_BOOKING_CUSTOMERID, "NoSuchCustomer", custId);
+//				return false;
+//			}
+//		}
+//		return true;
+//	}
 
 	private static void addErrorMessage(ErrorResponseBuilder responseBuilder, String target, String messageKey,
 			Object... messageArgs) {

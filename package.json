@@ -1,22 +1,8 @@
 {
   "name": "spaceflight",
   "version": "0.1.0",
-  "dependencies": {
-    "@sap/cds": "2.x"
-  },
-  "devDependencies": {
-    "npm-watch": "^0.3.0"
-  },
-  "watch": {
-    "build": {
-      "patterns": ["db", "srv"],
-      "extensions": "cds",
-      "inherit": true
-    }
-  },
   "scripts": {
-    "build": "cds build --clean",
-    "watch": "npm-watch"
+    "build": "node node_modules/@sap/cds/bin/cds.js build --clean"
   },
   "license": "ISC"
 }

@@ -21,6 +21,6 @@ service BookingService {
     // ---------------------------------------------------------------------------------------------------------------------
     // Add projections on Customers to BookingService
     // ---------------------------------------------------------------------------------------------------------------------
-    entity Customers as projection on flight.Customers;
-    entity CustomersRemote as projection on flight.CustomersRemote;
+    // entity Customers as projection on flight.Customers;
+    // entity CustomersRemote as projection on flight.CustomersRemote;
 }
