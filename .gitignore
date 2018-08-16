@@ -10,7 +10,8 @@ srv/.settings/org.eclipse.m2e.*
 srv/.settings/org.eclipse.wst.*
 .xmake/
 srv/src/main/resources/edmx/
-gen/
+db/src/gen/
+/gen/
 imports/
 node/
 /app/node_modules/
