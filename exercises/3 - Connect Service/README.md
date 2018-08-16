@@ -14,58 +14,78 @@ In this exercise you'll learn how to ....
 
 
 1. For this exercise you have to switch to another code branch of the code you've cloned from Github. Click on the symbol on the right of the browser and click on `Pull` and after that on the `Fetch` symbol.
-![TBD](pic301.png)
+![TBD](res/pic301.png)
 
 2. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
 
-![TBD](pic302.png)
+![TBD](res/pic302.png)
 
 3. Not sure what we have done here before TBD TBD TBD
-![TBD](pic303.png)
+![TBD](res/pic303.png)
 
 4. xxxx
-![TBD](pic304.png)
+![TBD](res/pic304.png)
 
 5. xxxx
-![TBD](pic305.png)
+![TBD](res/pic305.png)
 
 6. xxxx
-![TBD](pic306.png)
+![TBD](res/pic306.png)
 
 7. xxxx
-![TBD](pic306.png)
+![TBD](res/pic306.png)
 
 8. xxxx
-![TBD](pic307.png)
+![TBD](res/pic307.png)
 
 9. xxxx
-![TBD](pic308.png)
+![TBD](res/pic308.png)
 
 10. xxxx
-![TBD](pic309.png)
+![TBD](res/pic309.png)
 
 11. xxxx
-![TBD](pic310.png)
+![TBD](res/pic310.png)
 
 12. xxxx
-![TBD](pic311.png)
+![TBD](res/pic311.png)
 
 ## 2. Change model
 
 1. xxxx
-![TBD](pic312.png)
+![TBD](res/pic312.png)
 
 2. xxxx
-![TBD](pic313.png)
+![TBD](res/pic313.png)
 
 3. xxxx
-![TBD](pic314.png)
+![TBD](res/pic314.png)
 
+4. xxxx
+![TBD](res/pic319.png)
+![TBD](res/pic320.png)
 
 ## 3. Change custom code: add S/4 calls
 
-1. xxxx
-![TBD](pic315.png)
-![TBD](pic316.png)
+1. Adjust `CustomersRemoteHandler`
+![TBD](res/pic317.png)
+![TBD](res/pic318.png)
+
+2. Run
+![TBD](res/pic321.png)
+![TBD](res/pic322.png)
+
+3. Browse
+![TBD](res/pic323.png)
+![TBD](res/pic324.png)
+![TBD](res/pic325.png)
+
+4. Adjust `BookingsHandler`
+![TBD](res/pic315.png)
+![TBD](res/pic316.png)
+
+5. Run again
+![TBD](res/pic321.png)
+
 
 ## 4. Adjust UI to show business partner
