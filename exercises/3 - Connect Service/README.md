@@ -52,40 +52,64 @@ In this exercise you'll learn how to ....
 
 ## 2. Change model
 
-1. xxxx
+1. Remove comments in `db/index.cds`
 ![TBD](res/pic312.png)
-
-2. xxxx
 ![TBD](res/pic313.png)
 
-3. xxxx
+2. Remove comments in `srv/booking-service.cds`
 ![TBD](res/pic314.png)
 
-4. xxxx
+3. Deploy to the database
+
 ![TBD](res/pic319.png)
 ![TBD](res/pic320.png)
+
+4. Browse the database
+
+![TBD](res/pic326.png)
+
 
 ## 3. Change custom code: add S/4 calls
 
 1. Adjust `CustomersRemoteHandler`
+
 ![TBD](res/pic317.png)
 ![TBD](res/pic318.png)
 
 2. Run
+
 ![TBD](res/pic321.png)
 ![TBD](res/pic322.png)
 
 3. Browse
+
 ![TBD](res/pic323.png)
 ![TBD](res/pic324.png)
 ![TBD](res/pic325.png)
 
-4. Adjust `BookingsHandler`
+
+## 4. Show business partner
+1. Adjust `BookingsHandler`
+
 ![TBD](res/pic315.png)
 ![TBD](res/pic316.png)
 
 5. Run again
+
 ![TBD](res/pic321.png)
 
+6. Adjust UI
 
-## 4. Adjust UI to show business partner
+![TBD](res/pic327.png)
+![TBD](res/pic328.png)
+![TBD](res/pic330.png)
+![TBD](res/pic329.png)
+
+7. Run UI
+
+![TBD](res/pic331.png)
+![TBD](res/pic332.png)
+![TBD](res/pic333.png)
+![TBD](res/pic334.png)
+![TBD](res/pic335.png)
+
