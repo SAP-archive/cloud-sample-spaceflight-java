@@ -1,4 +1,4 @@
-# Exercise 04: How to build your own reuse model and consume it in your app
+# Exercise 04: How to consume a reuse model in your app
 
 ## Estimated time
 
