@@ -13,10 +13,9 @@ In this exercise you'll learn how to add a remote service to your app which fetc
 ## 1. Import S/4 HANA service
 
 1. For this exercise you have to switch to another code branch of the cloned Github repository. In the Git pane, click the '+' icon to create a new local and link it to the desired remote branch. 
-
 <div style="text-align: center"><img src="res/pic301.png" width="400" height="200"></div>
-
 <center><img src="res/pic301.png" alt="Create local branch" width="400px"/></center>
+<img src="res/pic301.png" alt="Create local branch" width="400px"/>
 
 Select the branch names as shown in the picture:
 
