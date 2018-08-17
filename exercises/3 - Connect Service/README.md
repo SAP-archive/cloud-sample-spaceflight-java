@@ -17,7 +17,6 @@ In this exercise you'll learn how to ....
 ![TBD](res/pic301.png)
 
 2. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
-
 ![TBD](res/pic302.png)
 
 3. Not sure what we have done here before TBD TBD TBD
