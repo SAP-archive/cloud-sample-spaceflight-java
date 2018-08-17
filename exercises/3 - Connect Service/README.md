@@ -6,15 +6,22 @@
 
 ## Objective
 
-In this exercise you'll learn how to ....
+In this exercise you'll learn how to add a remote service to your app which fetches customer data from an S/4 system. This data will be read once and then cached in your application database.
 
 # Exercise description
 
 ## 1. Import S/4 HANA service
 
+1. For this exercise you have to switch to another code branch of the cloned Github repository. In the Git pane, click the '+' icon to create a new local and link it to the desired remote branch. 
 
-1. For this exercise you have to switch to another code branch of the code you've cloned from Github. Click on the symbol on the right of the browser and click on `Pull` and after that on the `Fetch` symbol.
-![TBD](res/pic301.png)
+<center><img src="res/pic301.png" alt="Create local branch" width="400px"/></center>
+
+Select the branch names as shown in the picture:
+
+
+
+Click on the symbol on the right of the browser and click on `Pull` and after that on the `Fetch` symbol.
+
 
 2. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
 ![TBD](res/pic302.png)
