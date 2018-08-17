@@ -6,7 +6,7 @@
 
 ## Objective
 
-In this exercise you'll learn how to reuse CDS model code from other applications.
+In this exercise you'll learn how to reuse CDS model code from other applications.  Also you will see how our application benefits from generic runtime functionality for administrative fields, which are enabled through OData annotations.
 
 # Exercise description
 
@@ -66,3 +66,15 @@ In this exercise you'll learn how to reuse CDS model code from other application
 
   ![index.cds](res/13.png)
   These are admin data from `node_modules/@sap/cds/common.cds`, which we inherit through `node_modules/spaceflight-model/db/common.cds`.
+
+- Restart application
+  ![index.cds](res/14.png)
+
+- Let's create a booking...
+  ![index.cds](res/15.png)
+
+  ... and display it aftwards.
+  ![index.cds](res/16.png)
+
+  _Booking date_ and _Booked by_ have been filled automatically.  This is possible since the underlying fields `Bookings.createdAt` and `Bookings.createdBy` are annotated such that the generic OData handlers know how to fill them (see `node_modules/@sap/cds/common.cds` for the annotations).
+  > Normally with authentication enabled, the proper login user would be set for the `createdBy` field.  Without authentication, however, we just see Cloud Foundry's generic `vcap` user.
