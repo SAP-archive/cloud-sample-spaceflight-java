@@ -6,7 +6,7 @@
 
 ## Objective
 
-In this exercise you'll learn how to reuse CDS model code from other applications.
+In this exercise you'll learn how to reuse CDS model code from other applications.  Also you will see how our application benefits from generic runtime functionality for administrative fields, which are enabled through OData annotations.
 
 # Exercise description
 
