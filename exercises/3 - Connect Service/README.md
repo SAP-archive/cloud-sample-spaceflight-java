@@ -26,7 +26,7 @@ In this exercise you'll learn how to add a remote service to your app which fetc
 ![API Hub Search](res/pic303b.png)
 
 5. Select the first search result ("OData Service for Business Partner"). On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX"
-![TBD](res/pic303c.png)
+<p align="center"><img width="470" src="res/pic303c.png" alt="Select OData API" border=1> </p>
 Store this file to your local computer.
 
 6. Import the service model into your project: Switch back to SAP Web IDE and import the selected file as an external service definition.
