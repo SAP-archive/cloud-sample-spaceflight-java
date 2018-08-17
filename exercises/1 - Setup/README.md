@@ -10,7 +10,10 @@ In this exercise you'll learn how to clone the Git repository that contains the 
 
  Exercise description
 
-## 1. Access the WebIDE
+
+## 1. Setup the Cloud Foundry settings (TBD by Rui)
+
+## 2. Access the WebIDE
 
 1. In a first step you need to access the WebIDE. Therefore click on [this link](https://webide.sap.com/xxx) and log on with the credentials provided to you by the instructors of the SAP TechEd 2018 session CNA376.
 
