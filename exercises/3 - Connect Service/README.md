@@ -29,21 +29,17 @@ In this exercise you'll learn how to add a remote service to your app which fetc
 <p align="center"><img width="470" src="res/pic303c.png" alt="Select OData API" border=1> </p>
 Store this file to your local computer.
 
-6. Import the service model into your project: Switch back to SAP Web IDE and import the selected file as an external service definition.
+6. Import the service model into your project: Switch back to SAP Web IDE and import the file stored on your computer as an external service definition, by right-mouse-click on the ``srv`` folder, then selecting "New" -> "DataModel from External Service":  
 ![TBD](res/pic306.png)
 
+7. In the wizard, import the previously stored file from your computer. Then press "Next".
+![TBD](res/pic308a.png)
 
-9. xxxx
-![TBD](res/pic308.png)
-
-10. xxxx
-![TBD](res/pic309.png)
-
-11. xxxx
+8. Uncheck the box "Generate Virtua Data Model classes" and press "Finish":
 ![TBD](res/pic310.png)
 
-12. xxxx
-![TBD](res/pic311.png)
+9. Verify that the import has generated two servie definitions, one in xml format ("edmx"), the other in json format ("cson").
+<p align="center"><img width="350" src="res/pic311.png" alt="Imported files" border=1> </p>
 
 ## 2. Change model
 
