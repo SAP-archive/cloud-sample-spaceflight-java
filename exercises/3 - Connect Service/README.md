@@ -62,13 +62,11 @@ Store this file to your local computer.
 
 ## 3. Change Java handler code: add S/4 calls
 
-1. Adjust `CustomersRemoteHandler`
-
+1. Adjust `CustomersRemoteHandler`: Change the line comments as indicated in the pictures.
 ![TBD](res/pic317.png)
 ![TBD](res/pic318.png)
 
 2. Run
-
 ![TBD](res/pic321.png)
 ![TBD](res/pic322.png)
 
