@@ -26,7 +26,9 @@ public class CustomersRemoteHandler {
 	public ReadResponse readSingleCustomerByKey(ReadRequest readRequest) throws ODataException {
 		// fetch the given customer from remote
 		String id = String.valueOf(readRequest.getKeys().get(Customer.ID_PROP));
-		Customer customer = CustomersReplicator.fetchCustomer(id, true);
+
+//		Customer customer = new Customer(id, "<n/a>");     // create dummy customer if no external service is used
+		Customer customer = CustomersReplicator.fetchCustomer(id, true);  // get customer from S/4 if external service has been imported
 
 		return ReadResponse.setSuccess().setData(customer).response();
 	}
@@ -40,7 +42,9 @@ public class CustomersRemoteHandler {
 		boolean includeAddress = qryRequest.getSelectProperties().contains(Customer.EMAIL_PROP);
 		int top = qryRequest.getTopOptionValue();
 		int skip = qryRequest.getSkipOptionValue();
-		List<Customer> customers = CustomersReplicator.fetchCustomers(includeAddress, top, skip);
+
+//		List<Customer> customers = Collections.emptyList(); // empty list if no external service is used
+		List<Customer> customers = CustomersReplicator.fetchCustomers(includeAddress, top, skip); // fetch customers if external service is used
 
 		return QueryResponse.setSuccess().setData(customers).response();
 	}
