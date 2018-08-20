@@ -41,7 +41,7 @@ Store this file to your local computer.
 9. Verify that the import has generated two servie definitions, one in xml format ("edmx"), the other in json format ("cson").
 <p align="center"><img width="350" src="res/pic311.png" alt="Imported files" border=1> </p>
 
-## 2. Change model
+## 2. Incorporate external entities into data and service model
 
 1. Remove comments in `db/index.cds`
 ![TBD](res/pic312.png)
@@ -60,7 +60,7 @@ Store this file to your local computer.
 ![TBD](res/pic326.png)
 
 
-## 3. Change custom code: add S/4 calls
+## 3. Change Java handler code: add S/4 calls
 
 1. Adjust `CustomersRemoteHandler`
 
