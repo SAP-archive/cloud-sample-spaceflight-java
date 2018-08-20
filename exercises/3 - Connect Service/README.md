@@ -56,49 +56,55 @@ Store this file to your local computer.
 ![TBD](res/pic320.png)
 
 4. Browse the database
+<p align="center"><img width="400" src="res/pic326.png" alt="Browse the database" border=1> </p>
 
-![TBD](res/pic326.png)
 
 
 ## 3. Change Java handler code: add S/4 calls
 
-1. Adjust `CustomersRemoteHandler`: Change the line comments as indicated in the pictures.
+1. Adjust `CustomersRemoteHandler.java`: Change the line comments as indicated in the pictures.
 ![TBD](res/pic317.png)
 ![TBD](res/pic318.png)
 
-2. Run
-![TBD](res/pic321.png)
+2. Run the Java application
+<p align="center"><img width="500" src="res/pic321.png" alt="Run Java app" border=1> </p>
+
+3. Browse the Booking Service. Click the url of the Java application in the run console:
 ![TBD](res/pic322.png)
 
-3. Browse
-
+4. Select the BookingService endpoint to see the service metadata. 
 ![TBD](res/pic323.png)
+Check the data retreived as "Bookings" and as "CustomerRemote". 
 ![TBD](res/pic324.png)
 ![TBD](res/pic325.png)
+Remote customers (read from S/4) are not yet persisted in our database ...
 
-
-## 4. Show business partner
-1. Adjust `BookingsHandler`
-
+## 4. Prepare storing S/4 customers in the local database
+1. Adjust `BookingsHandler.java`. Remove the line comments to match the following pictures.
 ![TBD](res/pic315.png)
 ![TBD](res/pic316.png)
 
-5. Run again
+2. Run again
+<p align="center"><img width="500" src="res/pic321.png" alt="Run Java app" border=1> </p>
 
-![TBD](res/pic321.png)
+## Create bookings for S/4 customers
 
-6. Adjust UI
-
+1. Adjust UI: The UI can be adapted when adding/changing Fiori annotations to CDS models. Remove the line comments for the section marked in the following figures:
 ![TBD](res/pic327.png)
 ![TBD](res/pic328.png)
 ![TBD](res/pic330.png)
 ![TBD](res/pic329.png)
 
-7. Run UI
+2. Run the UI within SAP Web IDE
+<p align="center"><img width="600" src="res/pic331.png" alt="Imported files" border=1> </p>
 
-![TBD](res/pic331.png)
-![TBD](res/pic332.png)
-![TBD](res/pic333.png)
+<p align="center"><img width="600" src="res/pic332.png" alt="Imported files" border=1> </p>
+
+<p align="center"><img width="700" src="res/pic333.png" alt="Imported files" border=1> </p>
+
+3. Create a new booking for an S/4 customer
 ![TBD](res/pic334.png)
+
+4. Check that this S/4 customer has been persisted (cached) in the database
 ![TBD](res/pic335.png)
 
