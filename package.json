@@ -1,0 +1,8 @@
+{
+  "name": "spaceflight",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "node node_modules/@sap/cds/bin/cds.js build --clean"
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,64 @@
+_schema-version: "2.0.0"
+ID: spacetravel
+version: 1.0.0
+
+modules:
+ - name: spacetravel-db
+   type: hdb
+   path: db
+   parameters:
+     memory: 256M
+   requires:
+     - name: spacetravel-hdi
+
+ - name: spacetravel-srv
+   type: java
+   path: srv
+   parameters:
+      memory: 768M
+   provides:
+    - name: srv_api
+      properties:
+         url: ${default-url}
+   requires:
+    - name: spacetravel-hdi
+      properties:
+         JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
+            {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
+    - name: spacetravel-dest
+    - name: spacetravel-uaa
+
+ - name: spacetravel-app
+   type: html5
+   path: app
+   parameters:
+      memory: 256M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: srv_api
+      group: destinations
+      properties:
+         forwardAuthToken: true
+         strictSSL: false
+         name: srv_api
+         url: ~{url}
+    - name: spacetravel-uaa
+
+resources:
+ - name: spacetravel-hdi
+   properties:
+     hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+
+ - name: spacetravel-uaa
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+   type: com.sap.xs.uaa
+
+ - name: spacetravel-dest
+   parameters:
+      service: destination
+      service-plan: lite
+   type: org.cloudfoundry.managed-service
