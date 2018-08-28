@@ -1,0 +1,11 @@
+{
+  "name": "spaceflight",
+  "version": "0.1.0",
+  "dependencies": {
+    "@sap/cds": "2.x"
+  },
+  "scripts": {
+    "build": "cds build --clean"
+  },
+  "license": "ISC"
+}

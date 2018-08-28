@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.sap.cloud.servicesdk.prov</groupId>
+		<artifactId>projects-parent-odatav2</artifactId>
+		<version>1.18.0</version>
+	</parent>
+	<groupId>com.sap.cloudsamples.spaceflight</groupId>
+	<artifactId>spacetravel-srv</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<properties>
+		<packageName>${project.groupId}</packageName>
+	</properties>
+	<dependencies>
+</dependencies>
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>npm install(initialize)</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<executable>npm</executable>
+							<workingDirectory>${project.basedir}/../</workingDirectory>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm run build cds</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<!--assuming npm is in the $PATH -->
+							<executable>npm</executable>
+							<workingDirectory>${project.basedir}/../</workingDirectory>
+							<arguments>
+								<argument>run</argument>
+								<argument>build</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<packagingExcludes>**/connection.properties*</packagingExcludes>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+	</build>
+	<profiles>
+		<profile>
+			<activation>
+				<property>
+					<name>devmode</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<webResources combine.children="append">
+								<resource>
+									<directory>${project.build.sourceDirectory}</directory>
+									<targetPath>sources</targetPath>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

@@ -1,0 +1,11 @@
+ID,Name,SolarDistance,SurfaceGravity
+1,Mercury,0.387098,0.38
+2,Venus,0.723875,0.904
+3,Earth,1.0,1.0
+4,Moon,1.0,0.1654
+5,Mars,1.524,0.376
+6,Jupiter,5.07725,2.528
+7,Saturn,9.5825,1.065
+8,Uranus,19.22,0.886
+9,Neptune,30.07,1.14
+10,Pluto,39.4815,0.063

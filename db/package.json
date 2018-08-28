@@ -1,0 +1,12 @@
+{
+	"name": "deploy",
+	"dependencies": {
+		"@sap/hdi-deploy": "3.7.0"
+	},
+	"scripts": {
+		"build": "node build.js",
+		"postinstall": "npm run build",
+		"deploy": "npm run build && cf push -f manifest.yml",
+		"start": "node node_modules/@sap/hdi-deploy/deploy.js --auto-undeploy --treat-unmodified-as-modified"
+	}
+}
