@@ -7,5 +7,5 @@
   "scripts": {
     "build": "cds build --clean"
   },
-  "license": "ISC"
+  "license": "SEE LICENSE IN LICENSE"
 }
