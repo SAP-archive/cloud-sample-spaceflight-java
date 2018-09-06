@@ -11,7 +11,7 @@ modules:
    requires:
      - name: spacetravel-hdi
 
- - name: spacetravel-srv
+ - name: srv
    type: java
    path: srv
    parameters:
