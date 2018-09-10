@@ -42,28 +42,18 @@ Branches: `reuse-start`, `reuse-final`
 - Add dependency to `@sap/cds/common` to add admin data
 
 
-### Exercise 08: Bonus 1 - I18N
-- Extract some texts
-- Deploy
-- Change browser language, see effect
-
-### Exersice 07: Bonus 2 - Authentication
-- UAA binding
-- Effect: logon needed
-
-### Exercise  Bonus 3 - Switch destination
-
-
 ## Requirements
 
-### For SAP TechEd
-SAP TechEd will provide you with a full environment to develop this sample application.  The instructions below are only needed if you wish to run the application in your own account on SAP cloud platform.
+### For SAP TechEd 2018
+SAP TechEd will provide you with a full environment to develop this sample application. The instructions below are only needed if you wish to run the application in your own account on SAP Cloud Platform.
 
 ### Development in SAP Cloud Platform Web IDE
 
 SAP Web IDE Full-Stack access is needed. For more information, see [Open SAP Web IDE](https://help.sap.com/viewer/825270ffffe74d9f988a0f0066ad59f0/CF/en-US/51321a804b1a4935b0ab7255447f5f84.html).
 
 Read the [getting started tutorial](https://help.sap.com/viewer//65de2977205c403bbc107264b8eccf4b/Cloud/en-US/5ec8c983a0bf43b4a13186fcf59015fc.html) to learn more about working with SAP Cloud Platform Web IDE.
+
+A **HANA instance** is needed in your account, so that you can deploy the persistence assets.
 
 Now clone your fork of this repository (*File -> Git -> Clone Repository*).
 

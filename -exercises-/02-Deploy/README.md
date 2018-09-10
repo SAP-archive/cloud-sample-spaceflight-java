@@ -28,9 +28,12 @@ In this exercise you'll have a look into the data model of the application and y
 4. Now that the HDI container has been created, we can look into it. Right-click again on the `db` folder and select `Open HDI container`.
 
 <p align="center"><img width="640" src="res/pic104.png" alt="Open HDI container"> </p>
+
+5. When asked whether to add any database, simply click `No`, as the database connection will be added automatically in this case.
+
 <p align="center"><img width="480" src="res/pic105.png" alt="Database Explorer message"> </p>
 
-5. TBD: Selecting the right database
+
 
 6. Click on the `Tables` icon on the left, select the table 'TECHED_FLIGHT_TRIP_BOOKINGS` and you'll be presented at the right, with the schema definition.
 
@@ -74,3 +77,18 @@ In this exercise you'll have a look into the data model of the application and y
 2. Select the file `flpSandbox.html` and click on the `OK` button.
 
 <p align="center"><img width="640" src="res/pic302.png" alt="Select app"> </p>
+
+3. If you get this pop-up provide your email address the account password.
+
+<p align="center"><img width="640" src="res/pic303.png" alt="Select app"> </p>
+
+4. Once the app is created it will open-up automatically. Click on the tile `app`
+
+<p align="center"><img width="640" src="res/pic304.png" alt="Select app"> </p>
+
+5. Click on the `Go` button to fetch the data from the database.
+
+<p align="center"><img width="640" src="res/pic305.png" alt="Select app"> </p>
+
+6. You can get to the details for each booking, by clicking on one of them.
+<p align="center"><img width="640" src="res/pic306.png" alt="Select app"> </p>
