@@ -14,32 +14,32 @@ In this exercise you'll have a look into the data model of the application and y
 
 1. Click on the folder `db` of your project, right-click on it and click on `Build > Build`
 
-<p align="center"><img width="860" src="res/pic101.png" alt="Log on screen"> </p>
+<p align="center"><img width="480" src="res/pic101.png" alt="Build the database"> </p>
 
 > During this step the data model is being transformed into the respective HANA artifacts and a **HDI Container** is being created.
 
 2. While the HANA artifacts are being created open the `db` folder, double-click on the file `flight-model.cds` and have a look into the definition of the data model. 
-<p align="center"><img width="860" src="res/pic102.png" alt="Log on screen"> </p>
+<p align="center"><img width="860" src="res/pic102.png" alt="The flight model"> </p>
 
-3. Once the HANA artifacts are created, you should see in the screen at the bottom a respective message like `Build of /cloud-sample-spaceflight-java/db completed successfully`
+3. Once the HANA artifacts are created, you should see in the screen at the bottom (the console) a respective message like `Build of /cloud-sample-spaceflight-java/db completed successfully`
 
-<p align="center"><img width="640" src="res/pic103.png" alt="Log on screen"> </p>
+<p align="center"><img width="640" src="res/pic103.png" alt="Console screen with console output"> </p>
 
 4. Now that the HDI container has been created, we can look into it. Right-click again on the `db` folder and select `Open HDI container`.
 
-<p align="center"><img width="640" src="res/pic104.png" alt="Log on screen"> </p>
-<p align="center"><img width="320" src="res/pic105.png" alt="Log on screen"> </p>
+<p align="center"><img width="640" src="res/pic104.png" alt="Open HDI container"> </p>
+<p align="center"><img width="480" src="res/pic105.png" alt="Database Explorer message"> </p>
 
 5. TBD: Selecting the right database
 
-5. Click on the `Tables` icon on the left, select the table 'TECHED_FLIGHT_TRIP_BOOKINGS` and you'll be presented at the right, with the schema definition.
+6. Click on the `Tables` icon on the left, select the table 'TECHED_FLIGHT_TRIP_BOOKINGS` and you'll be presented at the right, with the schema definition.
 
 <p align="center"><img width="860" src="res/pic110.png" alt="See data schema"> </p>
 
-6. If you want to see the pre-filled data, click on the `Open Data` button on the top right.
+7. If you want to see the pre-filled data, click on the `Open Data` button on the top right.
 
-<p align="center"><img width="480" src="res/pic111.png" alt="Log on screen"> </p>
-<p align="center"><img width="860" src="res/pic112.png" alt="Click on Open Data button"> </p>
+<p align="center"><img width="480" src="res/pic111.png" alt="Click on Open Data button"> </p>
+<p align="center"><img width="860" src="res/pic112.png" alt="Data view"> </p>
 
 > The data you see here is maintained in the resource folder `db > src > csv`. 
 <p align="center"><img width="860" src="res/pic113.png" alt="CSV files in db folder"> </p>

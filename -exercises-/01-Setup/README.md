@@ -15,7 +15,7 @@ In this exercise you'll learn how to clone the Git repository that contains the 
 1. In a first step you need to access the WebIDE of your account. For the hands-on session **CNA376** at SAP TechEd 2018 use the link provided to you by the session instructors along with the corresponding credentials.
 <p align="center"><img width="420" src="res/pic100.png" alt="Log on screen"> </p>
 
-2. In case you are asked to upgrade your account pleae set a tick at the field `I acknowledge...` and provide your First Name (e.g. CNA376) and your Last Name "xxx".
+2. In case you are asked to upgrade your account, please set the tick at the field `I acknowledge...` and provide your First Name (e.g. CNA376) and your Last Name "xxx".
 
 <p align="center"><img width="420" src="res/pic101.png" alt="Upgrade account"> </p>
 
@@ -45,7 +45,7 @@ In this exercise you'll learn how to clone the Git repository that contains the 
 ## 3. Clone the code
 
 1. Switch to the `Development` view in your workspace.
-<p align="center"><img width="320" src="res/pic301.png" alt="Switch to development view"> </p>
+<p align="center"><img width="480" src="res/pic301.png" alt="Switch to development view"> </p>
 
 
 2. Now, right click on the Workspace text in the WebIDE and select `Git > Clone Repository `
@@ -56,7 +56,7 @@ In this exercise you'll learn how to clone the Git repository that contains the 
 
 <p align="center"><img width="320" src="res/pic303.png" alt="Git URL"> </p>
 
-4. You should see now the code that was cloned into your WebIDE workspace. 
+4. You should see now the code that was cloned into your Web IDE workspace. 
 
 <p align="center"><img width="640" src="res/pic304.png" alt="Git URL"> </p>
 

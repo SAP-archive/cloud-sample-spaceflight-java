@@ -12,10 +12,12 @@ In this exercise you'll learn how to reuse CDS model code from other application
 
 ## 1. Preparation
 1. For this exercise you have to switch to another code branch of the code you've cloned from Github. Click on the symbol on the right of the browser and click on `Pull` and after that on the `Fetch` symbol.
-![New branch](res/1.png)
+
+<p align="center"><img width="640" src="res/1.png" alt="New branch"> </p>
 
 2. Checkout the `reuse-start` branch:
-![Checkout reuse-start branch](res/2.png)
+<p align="center"><img width="480" src="res/2.png" alt="Checkout reuse-start branch"> </p>
+
 
 2. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
 
@@ -25,56 +27,55 @@ In this exercise you'll learn how to reuse CDS model code from other application
 ## 2. Add dependency to base model repo
 
 1. Locate `package.json` at root level
+<p align="center"><img width="320" src="res/3.png" alt="package.json"> </p>
 
-![package.json](res/3.png)
 
 2. Adjust `package.json` in the following two places
-![package.json](res/4.png)
-![package.json](res/5.png)
+<p align="center"><img width="480" src="res/4.png" alt="package.json"> </p>
+<p align="center"><img width="480" src="res/5.png" alt="package.json"> </p>
 
 3. Let's see which files we get from the imported model
 
 - Execute _Build CDS_ on the project
-
-  ![Build cds](res/9.png)
+<p align="center"><img width="640" src="res/9.png" alt="Build cds"> </p>
 
 - Find `node_modules/spaceflight-model` and see the model files
-
-  ![Browse node_modules](res/10.png)
+<p align="center"><img width="320" src="res/10.png" alt="Browse node_modules"> </p>
 
 4. Remove redundant model code
 
 - Delete files `common.cds`, `flight-model.cds`, and `space-model.cds`.  These files are now used from the reuse model.
-  ![Delete files](res/7.png)
+<p align="center"><img width="480" src="res/7.png" alt="Delete files"> </p>
+
 
 - Remove the first two lines of `index.cds`.  Comment in the last line.
-  ![index.cds](res/6.png)
+<p align="center"><img width="860" src="res/6.png" alt="index.cds"> </p>
 
 - Comment in the first line of `srv/booking-service.cds`.  Remove the rest of the lines.
-  ![booking-service.cds](res/8.png)
+<p align="center"><img width="640" src="res/8.png" alt="booking-service.cds"> </p>
 
 
 5. Deploy to database
-  ![index.cds](res/11.png)
+<p align="center"><img width="640" src="res/11.png" alt="index.cds"> </p>
 
 6. Browse database
 - Open database explorer:
+<p align="center"><img width="640" src="res/12.png" alt="index.cds"> </p>
 
-  ![index.cds](res/12.png)
 
 - See that we got 4 more columns in the `BOOKINGS` table:
 
-  ![index.cds](res/13.png)
+<p align="center"><img width="640" src="res/13.png" alt="index.cds"> </p>
   These are admin data from `node_modules/@sap/cds/common.cds`, which we inherit through `node_modules/spaceflight-model/db/common.cds`.
 
 - Restart application
-  ![index.cds](res/14.png)
+<p align="center"><img width="640" src="res/14.png" alt="index.cds"> </p>
 
 - Let's create a booking...
-  ![index.cds](res/15.png)
+<p align="center"><img width="640" src="res/15.png" alt="index.cds"> </p>
 
+<p align="center"><img width="640" src="res/16.png" alt="index.cds"> </p>
   ... and display it aftwards.
-  ![index.cds](res/16.png)
 
   _Booking date_ and _Booked by_ have been filled automatically.  This is possible since the underlying fields `Bookings.createdAt` and `Bookings.createdBy` are annotated such that the generic OData handlers know how to fill them (see `node_modules/@sap/cds/common.cds` for the annotations).
   > Normally with authentication enabled, the proper login user would be set for the `createdBy` field.  Without authentication, however, we just see Cloud Foundry's generic `vcap` user.
