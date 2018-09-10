@@ -19,7 +19,7 @@ In this exercise you'll learn how to reuse CDS model code from other application
 
 2. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
 
-> Your will find the final state of this exercise in branch `reuse-final`.
+> You will find the final state of this exercise in branch `reuse-final`.
 
 
 ## 2. Add dependency to base model repo
