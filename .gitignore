@@ -15,9 +15,7 @@ db/src/gen/
 /gen/
 imports/
 node/
-/app/node_modules/
-/db/node_modules/
-/srv/node_modules/
+node_modules/
 target/
 _out/
 dist/

@@ -1,8 +1,11 @@
 {
   "name": "spaceflight",
   "version": "0.1.0",
-  "scripts": {
-    "build": "node node_modules/@sap/cds/bin/cds.js build --clean"
+  "dependencies": {
+    "@sap/cds": "^2.8"
   },
-  "license": "ISC"
+  "scripts": {
+    "build": "cds build --clean"
+  },
+  "license": "SEE LICENSE IN LICENSE"
 }
