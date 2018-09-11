@@ -1,3 +1,10 @@
+## Description
+This repository contains the sample code for a 'space travel' application.
+
+### Scenario
+You are working in the IT department of the space travel agency SPICY (SPace Itenaries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
+Timeline is tight and the legal requirements of 20 planets need to be considered.  You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
+
 ## Exercises
 
 ### Exercise 01: Access SAP Cloud Platform account and clone code to Web IDE (10 minutes)
@@ -72,6 +79,7 @@ This project is provided "as-is": there is no guarantee that raised issues will 
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
 This project is licensed under the Apache Software License, Version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+<<<<<<< HEAD
 
 # Content is obsolete
 
@@ -79,3 +87,5 @@ Now in https://github.com/SAP/cloud-sample-spaceflight-java
 
 We will delete this repo soon.
 
+=======
+>>>>>>> origin/master
