@@ -1,5 +1,5 @@
 {
-  "xsappname": "spacetravel",
+  "xsappname": "spacetravel-TechEd2018_CNA376-TechEd2018-devX",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [
