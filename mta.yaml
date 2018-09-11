@@ -52,7 +52,7 @@ resources:
 
  - name: spacetravel-TechEd2018_CNA376-TechEd2018-devX
    parameters:
-     service-plan: application
+      service-plan: application
    type: com.sap.xs.uaa
 
  - name: spacetravel-dest
