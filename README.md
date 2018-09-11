@@ -2,7 +2,7 @@
 This repository contains the sample code for a 'space travel' application.
 
 ### Scenario
-You are working in the IT department of the space travel agency SPICY (SPace Itenaries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
+You are working in the IT department of the space travel agency SPICY (SPace Itineraries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
 Timeline is tight and the legal requirements of 20 planets need to be considered.  You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
 
 ## Exercises
@@ -13,7 +13,7 @@ Branches: `master`
 - Find Web IDE Full-stack, open it
 - Clone git repo w/ URL provided
 
-### Exercise 02: Understand the data model and deplopy app to SAP Cloud Platform (25 minutes)
+### Exercise 02: Understand the data model and deploy app to SAP Cloud Platform (25 minutes)
 Branches: `master`
 - Build (and deploy) _db_ module
   - Check logs
