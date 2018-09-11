@@ -50,10 +50,10 @@ resources:
      hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
 
-  - name: spacetravel-TechEd2018_CNA376-TechEd2018-devX
-    parameters:
-      service-plan: application
-    type: com.sap.xs.uaa
+ - name: spacetravel-TechEd2018_CNA376-TechEd2018-devX
+   parameters:
+     service-plan: application
+   type: com.sap.xs.uaa
 
  - name: spacetravel-dest
    parameters:
