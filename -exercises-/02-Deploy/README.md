@@ -1,4 +1,4 @@
-# Exercise 02: Understand the data model and deplopy app to SAP Cloud Platform
+# Exercise 02: Understand the data model and deploy app to SAP Cloud Platform
 
 ## Estimated time
 
@@ -6,55 +6,57 @@
 
 ## Objective
 
-In this exercise you'll have a look into the data model of the application and you'll deploy it to your SAP Cloud Platform account
+In this exercise you will have a look into the data model of the application and you will deploy it to your SAP Cloud Platform account.
 
- Exercise description
+## Exercise description
 
-## 1. Build the data model and deploy it to your HANA instance
+### 1. Build the data model and deploy it to SAP HANA
 
-1. Click on the folder `db` of your project, right-click on it and click on `Build > Build`
+1. Click on the folder `db` of your project and from the context menu select `Build` > `Build`.
 
-<p align="center"><img width="480" src="res/pic101.png" alt="Build the database"> </p>
+   <p align="center"><img width="480" src="res/pic101.png" alt="Build the database"> </p>
 
-> During this step the data model is being transformed into the respective HANA artifacts and a **HDI Container** is being created.
+   > During this step the data model is transformed into the respective `hdbcds` artifacts, which are then deployed to an HDI Container.  In Web IDE's console view you can watch the progress of the deployment operation.
 
-2. While the HANA artifacts are being created open the `db` folder, double-click on the file `flight-model.cds` and have a look into the definition of the data model. 
-<p align="center"><img width="860" src="res/pic102.png" alt="The flight model"> </p>
+2. Open the `db` folder, double-click on the file `flight-model.cds` and have a look into the definition of the data model.
+   <p align="center"><img width="860" src="res/pic102.png" alt="The flight model"> </p>
 
-3. Once the HANA artifacts are created, you should see in the screen at the bottom (the console) a respective message like `Build of /cloud-sample-spaceflight-java/db completed successfully`
+   > Tip: To help you find files easier in the tree, enable the `Link Workspace to Editor` setting.  Everytime you switch to another editor, this will select the file in the file tree.
+       <p align="center"><img width="320" src="res/pic114.png" alt="Link with editor"> </p>
 
-<p align="center"><img width="640" src="res/pic103.png" alt="Console screen with console output"> </p>
+3. Once the HANA artifacts are created, you should see a success message in the console view at the bottom.
 
-4. Now that the HDI container has been created, we can look into it. Right-click again on the `db` folder and select `Open HDI container`.
+   <p align="center"><img width="640" src="res/pic103.png" alt="Console with deployment output"> </p>
 
-<p align="center"><img width="640" src="res/pic104.png" alt="Open HDI container"> </p>
+4. Let's take a look into what was deployed. Right-click again on the `db` folder and select `Open HDI container`.  This will open up the SAP HANA database explorer.
 
-5. When asked whether to add any database, simply click `No`, as the database connection will be added automatically in this case.
+   <p align="center"><img width="640" src="res/pic104.png" alt="Open HDI container"> </p>
 
-<p align="center"><img width="480" src="res/pic105.png" alt="Database Explorer message"> </p>
+   In case you are asked whether to add any database, simply click `No`, as the database connection will be added automatically.
 
+   <p align="center"><img width="480" src="res/pic105.png" alt="Database explorer message"> </p>
 
+5. Click on the `Tables` icon on the left, select table `TECHED_FLIGHT_TRIP_BOOKINGS`, which opens the table editor.
 
-6. Click on the `Tables` icon on the left, select the table 'TECHED_FLIGHT_TRIP_BOOKINGS` and you'll be presented at the right, with the schema definition.
+   <p align="center"><img width="860" src="res/pic110.png" alt="See table definition"> </p>
 
-<p align="center"><img width="860" src="res/pic110.png" alt="See data schema"> </p>
+6. If you want to see the table data, click on the `Open Data` button on the top right.
 
-7. If you want to see the pre-filled data, click on the `Open Data` button on the top right.
+   <p align="center"><img width="480" src="res/pic111.png" alt="Click on Open Data button"> </p>
+   <p align="center"><img width="860" src="res/pic112.png" alt="Data view"> </p>
 
-<p align="center"><img width="480" src="res/pic111.png" alt="Click on Open Data button"> </p>
-<p align="center"><img width="860" src="res/pic112.png" alt="Data view"> </p>
+   > The data you see here is maintained in the resource folder `db > src > csv` and was deployed along with the table definitions.
+       <p align="center"><img width="860" src="res/pic113.png" alt="CSV files in db folder"> </p>
 
-> The data you see here is maintained in the resource folder `db > src > csv`. 
-<p align="center"><img width="860" src="res/pic113.png" alt="CSV files in db folder"> </p>
+### 2. Run the OData service
 
-## 2. Run the OData service and access it
+1. Go back to the `Development` perspective of your workspace and select the `srv` folder of your project.  Click on the green **Run** icon in the main toolbar to run the app.
 
-1. Go back to the `Development` view of your workspace and click on the `srv` folder of your project. You'll notice that you can click on the **play** icon under the menu. Please click the button to run the service layer of the app. 
+   <p align="center"><img width="640" src="res/pic201.png" alt="Press play"> </p>
 
-<p align="center"><img width="640" src="res/pic201.png" alt="Press play"> </p>
+   In the console you can watch how the service is being build any deployed. Once it is ready, a link is provided. Click on that link to open the URL of the OData endpoints.
 
-> In the console you can watch how the service is being build any deployed. Once it is ready, a link is provided. Click on that link to open the URL of the OData endpoints.
-<p align="center"><img width="860" src="res/pic202.png" alt="Application being build"> </p>
+   <p align="center"><img width="860" src="res/pic202.png" alt="Application being build"> </p>
 
 2. The OData endpoints are displayed. Click on the link for the `BookingService`.
 
@@ -65,9 +67,9 @@ In this exercise you'll have a look into the data model of the application and y
 <p align="center"><img width="640" src="res/pic204.png" alt="API endpoints"> </p>
 
 
-> So far the database and the service layer are running. In the next step we'll deploy the UI.
+> So far the database and the service layer are running. In the next step we will deploy the UI.
 
-## 3. Run the app module
+### 3. Run the app module
 
 1. Click on the `app` folder of your project. Click again on the **play** icon under the menu to build the UI of the application.
 

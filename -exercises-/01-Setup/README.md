@@ -1,4 +1,4 @@
-# Exercise 01: Accessing the SAP Cloud Platform Account and Cloning Sample From Github
+# Exercise 01: Access the SAP Cloud Platform account and clone sample code
 
 ## Estimated time
 
@@ -6,11 +6,11 @@
 
 ## Objective
 
-In this exercise you'll learn how to clone the Git repository that contains the sample project of this tutorial into the Web IDE of the SAP Cloud Platform.
+In this exercise you will learn how to clone the Git repository that contains the sample project of this tutorial into the Web IDE of the SAP Cloud Platform.
 
- Exercise description
+## Exercise description
 
-## 1. Log on to Web IDE
+### 1. Log on to Web IDE
 
 1. In a first step you need to access the Web IDE of your account. For the hands-on session **CNA376** at SAP TechEd 2018 use the link provided to you by the session instructors along with the corresponding credentials.
 <p align="center"><img width="420" src="res/pic100.png" alt="Log on screen"> </p>
@@ -23,7 +23,7 @@ In this exercise you'll learn how to clone the Git repository that contains the 
 
 <p align="center"><img width="640" src="res/pic102.png" alt="Web IDE workspace"> </p>
 
-## 2. Setup workspace settings
+### 2. Setup workspace settings
 
 1. Click on the preferences icon on the left and select `Features`. Next, switch `ON` the `SAP HANA Database Devlopment Tools`. Finally click on the `Save` button at the bottom to enable the tools in your workspace.
 
@@ -35,29 +35,28 @@ In this exercise you'll learn how to clone the Git repository that contains the 
 
 3. In a final step click on `Cloud Foundry` in the `Workspace Preferences` In the field for the `API endpoint` select the first item `https://api.cf.eu10.hana.ondemand.com`.  The values for `Organization` and `Space` will be set automatically to `TechEd2018_CNA376-TechEd2018` and the space your user is assigned to.  Click on the `Save` button.
 
-   > Do NOT click the `Reinstall Builder` button.
+   Do NOT click the `Reinstall Builder` button.
 
-<p align="center"><img width="640" src="res/pic203.png" alt="Enter Cloud Foundry API endpoint"> </p>
+   <p align="center"><img width="640" src="res/pic203.png" alt="Enter Cloud Foundry API endpoint"> </p>
 
-<p align="center"><img width="320" src="res/pic204.png" alt="Confirmation about stored preferences"> </p>
+   <p align="center"><img width="320" src="res/pic204.png" alt="Confirmation about stored preferences"> </p>
 
 
-## 3. Clone the code
+### 3. Clone the code
 
 1. Switch to the `Development` view in your workspace.
-<p align="center"><img width="480" src="res/pic301.png" alt="Switch to development view"> </p>
+   <p align="center"><img width="480" src="res/pic301.png" alt="Switch to development view"> </p>
 
 
 2. Now, right click on the Workspace text in the Web IDE and select `Git > Clone Repository `
 
-<p align="center"><img width="640" src="res/pic302.png" alt="Git Clone"> </p>
+   <p align="center"><img width="640" src="res/pic302.png" alt="Git Clone"> </p>
 
 3. In the URL field enter the URL `https://github.com/SAP/cloud-sample-spaceflight-java` and click on the `Clone` button.
-
-<p align="center"><img width="320" src="res/pic303.png" alt="Git URL"> </p>
+   <p align="center"><img width="320" src="res/pic303.png" alt="Git URL"> </p>
 
 4. After a short while, you will see the code that was cloned into your Web IDE workspace.
 
-   <p align="center"><img width="640" src="res/pic304.png" alt="Git URL"> </p>
+   <p align="center"><img width="640" src="res/pic304.png" alt="Project cloned"> </p>
 
    > This workspace has now a local copy of the cloned code in the Web IDE.  In the next exercise we will take a look into this project.

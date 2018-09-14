@@ -7,40 +7,7 @@ Timeline is tight and the legal requirements of 20 planets need to be considered
 
 ## Exercises
 
-### Exercise 01: Access SAP Cloud Platform account and clone code to Web IDE (10 minutes)
-Branches: `master`
-- Log in to cockpit w/ URL, user, password provided
-- Find Web IDE Full-stack, open it
-- Clone git repo w/ URL provided
-
-### Exercise 02: Understand the data model and deploy app to SAP Cloud Platform (25 minutes)
-Branches: `master`
-- Build (and deploy) _db_ module
-  - Check logs
-  - Open HDI container, browse data
-  - Explore data model (no reuse of spaceflight, but all in one project). [Entity model picture](-exercises-/pictures/FlightModel.png) can be used.
-- Run _srv_ module, open URL
-  - Browse edmx (`$metadata`), and entities, e.g. _Airlines_, `$count`
-  - Browse _srv_ folder
-  - Explore data model (no reuse of spaceflight, but all in one project)
-- Run _app_ module, open URL
-  - Browse bookings, change, create
-
-### Exercise 03: Connect an S/4HANA business service (business partner) (25 minutes)
-Branches: `s4bp-start`, `s4bp-final`
-- Import S/4 service
-  - Start in Web IDE import wizard, but use upload edmx from [API hub](https://api.sap.com/api/API_BUSINESS_PARTNER/overview)
-- Change model: add `Bookings.Customer`
-- Change custom code: add S/4 calls
-  - Destinations to S/4 already prepared
-- Adjust UI to show business partner
-
-### Exercise 04: How to build your own reuse model and consume it in your app (25 minutes)
-Branches: `reuse-start`, `reuse-final`
-- Add dependency to base model repo
-- Remove redundant model code
-- Add dependency to `@sap/cds/common` to add admin data
-
+See the [exercises folder](https://github.com/SAP/cloud-sample-spaceflight-java/tree/master/-exercises-).
 
 ## Requirements
 
