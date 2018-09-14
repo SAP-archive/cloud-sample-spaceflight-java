@@ -16,7 +16,7 @@ In this exercise you will have a look into the data model of the application and
 
    <p align="center"><img width="480" src="res/pic101.png" alt="Build the database"> </p>
 
-   > During this step the data model is transformed into the respective `hdbcds` artifacts, which are then deployed to an HDI Container.  In Web IDE's console view you can watch the progress of the deployment operation.
+   > During this step, the data model is compiled into the respective `hdbcds` artifacts, which are then deployed to an HDI Container (a database schema).  In Web IDE's console view you can watch the progress of the deployment operation.
 
 2. Open the `db` folder, double-click on the file `flight-model.cds` and have a look into the definition of the data model.
    <p align="center"><img width="860" src="res/pic102.png" alt="The flight model"> </p>
@@ -52,45 +52,44 @@ In this exercise you will have a look into the data model of the application and
 
 1. Go back to the `Development` perspective of your workspace and select the `srv` folder of your project.  Click on the green **Run** icon in the main toolbar to run the app.
 
-   <p align="center"><img width="640" src="res/pic201.png" alt="Press play"> </p>
+   <p align="center"><img width="480" src="res/pic201.png" alt="Press Run"> </p>
 
-   In the console you can watch how the service is being build any deployed. Once it is ready, a link is provided. Click on that link to open the URL of the OData endpoints.
+2. In the console you can watch how the service is being build any deployed. Once it is ready, a link is provided. Click on that link to the OData endpoints in the browser.
 
-   <p align="center"><img width="860" src="res/pic202.png" alt="Application being build"> </p>
+   <p align="center"><img width="860" src="res/pic202.png" alt="Application being deployed"> </p>
 
-2. The OData endpoints are displayed. Click on the link for the `BookingService`.
+3. The OData endpoints are displayed. Click on the link for the `BookingService`.
 
-<p align="center"><img width="640" src="res/pic203.png" alt="API endpoints"> </p>
+   <p align="center"><img width="480" src="res/pic203.png" alt="API endpoints"> </p>
 
-3. You can now see the entities of the booking service
+4. You can now see the entities of the booking service
 
-<p align="center"><img width="640" src="res/pic204.png" alt="API endpoints"> </p>
+   <p align="center"><img width="640" src="res/pic204.png" alt="API endpoints"> </p>
 
+   So far the database and the service layer are running. In the next step we will deploy the UI.
 
-> So far the database and the service layer are running. In the next step we will deploy the UI.
+### 3. Run the UI module
 
-### 3. Run the app module
+1. Click on the `app` folder of your project. Click again on the **Run** icon in the main toolbar.
 
-1. Click on the `app` folder of your project. Click again on the **play** icon under the menu to build the UI of the application.
-
-<p align="center"><img width="640" src="res/pic301.png" alt="Press play"> </p>
-
+   <p align="center"><img width="480" src="res/pic301.png" alt="Press Run"> </p>
 
 2. Select the file `flpSandbox.html` and click on the `OK` button.
 
-<p align="center"><img width="640" src="res/pic302.png" alt="Select app"> </p>
+   <p align="center"><img width="480" src="res/pic302.png" alt="Select start html file"> </p>
 
-3. If you get this pop-up provide your email address the account password.
+3. On the first run, a dialog may be shown asking you to log on to the Neo environment.  Again provide the email address and the password for your user.
 
-<p align="center"><img width="640" src="res/pic303.png" alt="Select app"> </p>
+   <p align="center"><img width="480" src="res/pic303.png" alt="Log on to create destination"> </p>
 
-4. Once the app is created it will open-up automatically. Click on the tile `app`
+4. Once the app is created, a browser window will be opened.  There, click on the first tile named `app`.
 
-<p align="center"><img width="640" src="res/pic304.png" alt="Select app"> </p>
+   <p align="center"><img width="480" src="res/pic304.png" alt="Select the tile named 'app'"> </p>
 
-5. Click on the `Go` button to fetch the data from the database.
+5. In the `Bookings` screen, click on the `Go` button to fetch the bookings from the database.
 
-<p align="center"><img width="640" src="res/pic305.png" alt="Select app"> </p>
+   <p align="center"><img width="640" src="res/pic305.png" alt="Fetch bookings through the 'Go' button"> </p>
 
 6. You can get to the details for each booking, by clicking on one of them.
-<p align="center"><img width="640" src="res/pic306.png" alt="Select app"> </p>
+
+   <p align="center"><img width="640" src="res/pic306.png" alt="Select app"> </p>
