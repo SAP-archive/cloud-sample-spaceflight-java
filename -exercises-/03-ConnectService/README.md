@@ -10,20 +10,19 @@ In this exercise you will learn how to add a remote service to your app that fet
 
 ## Exercise description
 
-### 1. Import S/4HANA service
+### 1. Switch to a different start branch
 
 For this exercise you have to **switch to another code branch** of the Git repository.
+In the Git pane click the `+` icon:
+<p align="center"><img width="420" src="res/pic301.png" alt="Create local branch"> </p>
 
-1. **Create a new local branch**
+As source branch select `origin/s4bp-start`.  The name of the local branch is suggested automatically.  Click `Ok`.
+<p align="center"><img width="420" src="res/pic302.png" alt="Select source branch"> </p>
 
-   In the Git pane click the `+` icon:
-   <p align="center"><img width="420" src="res/pic301.png" alt="Create local branch"> </p>
+The file explorer always shows the currently active branch:
+<p align="center"><img width="330" src="res/pic303a.png" alt="Branch name in explorer"> </p>
 
-   As source branch select `origin/s4bp-start`.  The name of the local branch is suggested automatically.  Click `Ok`.
-   <p align="center"><img width="420" src="res/pic302.png" alt="Select source branch"> </p>
-
-   The file explorer always shows the currently active branch:
-   <p align="center"><img width="330" src="res/pic303a.png" alt="Branch name in explorer"> </p>
+### 2. Import S/4HANA service
 
 2. **Download the model of the external service from SAP API Business Hub**
 
@@ -54,7 +53,7 @@ For this exercise you have to **switch to another code branch** of the Git repos
 
    > While the `xml` file, the so-called `edmx`, is the original model file from API Business Hub, the `json` file is the compiled representation of the model for CDS.  It is this `json` file, so-called `cson`, that we will reference from other `cds` source files.
 
-### 2. Use external model in flight data and service model
+### 3. Use external model in flight data and service model
 
 1. **Remove comments in file `db/index.cds`**
    You can use the `Toggle Line Comment` command from the editor context menu for this, or hit `Ctrl+/`
@@ -87,7 +86,7 @@ For this exercise you have to **switch to another code branch** of the Git repos
    > Note that there is a new table `..._CUSTOMERS` for the `Customers` entity.  Also, in table `..._BOOKINGS` you can see a new column `CUSTOMER_ID` holding the foreign key to the `CUSTOMERS` table.  In the next section you will see how this new table is filled with data from S/4HANA.
 
 
-### 3. Call S/4 in the Java code
+### 4. Call S/4 in the Java code
 
 1. **Change `CustomersRemoteHandler.java`**:
 
@@ -117,7 +116,7 @@ For this exercise you have to **switch to another code branch** of the Git repos
    > TODO Explanation needed
    Remote customers (read from S/4) are not yet persisted in our database ...
 
-### 4. Prepare storing S/4 customers in the local database
+### 5. Prepare storing S/4 customers in the local database
 
 1. **Adjust `BookingsHandler.java`**
 
@@ -136,7 +135,7 @@ For this exercise you have to **switch to another code branch** of the Git repos
 
    <p align="center"><img width="480" src="res/pic321.png" alt="Run Java app"> </p>
 
-### 5. Create bookings for S/4 customers
+### 6. Create bookings for S/4 customers
 
 1. **Adjust the UI**
 
