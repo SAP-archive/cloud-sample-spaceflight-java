@@ -5,23 +5,7 @@ using {
 
 service BookingService {
 
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Fill our existing CustomerName and EmailAddress fields
-    // from the new .Customer association
-    // ---------------------------------------------------------------------------------------------------------------------
-    entity Bookings    as projection on flight.Bookings {
-        *
-        , Customer.Name  as CustomerName,
-          Customer.Email as EmailAddress
-    };
-
-    // ---------------------------------------------------------------------------------------------------------------------
-    // Add projections on Customers
-    // ---------------------------------------------------------------------------------------------------------------------
-    entity Customers as projection on flight.Customers;
-    entity CustomersRemote as projection on flight.CustomersRemote;
-
-
+    entity Bookings    as projection on flight.Bookings;
     entity Itineraries as projection on flight.Itineraries;
 
     @readonly entity EarthRoutes   as projection on flight.EarthRoutes;
@@ -34,4 +18,9 @@ service BookingService {
     @readonly entity Spacelines  as projection on space.SpaceFlightCompanies;
     @readonly entity Planets     as projection on space.AstronomicalBodies;
 
+    // ---------------------------------------------------------------------------------------------------------------------
+    // Add projections on Customers to BookingService
+    // ---------------------------------------------------------------------------------------------------------------------
+    entity Customers as projection on flight.Customers;
+    entity CustomersRemote as projection on flight.CustomersRemote;
 }
