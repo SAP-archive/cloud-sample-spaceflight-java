@@ -96,23 +96,37 @@ The file explorer always shows the currently active branch:
 
 2. **Remove comments in file `db/index.cds`**
 
-   You can use the `Toggle Line Comment` command from the editor context menu for this, or hit `Ctrl+/`
+   Remove the comment markers from all lines.  After selecting all lines, you can use the `Toggle Line Comment` command from the editor context menu, or hit `Ctrl+/`
+
+   The file should look like this:
    <p align="center"><img width="480" src="res/pic313.png" alt="Remove comments in db/index.cds"> </p>
 
-   > TODO Explanation needed
-
    After you save the file, CDS auto build will yield errors for the project.  No worries, we will fix them now.
+
+   > That seems like a lot of code.  Let's break it down:
+   > 1. In the `using` clause in line `8` the imported model is made available under the `bp` alias.  The string after the `from` keyword is a relative path to the model file.
+   > 2. `CustomersRemote` entity from line `14` is basically a view on the imported business partner type.
+   >    - From the wide definition of available business partner fields, it only selects three and adds convenient name aliases `ID`, `Name`, and `Email`.
+   >    - Note how the `Email` field is selected by following two associations in line `21`.
+   >    - In line `23` the `where` clause further filters records by just selecting natural persons.
+   >    - We will use this `CustomersRemote` table/entity for value helps in the UI.
+   > 3. `Customers` entity in line `29` builds on top of `CustomersRemote`
+   >    - However, it turns it into a real table through the `@cds.persistence.table` annotation from line `28`.
+   >    - We will use this `Customers` table/entity to cache business partner records that we have retrieved from S/4HANA.  We not only do this for performance reasons, but also because we can conveniently join and query over both 'local' and 'remote' data sets.
+   > 4. Finally, the `Bookings` entity is extended by a new `Customer` association to the `Customers` table from above.  By storing the customer ID with each booking we link `Bookings` with `Customers` records.
 
 3. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
 
    <p align="center"><img width="480" src="res/pic314.png" alt="Remove comments in srv/booking-servicde.cds"> </p>
 
-   > TODO Explanation needed
-
    After you save the file, CDS auto build should now successfully compile our CDS model.
    Should there still be errors shown in `db/index.cds`, close the editors and refresh the browser page.
 
+   > Much like the other `as projection on` lines, the two new lines expose the new `Customers` and `CustomersRemote` entities in the `BookingService`.
+
 4. **Build and deploy to the database**
+
+   The model is now ready to be compiled and deployed to SAP HANA.  Use the `Build` command on the `db` folder to do this.
    <p align="center"><img width="480" src="res/pic319.png" alt="Deploy to database"> </p>
 
    There should be a success message in console view for the deploy operation:
