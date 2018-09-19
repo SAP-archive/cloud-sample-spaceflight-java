@@ -110,10 +110,10 @@ The file explorer always shows the currently active branch:
    >    - Note how the `Email` field is selected by following two associations in line `21`.
    >    - In line `23` the `where` clause further filters records by just selecting natural persons.
    >    - We will use this `CustomersRemote` table/entity for value helps in the UI.
-   > 3. `Customers` entity in line `29` builds on top of `CustomersRemote`
+   > 3. `Customers` entity in line `29` builds on top of `CustomersRemote`.
    >    - However, it turns it into a real table through the `@cds.persistence.table` annotation from line `28`.
    >    - We will use this `Customers` table/entity to cache business partner records that we have retrieved from S/4HANA.  We not only do this for performance reasons, but also because we can conveniently join and query over both 'local' and 'remote' data sets.
-   > 4. Finally, the `Bookings` entity is extended by a new `Customer` association to the `Customers` table from above.  By storing the customer ID with each booking we link `Bookings` with `Customers` records.
+   > 4. Finally, in line `34-36` the `Bookings` entity is extended by an association to the `Customers` table from above.  By storing the customer ID with each booking, we link `Bookings` with `Customers` records.
 
 3. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
 
@@ -145,13 +145,13 @@ The file explorer always shows the currently active branch:
 
 1. **Change `CustomersRemoteHandler.java`**:
 
-   To enable reading a single customer record, add a comment in line 31 and remove the comment from line 32:
+   To enable reading a single customer record, add a comment in line `31` and remove the comment from line `32`:
    <p align="center"><img width="640" src="res/pic317.png" alt="Change readCustomer method"> </p>
 
-   To enable reading multiple customer records, add a comment in line 47 and remove the comment from line 48:
+   To enable reading multiple customer records, add a comment in line `47` and remove the comment from line `48`:
    <p align="center"><img width="640" src="res/pic318.png" alt="Change queryCustomers method"> </p>
 
-   > TODO Explanation needed
+   > If you are curious, you can take a look into the `CustomersReplicator` class to see how we call the business partner OData service using the S/4HANA Cloud SDK.
 
 2. **Verify the code works**
 
@@ -168,8 +168,7 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="480" src="res/pic324.png" alt="Query Bookings"> </p>
    <p align="center"><img width="480" src="res/pic325.png" alt="Query CustomersRemote"> </p>
 
-   > TODO Explanation needed
-   Remote customers (read from S/4) are not yet persisted in our database ...
+   > Whenever we get or query the `CustomersRemote` entity, a new remote call is made. In the next section we will cache the retrieved customer records.
 
 ### 5. Prepare storing S/4 customers in the local database
 
