@@ -12,13 +12,10 @@ using API_BUSINESS_PARTNER as bp     from '../srv/external/csn/ODataServiceforBu
 // ---------------------------------------------------------------------------------------------------------------------
 @cds.persistence.skip
 entity CustomersRemote as SELECT from bp.A_BusinessPartnerType {
-  @title: "ID"
-    key BusinessPartner                                                                   as ID,
-  @title: "Name"
-    BusinessPartnerFullName                                                               as Name,
-  @title: "Email"
-    // get the default email in any of the BP addresses, or null
-    to_BusinessPartnerAddress[0].to_EmailAddress[IsDefaultEmailAddress=true].EmailAddress as Email
+  key BusinessPartner                                                                   as ID,
+  BusinessPartnerFullName                                                               as Name,
+  // get the default email in any of the BP addresses, or null
+  to_BusinessPartnerAddress[0].to_EmailAddress[IsDefaultEmailAddress=true].EmailAddress as Email
 }
 where IsNaturalPerson = 'X';
 
