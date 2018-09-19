@@ -106,7 +106,7 @@ The file explorer always shows the currently active branch:
    > That seems like a lot of code.  Let's break it down:
    > 1. In the `using` clause in line `8` the imported model is made available under the `bp` alias.  The string after the `from` keyword is a relative path to the model file.
    > 2. `CustomersRemote` entity from line `14` is basically a view on the imported business partner type.
-   >    - From the wide definition of available business partner fields, it only selects three and adds convenient name aliases `ID`, `Name`, and `Email`.
+   >    - From the wide range of available business partner fields, it only selects three of them, and adds convenient name aliases `ID`, `Name`, and `Email`.
    >    - Note how the `Email` field is selected by following two associations in line `21`.
    >    - In line `23` the `where` clause further filters records by just selecting natural persons.
    >    - We will use this `CustomersRemote` table/entity for value helps in the UI.
