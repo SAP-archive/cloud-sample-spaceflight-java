@@ -107,13 +107,13 @@ The file explorer always shows the currently active branch:
    > 1. In the `using` clause in line `8` the imported model is made available under the `bp` alias.  The string after the `from` keyword is a relative path to the model file.
    > 2. `CustomersRemote` entity from line `14` is basically a view on the imported business partner type.
    >    - From the wide range of available business partner fields, it only selects three of them, and adds convenient name aliases `ID`, `Name`, and `Email`.
-   >    - Note how the `Email` field is selected by following two associations in line `21`.
-   >    - In line `23` the `where` clause further filters records by just selecting natural persons.
+   >    - Note how the `Email` field is selected by following two associations in line `18`.
+   >    - In line `20` the `where` clause further filters records by just selecting natural persons.
    >    - We will use this `CustomersRemote` table/entity for value helps in the UI.
-   > 3. `Customers` entity in line `29` builds on top of `CustomersRemote`.
-   >    - However, it turns it into a real table through the `@cds.persistence.table` annotation from line `28`.
+   > 3. `Customers` entity in line `26` builds on top of `CustomersRemote`.
+   >    - However, it turns it into a real table through the `@cds.persistence.table` annotation from line `25`.
    >    - We will use this `Customers` table/entity to cache business partner records that we have retrieved from S/4HANA.  We not only do this for performance reasons, but also because we can conveniently join and query over both 'local' and 'remote' data sets.
-   > 4. Finally, in line `34-36` the `Bookings` entity is extended by an association to the `Customers` table from above.  By storing the customer ID with each booking, we link `Bookings` with `Customers` records.
+   > 4. Finally, in line `31-33` the `Bookings` entity is extended by an association to the `Customers` table from above.  By storing the customer ID with each booking, we link `Bookings` with `Customers` records.
 
 3. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
 
