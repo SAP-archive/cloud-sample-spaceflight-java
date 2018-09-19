@@ -5,7 +5,7 @@ using teched.flight.trip   as flight from './space-model';
 // ---------------------------------------------------------------------------------------------------------------------
 // 1. Use the imported data model
 // ---------------------------------------------------------------------------------------------------------------------
-using API_BUSINESS_PARTNER as bp     from '../srv/external/csn/API_BUSINESS_PARTNER';
+using API_BUSINESS_PARTNER as bp     from '../srv/external/csn/ODataServiceforBusinessPartner';
 
 // ---------------------------------------------------------------------------------------------------------------------
 // 2. CustomersRemote: projection on the remote Customer data
