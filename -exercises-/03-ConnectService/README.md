@@ -24,7 +24,7 @@ The file explorer always shows the currently active branch:
 
 ### 2. Import S/4HANA service
 
-2. **Download the model of the external service from SAP API Business Hub**
+<!-- 1. **Download the model of the external service from SAP API Business Hub**
 
    Navigate to SAP API Business Hub by opening the URL https://api.sap.com in a separate browser tab.  Select the `Log On` button and enter the email address and password of your user.
    <p align="center"><img width="480" src="res/pic303d.png" alt="Lon on to SAP API Business Hub"> </p>
@@ -33,9 +33,41 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="480" src="res/pic303b.png" alt="API Hub Search"> </p>
 
    On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX".  Store this file to your local machine.
-   <p align="center"><img width="480" src="res/pic303c.png" alt="Select OData API"> </p>
+   <p align="center"><img width="480" src="res/pic303c.png" alt="Select OData API"> </p> -->
 
-3. **Import the service model into your project**
+0. **Activate SAP Business API Hub for your user**
+
+   Navigate to SAP API Business Hub by opening the URL https://api.sap.com in a separate browser tab. Select the `Log On` button and enter the email address and password of your user.
+   <p align="center"><img width="480" src="res/pic303d.png" alt="Lon on to SAP API Business Hub"> </p>
+
+   If this is the first logon with this user, you need to accept the terms of use for SAP API Business hub.  Select the two checkboxes and confirm.
+   <p align="center"><img width="320" src="res/pic308e.png" alt="Lon on to SAP API Business Hub"> </p>
+   If you don't get to see this screen, this was already done for this user.
+
+1. **Import the service model into your project**
+
+   a. Switch back to SAP Web IDE and on the `srv` folder select `New` > `Data Model from External Service` from the context menu:
+   <p align="center"><img width="480" src="res/pic306.png" alt="Data model from external service"> </p>
+
+   b. In the wizard, select `SAP API Business Hub`, filter for `business partner`, and select `OData Service for Business Partner`.
+   <p align="center"><img width="480" src="res/pic308b.png" alt="Find business partner service"> </p>
+
+   c. You are asked to log on to SAP API Business Hub.  Do so using the email and password.
+   <p align="center"><img width="480" src="res/pic308c.png" alt="Log on to API hub"> </p>
+   Press `Next` on the page.
+
+   d. Deselect the checkbox `Generate Virtual Data Model classes` and press `Finish`.
+   <p align="center"><img width="480" src="res/pic310.png" alt="Turn off class generation"> </p>
+
+   > Java class generation for the data model is not needed in our case, as we will be using precompiled and optimized classes provided by S/4HANA cloud SDK.
+
+   e. Verify in file explorer that the import has generated two service definitions, one in `xml` format, the other in `json` format   These can be found in folder `srv` > `external`.
+   <p align="center"><img width="350" src="res/pic311.png" alt="Imported files"> </p>
+
+   > While the `xml` file, the so-called `edmx`, is the original model file from API Business Hub, the `json` file is the compiled representation of the model for CDS.  It is this `json` file, so-called `cson`, that we will reference from other `cds` source files.
+
+
+<!-- 3. **Import the service model into your project**
 
    a. Switch back to SAP Web IDE and on the `srv` folder select `New` > `Data Model from External Service` from the context menu:
    <p align="center"><img width="480" src="res/pic306.png" alt="Data model from external service"> </p>
@@ -51,7 +83,7 @@ The file explorer always shows the currently active branch:
    d. Verify in file explorer that the import has generated two service definitions, one in `xml` format, the other in `json` format   These can be found in folder `srv` > `external`.
    <p align="center"><img width="350" src="res/pic311.png" alt="Imported files"> </p>
 
-   > While the `xml` file, the so-called `edmx`, is the original model file from API Business Hub, the `json` file is the compiled representation of the model for CDS.  It is this `json` file, so-called `cson`, that we will reference from other `cds` source files.
+   > While the `xml` file, the so-called `edmx`, is the original model file from API Business Hub, the `json` file is the compiled representation of the model for CDS.  It is this `json` file, so-called `cson`, that we will reference from other `cds` source files. -->
 
 ### 3. Use external model in flight data and service model
 
