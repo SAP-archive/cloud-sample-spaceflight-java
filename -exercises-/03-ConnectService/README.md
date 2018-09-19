@@ -35,7 +35,7 @@ The file explorer always shows the currently active branch:
    On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX".  Store this file to your local machine.
    <p align="center"><img width="480" src="res/pic303c.png" alt="Select OData API"> </p> -->
 
-0. **Activate SAP Business API Hub for your user**
+1. **Activate SAP Business API Hub for your user**
 
    Navigate to SAP API Business Hub by opening the URL https://api.sap.com in a separate browser tab. Select the `Log On` button and enter the email address and password of your user.
    <p align="center"><img width="480" src="res/pic303d.png" alt="Lon on to SAP API Business Hub"> </p>
@@ -44,7 +44,7 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="320" src="res/pic308e.png" alt="Lon on to SAP API Business Hub"> </p>
    If you don't get to see this screen, this was already done for this user.
 
-1. **Import the service model into your project**
+2. **Import the service model into your project**
 
    a. Switch back to SAP Web IDE and on the `srv` folder select `New` > `Data Model from External Service` from the context menu:
    <p align="center"><img width="480" src="res/pic306.png" alt="Data model from external service"> </p>
@@ -174,7 +174,7 @@ The file explorer always shows the currently active branch:
 
 1. **Adjust `BookingsHandler.java`**
 
-   Remove the line comments in line 75:
+   Remove the line comments in line `75`:
    <p align="center"><img width="640" src="res/pic315.png" alt="Call fetchAndSaveCustomer"> </p>
 
    Also remove the comments from method `fetchAndSaveCustomer`:
