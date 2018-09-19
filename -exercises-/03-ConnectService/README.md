@@ -87,7 +87,15 @@ The file explorer always shows the currently active branch:
 
 ### 3. Use external model in flight data and service model
 
-1. **Remove comments in file `db/index.cds`**
+1. **Update CDS**
+
+   After the import we need to make the CDS build system aware of the new model.  On the project node in the tree, select `Build CDS` from the context menu.
+   <p align="center"><img width="480" src="res/pic313a.png" alt="Build CDS"> </p>
+
+   > In future versions of Web IDE this step will no longer be necessary.
+
+2. **Remove comments in file `db/index.cds`**
+
    You can use the `Toggle Line Comment` command from the editor context menu for this, or hit `Ctrl+/`
    <p align="center"><img width="480" src="res/pic313.png" alt="Remove comments in db/index.cds"> </p>
 
@@ -95,7 +103,8 @@ The file explorer always shows the currently active branch:
 
    After you save the file, CDS auto build will yield errors for the project.  No worries, we will fix them now.
 
-2. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
+3. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
+
    <p align="center"><img width="480" src="res/pic314.png" alt="Remove comments in srv/booking-servicde.cds"> </p>
 
    > TODO Explanation needed
@@ -103,13 +112,13 @@ The file explorer always shows the currently active branch:
    After you save the file, CDS auto build should now successfully compile our CDS model.
    Should there still be errors shown in `db/index.cds`, close the editors and refresh the browser page.
 
-3. **Build and deploy to the database**
+4. **Build and deploy to the database**
    <p align="center"><img width="480" src="res/pic319.png" alt="Deploy to database"> </p>
 
    There should be a success message in console view for the deploy operation:
    <p align="center"><img width="480" src="res/pic320.png" alt="Deploy to database"> </p>
 
-4. **Browse the database**
+5. **Browse the database**
 
    On the `db` folder, select `Open HDI Container`, which will lead you to the deployed tables.
    Click on the `Tables` item in the tree.
