@@ -16,6 +16,8 @@ modules:
    path: srv
    parameters:
       memory: 768M
+   properties:
+      ALLOW_MOCKED_AUTH_HEADER: true   # allows running w/o UAA, not for productive use
    provides:
     - name: srv_api
       properties:
@@ -25,7 +27,6 @@ modules:
       properties:
          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
             {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
-    - name: spacetravel-TechEd2018_CNA376-TechEd2018-devX
     - name: spacetravel-dest
 
  - name: spacetravel-app
@@ -49,11 +50,6 @@ resources:
    properties:
      hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
-
- - name: spacetravel-TechEd2018_CNA376-TechEd2018-devX
-   parameters:
-      service-plan: application
-   type: com.sap.xs.uaa
 
  - name: spacetravel-dest
    parameters:
