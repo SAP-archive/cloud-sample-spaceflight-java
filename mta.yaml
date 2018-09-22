@@ -26,6 +26,7 @@ modules:
          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
             {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
     - name: spacetravel-dest
+    - name: spacetravel-uaa
 
  - name: spacetravel-app
    type: html5
@@ -35,6 +36,7 @@ modules:
    build-parameters:
       builder: grunt
    requires:
+    - name: spacetravel-uaa
     - name: srv_api
       group: destinations
       properties:
@@ -54,3 +56,9 @@ resources:
       service: destination
       service-plan: lite
    type: org.cloudfoundry.managed-service
+
+ - name: spacetravel-uaa
+   parameters:
+      service-plan: application
+   type: com.sap.xs.uaa
+   # create with: cf cs xsuaa application spacetravel-uaa -c '{"xsappname":"spacetravel-uaa-<space>", "tenant-mode":"dedicated" }'
