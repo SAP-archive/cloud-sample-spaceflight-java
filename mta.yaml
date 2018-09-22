@@ -59,9 +59,6 @@ resources:
 
  - name: spacetravel-uaa
    parameters:
-      service: xsuaa
       service-plan: application
-      config:
-        xsappname: spacetravel-uaa
-        tenant-mode: dedicated
-   type: org.cloudfoundry.managed-service
+   type: com.sap.xs.uaa
+   # create with: cf cs xsuaa application spacetravel-uaa -c '{"xsappname":"spacetravel-uaa-<space>", "tenant-mode":"dedicated" }'
