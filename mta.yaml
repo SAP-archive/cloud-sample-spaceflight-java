@@ -16,8 +16,6 @@ modules:
    path: srv
    parameters:
       memory: 768M
-   properties:
-      ALLOW_MOCKED_AUTH_HEADER: true   # allows running w/o UAA, not for productive use
    provides:
     - name: srv_api
       properties:
@@ -28,6 +26,7 @@ modules:
          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
             {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
     - name: spacetravel-dest
+    - name: spacetravel-uaa
 
  - name: spacetravel-app
    type: html5
@@ -37,6 +36,7 @@ modules:
    build-parameters:
       builder: grunt
    requires:
+    - name: spacetravel-uaa
     - name: srv_api
       group: destinations
       properties:
@@ -55,4 +55,13 @@ resources:
    parameters:
       service: destination
       service-plan: lite
+   type: org.cloudfoundry.managed-service
+
+ - name: spacetravel-uaa
+   parameters:
+      service: xsuaa
+      service-plan: application
+      config:
+        xsappname: spacetravel-uaa
+        tenant-mode: dedicated
    type: org.cloudfoundry.managed-service
