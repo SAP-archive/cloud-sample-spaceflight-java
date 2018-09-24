@@ -88,10 +88,10 @@ In this exercise you'll learn how to reuse CDS model code from other application
 
    Browse to URL `.../BookingService/$metadata`.  We got 4 more properties in the `Bookings` entity.
    These are admin data from `node_modules/@sap/cds/common.cds`, which we inherit through `node_modules/spaceflight-model/db/common.cds`.
-   <p align="center"><img width="480" src="res/14a.png" alt="Admin data in Bookings entity"> </p>
+   <p align="center"><img width="640" src="res/14a.png" alt="Admin data in Bookings entity"> </p>
 
    Using the `.../BookingService/Bookings` URL we see the corresponding data that was filled by the `db/src/gen/bookings.csv` file.
-   <p align="center"><img width="480" src="res/14b.png" alt="Admin data in Bookings entity"> </p>
+   <p align="center"><img width="640" src="res/14b.png" alt="Admin data in booking"> </p>
 
 7. Check the changed model in the UI
 
