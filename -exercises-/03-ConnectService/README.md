@@ -128,15 +128,23 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="480" src="res/pic319.png" alt="Deploy to database"> </p>
 
    There should be a success message in console view for the deploy operation:
-   <p align="center"><img width="480" src="res/pic320.png" alt="Deploy to database"> </p>
+   <p align="center"><img width="480" src="res/pic320.png" alt="Success message"> </p>
 
-5. **Browse the database**
+5. **Inspect the service**
+
+   Navigate to URL `.../BookingService/$metadata`.  You will find two new entities `Customers` and `CustomersRemote`.  Also, `Bookings` got a new `Customer_ID` property.
+   <p align="center"><img width="480" src="res/pic326b.png" alt="New entities"> </p>
+
+   Using URL `.../BookingService/Bookings` you can see that our sample data (in the `db/src/csv` folder) already makes use of `Customer_ID` and stores the link to a (artificial) customer number `1` in the booking.
+   <p align="center"><img width="480" src="res/pic326c.png" alt="Customer ID filled"> </p>
+
+<!-- 5. **Browse the database**
 
    On the `db` folder, select `Open HDI Container`, which will lead you to the deployed tables.
    Click on the `Tables` item in the tree.
    <p align="center"><img width="480" src="res/pic326a.png" alt="Browse the database"> </p>
 
-   > Note that there is a new table `..._CUSTOMERS` for the `Customers` entity.  Also, in table `..._BOOKINGS` you can see a new column `CUSTOMER_ID` holding the foreign key to the `CUSTOMERS` table.  In the next section you will see how this new table is filled with data from S/4HANA.
+   > Note that there is a new table `..._CUSTOMERS` for the `Customers` entity.  Also, in table `..._BOOKINGS` you can see a new column `CUSTOMER_ID` holding the foreign key to the `CUSTOMERS` table.  In the next section you will see how this new table is filled with data from S/4HANA. -->
 
 
 ### 4. Call S/4 in the Java code
