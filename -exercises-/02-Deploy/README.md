@@ -86,6 +86,8 @@ So far the database and the service layer are running. In the next step we will 
 
    <p align="center"><img width="480" src="res/pic303.png" alt="Log on to create destination"> </p>
 
+   > This double login will become superfluous in future versions of Web IDE.
+
 4. Once the app is created, a browser window will be opened.  There, click on the first tile named `app`.
 
    <p align="center"><img width="480" src="res/pic304.png" alt="Select the tile named 'app'"> </p>
@@ -96,4 +98,4 @@ So far the database and the service layer are running. In the next step we will 
 
 6. You can get to the details for each booking, by clicking on one of them.
 
-   <p align="center"><img width="640" src="res/pic306.png" alt="Select app"> </p>
+   <p align="center"><img width="640" src="res/pic306.png" alt="Inspect single booking"> </p>
