@@ -49,8 +49,10 @@ The file explorer always shows the currently active branch:
    In the search field type "OData Service for Business Partner" and press the search icon.
    <p align="center"><img width="480" src="res/pic303b.png" alt="API Hub Search"> </p>
 
-   On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX".  Store this file to your local machine.
+   On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX".  
    <p align="center"><img width="480" src="res/pic303c.png" alt="Select OData API"> </p>
+
+   Store this file to your local computer. It will end up in the default Downloads folder. Locate the file `API_BUSINESS_PARTNER.edmx` in the File Explorer and rename it to `ODataServiceforBusinessPartner.edmx`.
 
 3. **Import the service model into your project**
 
@@ -58,7 +60,7 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="480" src="res/pic306.png" alt="Data model from external service"> </p>
 
    b. In the wizard, select `File System` and `Browse` and find the downloaded model file on your computer.  Press `Next`.
-   <p align="center"><img width="640" src="res/pic308a.png" alt="Select the model file"> </p>
+   <p align="center"><img width="640" src="res/pic308a-mod.png" alt="Select the model file"> </p>
 
    c. **Deselect** the checkbox `Generate Virtual Data Model classes` and press `Finish`.
    <p align="center"><img width="480" src="res/pic310.png" alt="Turn off class generation"> </p>
