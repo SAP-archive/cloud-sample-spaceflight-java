@@ -60,7 +60,7 @@ The file explorer always shows the currently active branch:
    b. In the wizard, select `File System` and `Browse` and find the downloaded model file on your computer.  Press `Next`.
    <p align="center"><img width="640" src="res/pic308a.png" alt="Select the model file"> </p>
 
-   c. Deselect the checkbox `Generate Virtual Data Model classes` and press `Finish`.
+   c. **Deselect** the checkbox `Generate Virtual Data Model classes` and press `Finish`.
    <p align="center"><img width="480" src="res/pic310.png" alt="Turn off class generation"> </p>
 
    > Java class generation for the data model is not needed in our case, as we will be using precompiled and optimized classes provided by S/4HANA cloud SDK.
