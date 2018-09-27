@@ -13,7 +13,7 @@ In this exercise you will learn how to add a remote service to your app that fet
 ### 1. Switch to a different start branch
 
 For this exercise you have to **switch to another code branch** of the Git repository.
-In the Git pane click the `+` icon:
+In the Web IDE Git pane click the `+` icon:
 <p align="center"><img width="420" src="res/pic301.png" alt="Create local branch"> </p>
 
 As source branch select `origin/s4bp-start`.  The name of the local branch is suggested automatically.  Click `Ok`.
