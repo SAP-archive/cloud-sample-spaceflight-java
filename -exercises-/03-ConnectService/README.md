@@ -176,7 +176,7 @@ The file explorer always shows the currently active branch:
    c. Select the BookingService endpoint:
    <p align="center"><img width="480" src="res/pic323.png" alt="Open BookingService"> </p>
 
-   d. Check the data retreived as `Bookings` and as `CustomerRemote`:
+   d. Check the data retreived as `Bookings` and as `CustomersRemote`:
    <p align="center"><img width="480" src="res/pic324.png" alt="Query Bookings"> </p>
    <p align="center"><img width="480" src="res/pic325.png" alt="Query CustomersRemote"> </p>
 
