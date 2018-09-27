@@ -138,6 +138,9 @@ The file explorer always shows the currently active branch:
 
 5. **Inspect the service**
 
+   Re-start the OData service:
+   <p align="center"><img width="480" src="res/pic321.png" alt="Run Java app"> </p>
+
    Navigate to URL `.../BookingService/$metadata`.  You will find two new entities `Customers` and `CustomersRemote`.  Also, `Bookings` got a new `Customer_ID` property.
    <p align="center"><img width="480" src="res/pic326b.png" alt="New entities"> </p>
 
@@ -157,6 +160,7 @@ The file explorer always shows the currently active branch:
 
 1. **Change `CustomersRemoteHandler.java`**:
 
+   Locate the file `CustomersRemoteHandler.java` in folder `srv/src/main/java/com/sap/cloudsamples/spaceflight/`.
    To enable reading a single customer record, add a comment in line `31` and remove the comment from line `32`:
    <p align="center"><img width="640" src="res/pic317.png" alt="Change readCustomer method"> </p>
 
@@ -197,7 +201,7 @@ The file explorer always shows the currently active branch:
    > Now, for each new booking created, the respective customer record is going to fetched and saved to the local database.
    To create a booking, we need a UI, though.  Let's do this real quick in the next section.
 
-2. **Run again the service again**
+2. **Run the service again**
 
    <p align="center"><img width="480" src="res/pic321.png" alt="Run Java app"> </p>
 
