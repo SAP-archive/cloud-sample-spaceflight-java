@@ -33,9 +33,11 @@ In this exercise you will learn how to clone the Git repository that contains th
 
    <p align="center"><img width="320" src="res/pic202.png" alt="Refresh Web IDE workspace"> </p>
 
-3. In a final step click on `Cloud Foundry` in the `Workspace Preferences` In the field for the `API endpoint` select the first item `https://api.cf.eu10.hana.ondemand.com`.  The values for `Organization` and `Space` will be set automatically to `TechEd2018_CNA376-TechEd2018` and the space your user is assigned to.
+3. In a final step click on `Cloud Foundry` in the `Workspace Preferences` In the field for the `API endpoint` select the first item `https://api.cf.eu10.hana.ondemand.com`. If you are asked to logon, use your user/password for this exercise.
 
-   Do **NOT** click the `Reinstall Builder` button as this would affect users running along with in the same Cloud Foundry space.
+   The values for `Organization` and `Space` will be set automatically to `TechEd2018_CNA376-TechEd2018` and the space your user is assigned to. 
+
+   **Do NOT** click the `Reinstall Builder` button as this would affect users working within the same Cloud Foundry space.
 
    <p align="center"><img width="640" src="res/pic203.png" alt="Enter Cloud Foundry API endpoint"> </p>
 
