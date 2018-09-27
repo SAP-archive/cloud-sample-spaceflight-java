@@ -72,7 +72,6 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="350" src="res/pic311.png" alt="Imported files"> </p>
 
    > While the `xml` file, the so-called `edmx`, is the original model file from API Business Hub, the `json` file is the compiled representation of the model for CDS.  It is this `json` file, so-called `cson`, that we will reference from other `cds` source files.
--->
 
 <!-- 3. **Import the service model into your project**
 
