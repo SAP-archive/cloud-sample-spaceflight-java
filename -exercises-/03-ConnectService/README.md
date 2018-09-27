@@ -35,7 +35,7 @@ The file explorer always shows the currently active branch:
    On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX".  Store this file to your local machine.
    <p align="center"><img width="480" src="res/pic303c.png" alt="Select OData API"> </p> -->
 
-1. **Activate SAP Business API Hub for your user**
+<!-- 1. **Activate SAP Business API Hub for your user**
 
    Navigate to SAP API Business Hub by opening the URL https://api.sap.com in a separate browser tab. Select the `Log On` button and enter the email address and password of your user.
    <p align="center"><img width="480" src="res/pic303d.png" alt="Lon on to SAP API Business Hub"> </p>
@@ -53,14 +53,15 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="480" src="res/pic303c.png" alt="Select OData API"> </p>
 
    Store this file to your local computer. It will end up in the default Downloads folder. Locate the file `API_BUSINESS_PARTNER.edmx` in the File Explorer and rename it to `ODataServiceforBusinessPartner.edmx`.
+-->
 
-3. **Import the service model into your project**
+1. **Import the service model into your project**
 
-   a. Switch back to SAP Web IDE and on the `srv` folder select `New` > `Data Model from External Service` from the context menu:
+   a. On the `srv` folder select `New` > `Data Model from External Service` from the context menu:
    <p align="center"><img width="480" src="res/pic306.png" alt="Data model from external service"> </p>
 
-   b. In the wizard, select `File System` and `Browse` and find the downloaded model file on your computer.  Press `Next`.
-   <p align="center"><img width="640" src="res/pic308a-mod.png" alt="Select the model file"> </p>
+   b. In the wizard, select `SAP API Business Hub` and enter `business partner` into the search field. If you are asked to logon to API Business Hub, enter your credentials. Select the API `OData Service for Business Partner`and then press `Next`.
+   <p align="center"><img width="640" src="res/pic308b.png" alt="Select the model file"> </p>
 
    c. **Deselect** the checkbox `Generate Virtual Data Model classes` and press `Finish`.
    <p align="center"><img width="480" src="res/pic310.png" alt="Turn off class generation"> </p>
@@ -71,7 +72,7 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="350" src="res/pic311.png" alt="Imported files"> </p>
 
    > While the `xml` file, the so-called `edmx`, is the original model file from API Business Hub, the `json` file is the compiled representation of the model for CDS.  It is this `json` file, so-called `cson`, that we will reference from other `cds` source files.
-
+-->
 
 <!-- 3. **Import the service model into your project**
 
