@@ -78,24 +78,21 @@ So far the database and the service layer are running. In the next step we will 
 
    <p align="center"><img width="480" src="res/pic301.png" alt="Press Run"> </p>
 
-2. Select the file `flpSandbox.html` and click on the `OK` button.
 
-   <p align="center"><img width="480" src="res/pic302.png" alt="Select start html file"> </p>
-
-3. On the first run, a dialog may be shown asking you to log on to the Neo environment.  Again provide the email address and the password for your user.
+2. On the first run, a dialog may be shown asking you to log on to the Neo environment.  Again provide the email address and the password for your user.
 
    <p align="center"><img width="480" src="res/pic303.png" alt="Log on to create destination"> </p>
 
    > This double login will become superfluous in future versions of Web IDE.
 
-4. Once the app is created, a browser window will be opened.  There, click on the first tile named `app`.
+3. Once the app is created, a browser window will be opened.  There, click on the first tile named `app`.
 
    <p align="center"><img width="480" src="res/pic304.png" alt="Select the tile named 'app'"> </p>
 
-5. In the `Bookings` screen, click on the `Go` button to fetch the bookings from the database.
+4. In the `Bookings` screen, click on the `Go` button to fetch the bookings from the database.
 
    <p align="center"><img width="640" src="res/pic305.png" alt="Fetch bookings through the 'Go' button"> </p>
 
-6. You can get to the details for each booking, by clicking on one of them.
+5. You can get to the details for each booking, by clicking on one of them.
 
    <p align="center"><img width="640" src="res/pic306.png" alt="Inspect single booking"> </p>

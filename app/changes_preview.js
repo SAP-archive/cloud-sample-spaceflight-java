@@ -8,9 +8,9 @@ jQuery.extend(sap.ui.fl.FakeLrepConnector.prototype, {
 		if (!sCodeAsString || sCodeAsString.length == 0) {
 			return "";
 		}
-		let sAsciiString = "";
+		var sAsciiString = "";
 		for (var i = 0; i < sCodeAsString.length; i++) {
-			sAsciiString += sCodeAsString.charCodeAt(i) + ','
+			sAsciiString += sCodeAsString.charCodeAt(i) + ",";
 		}
 		if (sAsciiString != null && sAsciiString.length > 0 && sAsciiString.charAt(sAsciiString.length - 1) == ',') {
 			sAsciiString = sAsciiString.substring(0, sAsciiString.length - 1);
