@@ -190,10 +190,10 @@ The file explorer always shows the currently active branch:
 
 1. **Adjust `BookingsHandler.java`**
 
-   Remove the line comments in line `75`. Use `Ctrl+/` or the from the menu "Edit -> Comment -> Toggle Line Comment":
+   Remove the line comments in line `75`:
    <p align="center"><img width="640" src="res/pic315.png" alt="Call fetchAndSaveCustomer"> </p>
 
-   Also remove the comments from method `fetchAndSaveCustomer`:
+   Also remove the comments from method `fetchAndSaveCustomer`.  Use `Ctrl+/` or the from the menu "Edit -> Comment -> Toggle Line Comment":
    <p align="center"><img width="640" src="res/pic316.png" alt="Implement fetchAndSaveCustomer"> </p>
 
    Save the file.
