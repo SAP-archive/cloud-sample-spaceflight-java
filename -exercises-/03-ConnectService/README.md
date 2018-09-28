@@ -198,12 +198,13 @@ The file explorer always shows the currently active branch:
 
    Save the file.
 
-   > Now, for each new booking created, the respective customer record is going to fetched and saved to the local database.
-   To create a booking, we need a UI, though.  Let's do this real quick in the next section.
-
 2. **Run the service again**
 
    <p align="center"><img width="480" src="res/pic321.png" alt="Run Java app"> </p>
+
+   > Now, for each new booking created, the respective customer record is going to be fetched and saved to the local database.
+
+   To create a booking, we need a UI, though.  Let's do this real quick in the next section.
 
 ### 6. Create bookings for S/4 customers
 
