@@ -11,26 +11,26 @@ In this exercise you'll learn how to reuse CDS model code from other application
 # Exercise description
 
 ## 1. Preparation
-1. For this exercise you have to switch to branch `reuse-start` of the Git repository.  Click on the symbol on the right of the browser and click on `Pull` and after that on the `Fetch` symbol.
+1.1. For this exercise you have to switch to branch `reuse-start` of the Git repository.  Click on the symbol on the right of the browser and click on `Pull` and after that on the `Fetch` symbol.
 
 <p align="center"><img width="640" src="res/1.png" alt="New branch"> </p>
 
-2. Checkout the `reuse-start` branch:
+1.2. Checkout the `reuse-start` branch:
 <p align="center"><img width="480" src="res/2.png" alt="Checkout reuse-start branch"> </p>
 
 
-2. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
+1.3. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
 
 > You will find the final state of this exercise in branch `reuse-final`, should you wish to skip the exercise.
 
 
 ## 2. Add dependency to base model repo
 
-1. Locate `package.json` at root level
+2.1. Locate `package.json` at root level
 
    <p align="center"><img width="320" src="res/3.png" alt="package.json"> </p>
 
-2. Add the following snippets to `package.json`.
+2.2. Add the following snippets to `package.json`.
    - To the `dependencies` block:
       ```json
       "spaceflight-model": "https://github.com/SAP/cloud-sample-spaceflight"
@@ -44,7 +44,7 @@ In this exercise you'll learn how to reuse CDS model code from other application
 
    **Check out for JSON syntax errors** in the editor, in case you missed adding a comma.
 
-3. Let's see which files we get from the imported model
+2.3. Let's see which files we get from the imported model
 
 - Execute _Build CDS_ on the project
   <p align="center"><img width="640" src="res/9.png" alt="Build cds"> </p>
@@ -52,7 +52,7 @@ In this exercise you'll learn how to reuse CDS model code from other application
 - Find `node_modules/spaceflight-model` and see the model files
   <p align="center"><img width="320" src="res/10.png" alt="Browse node_modules"> </p>
 
-4. Remove redundant model code
+2.4. Remove redundant model code
 
 - Delete files `common.cds`, `flight-model.cds`, and `space-model.cds`.  These files are now used from the reuse model.
   <p align="center"><img width="480" src="res/7.png" alt="Delete files"> </p>
@@ -65,7 +65,7 @@ In this exercise you'll learn how to reuse CDS model code from other application
 <p align="center"><img width="640" src="res/8.png" alt="booking-service.cds"> </p>
 
 
-5. Deploy to database
+2.5. Deploy to database
 
    As usual, use the `Build` menu on the `db` folder.
    <p align="center"><img width="480" src="res/11.png" alt="Build database module"> </p>
@@ -81,7 +81,7 @@ In this exercise you'll learn how to reuse CDS model code from other application
 
   These are admin data from `node_modules/@sap/cds/common.cds`, which we inherit through `node_modules/spaceflight-model/db/common.cds`. -->
 
-6. Restart the Java application
+2.6. Restart the Java application
 
    As usual, hit `Run` on the `srv` folder.
    <p align="center"><img width="480" src="res/14.png" alt="Restart application"> </p>
@@ -93,7 +93,7 @@ In this exercise you'll learn how to reuse CDS model code from other application
    Using the `.../BookingService/Bookings` URL we see the corresponding data that was filled by the `db/src/gen/bookings.csv` file.
    <p align="center"><img width="640" src="res/14b.png" alt="Admin data in booking"> </p>
 
-7. Check the changed model in the UI
+2.7. Check the changed model in the UI
 
    Restart the UI application as usual:
    <p align="center"><img width="320" src="res/14c.png" alt="Restart UI application"> </p>

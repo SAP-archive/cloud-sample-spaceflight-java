@@ -55,20 +55,20 @@ The file explorer always shows the currently active branch:
    Store this file to your local computer. It will end up in the default Downloads folder. Locate the file `API_BUSINESS_PARTNER.edmx` in the File Explorer and rename it to `ODataServiceforBusinessPartner.edmx`.
 -->
 
-1. **Import the service model into your project**
+2.1 **Import the service model into your project**
 
-   a. On the `srv` folder select `New` > `Data Model from External Service` from the context menu:
+ 2.1.1. On the `srv` folder select `New` > `Data Model from External Service` from the context menu:
    <p align="center"><img width="480" src="res/pic306.png" alt="Data model from external service"> </p>
 
-   b. In the wizard, select `SAP API Business Hub` and enter `business partner` into the search field. If you are asked to logon to API Business Hub, enter your credentials. Select the API `OData Service for Business Partner`and then press `Next`.
+ 2.1.2. In the wizard, select `SAP API Business Hub` and enter `business partner` into the search field. If you are asked to logon to API Business Hub, enter your credentials. Select the API `OData Service for Business Partner`and then press `Next`.
    <p align="center"><img width="640" src="res/pic308b.png" alt="Select the model file"> </p>
 
-   c. **Deselect** the checkbox `Generate Virtual Data Model classes` and press `Finish`.
+ 2.1.3. **Deselect** the checkbox `Generate Virtual Data Model classes` and press `Finish`.
    <p align="center"><img width="480" src="res/pic310.png" alt="Turn off class generation"> </p>
 
    > Java class generation for the data model is not needed in our case, as we will be using precompiled and optimized classes provided by S/4HANA cloud SDK.
 
-   d. Verify in file explorer that the import has generated two service definitions, one in `xml` format, the other in `json` format   These can be found in folder `srv` > `external`.
+ 2.1.4. Verify in file explorer that the import has generated two service definitions, one in `xml` format, the other in `json` format   These can be found in folder `srv` > `external`.
    <p align="center"><img width="350" src="res/pic311.png" alt="Imported files"> </p>
 
    > While the `xml` file, the so-called `edmx`, is the original model file from API Business Hub, the `json` file is the compiled representation of the model for CDS.  It is this `json` file, so-called `cson`, that we will reference from other `cds` source files.
@@ -93,14 +93,14 @@ The file explorer always shows the currently active branch:
 
 ### 3. Use external model in flight data and service model
 
-1. **Update CDS**
+3.1. **Update CDS**
 
    After the import we need to make the CDS build system aware of the new model.  On the project node in the tree, select `Build CDS` from the context menu.
    <p align="center"><img width="480" src="res/pic313a.png" alt="Build CDS"> </p>
 
    > In future versions of Web IDE this step will no longer be necessary.
 
-2. **Remove comments in file `db/index.cds`**
+3.2. **Remove comments in file `db/index.cds`**
 
    Remove the comment markers from all lines.  After selecting all lines, you can use the `Toggle Line Comment` command from the editor context menu, or hit `Ctrl+/`
 
@@ -119,7 +119,7 @@ The file explorer always shows the currently active branch:
    >    - We will use this `Customers` table/entity to cache business partner records that we have retrieved from S/4HANA.  We not only do this for performance reasons, but also because we can conveniently join and query over both 'local' and 'remote' data sets.
    > 4. Finally, in line `31-33` the `Bookings` entity is extended by an association to the `Customers` table from above.  By storing the customer ID with each booking, we link `Bookings` with `Customers` records.
 
-3. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
+3.3. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
 
    <p align="center"><img width="480" src="res/pic314.png" alt="Remove comments in srv/booking-servicde.cds"> </p>
 
@@ -128,7 +128,7 @@ The file explorer always shows the currently active branch:
 
    > Much like the other `as projection on` lines, the two new lines expose the new `Customers` and `CustomersRemote` entities in the `BookingService`.
 
-4. **Build and deploy to the database**
+3.4. **Build and deploy to the database**
 
    The model is now ready to be compiled and deployed to SAP HANA.  Use the `Build` command on the `db` folder to do this.
    <p align="center"><img width="480" src="res/pic319.png" alt="Deploy to database"> </p>
@@ -136,7 +136,7 @@ The file explorer always shows the currently active branch:
    There should be a success message in console view for the deploy operation:
    <p align="center"><img width="480" src="res/pic320.png" alt="Success message"> </p>
 
-5. **Inspect the service**
+3.5. **Inspect the service**
 
    Re-start the OData service:
    <p align="center"><img width="480" src="res/pic321.png" alt="Run Java app"> </p>
@@ -158,7 +158,7 @@ The file explorer always shows the currently active branch:
 
 ### 4. Call S/4 in the Java code
 
-1. **Change `CustomersRemoteHandler.java`**:
+4.1. **Change `CustomersRemoteHandler.java`**:
 
    Locate the file `CustomersRemoteHandler.java` in folder `srv/src/main/java/com/sap/cloudsamples/spaceflight/`.
    To enable reading a single customer record, add a comment in line `31` and remove the comment from line `32`:
@@ -169,7 +169,7 @@ The file explorer always shows the currently active branch:
 
    > If you are curious, you can take a look into the `CustomersReplicator` class to see how we call the business partner OData service using the S/4HANA Cloud SDK.
 
-2. **Verify the code works**
+4.2. **Verify the code works**
 
    a. Run the Java application:
    <p align="center"><img width="480" src="res/pic321.png" alt="Run Java app"> </p>
@@ -188,7 +188,7 @@ The file explorer always shows the currently active branch:
 
 ### 5. Prepare storing S/4 customers in the local database
 
-1. **Adjust `BookingsHandler.java`**
+5.1. **Adjust `BookingsHandler.java`**
 
    Remove the line comments in line `75`:
    <p align="center"><img width="640" src="res/pic315.png" alt="Call fetchAndSaveCustomer"> </p>
@@ -198,7 +198,7 @@ The file explorer always shows the currently active branch:
 
    Save the file.
 
-2. **Run the service again**
+5.2. **Run the service again**
 
    <p align="center"><img width="480" src="res/pic321.png" alt="Run Java app"> </p>
 
@@ -208,7 +208,7 @@ The file explorer always shows the currently active branch:
 
 ### 6. Create bookings for S/4 customers
 
-1. **Adjust the UI**
+6.1. **Adjust the UI**
 
    The UI can be adapted when adding/changing Fiori annotations to CDS models. Remove the line comments for the section marked in the following figures:
    <p align="center"><img width="480" src="res/pic327.png" alt="Change Customers annotations"> </p>
@@ -216,7 +216,7 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="480" src="res/pic330.png" alt="Change Bookings line item annotation"> </p>
    <p align="center"><img width="480" src="res/pic329.png" alt="Change Bookings annotations"> </p>
 
-2. **Run the UI within SAP Web IDE**
+6.2. **Run the UI within SAP Web IDE**
 
    <p align="center"><img width="600" src="res/pic331.png" alt="Open run configuration"> </p>
 
@@ -224,11 +224,11 @@ The file explorer always shows the currently active branch:
 
    <p align="center"><img width="700" src="res/pic333.png" alt="Query bookings"> </p>
 
-3. **Create a new booking for an S/4 customer:**
+6.3. **Create a new booking for an S/4 customer:**
 
    <p align="center"><img width="700" src="res/pic334.png" alt="Create booking"> </p>
 
-4. **Check that this S/4 customer has been persisted (cached) in the database**
+6.4. **Check that this S/4 customer has been persisted (cached) in the database**
 
    <p align="center"><img width="700" src="res/pic335.png" alt="Query Customers entity"> </p>
 
