@@ -1,1 +1,2 @@
-See the sub folders for the individual exercises.
+See the subfolders for the individual exercises.
+Start off with [exercise 1](../01-Setup).
