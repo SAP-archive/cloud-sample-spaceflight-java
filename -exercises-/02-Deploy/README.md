@@ -18,7 +18,7 @@ In this exercise you will have a look into the data model of the application and
 
    > During this step, the data model is compiled into the respective `hdbcds` artifacts, which are then deployed to an HDI Container (a database schema).  In Web IDE's console view you can watch the progress of the deployment operation.
 
-1.2. Open the `db` folder, double-click on the file `flight-model.cds` and have a look into the definition of the data model.
+1.2. While the deployment is running, take a look into the data model.  Open the `db` folder, double-click on the file `flight-model.cds`.  Read through the comments and make yourself familiar with the `Bookings` entity, as this is the one the exercises deal with.
    <p align="center"><img width="860" src="res/pic102.png" alt="The flight model"> </p>
 
    > Tip: To help you find files easier in the tree, enable the `Link Workspace to Editor` setting.  Everytime you switch to another editor, this will select the file in the file tree.
@@ -94,10 +94,13 @@ So far the database and the service layer are running. In the next step we will 
    <p align="center"><img width="640" src="res/pic305.png" alt="Fetch bookings through the 'Go' button"> </p>
 
 3.5. You can get to the details for each booking, by clicking on one of them.
-
    <p align="center"><img width="640" src="res/pic306.png" alt="Inspect single booking"> </p>
+
+   Compare the fields on the screen with the `Bookings` entity from `db/flight-model.cds`.  Note how `Itineraries.Name` is shown here in the field `Trip`, instead of its `ID`.
 
 
 ## Next
+
+Great!  We have the initial version of the app up and running, and are now prepared to enhance it.
 
 Continue with [exercise 3](../03-ConnectService).
