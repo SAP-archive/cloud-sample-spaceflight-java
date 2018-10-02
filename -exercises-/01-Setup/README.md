@@ -35,7 +35,7 @@ In this exercise you will learn how to clone the Git repository that contains th
 
 2.2. In a final step click on `Cloud Foundry` in the `Workspace Preferences` In the field for the `API endpoint` select the first item `https://api.cf.eu10.hana.ondemand.com`. If you are asked to logon, use your user/password for this exercise.
 
-   The values for `Organization` and `Space` will be set automatically to `TechEd2018_CNA376-TechEd2018` and the space your user is assigned to. 
+   The values for `Organization` and `Space` will be set automatically to `TechEd2018_CNA376-TechEd2018` and the space your user is assigned to.
 
    **Do NOT** click the `Reinstall Builder` button as this would affect users working within the same Cloud Foundry space.
 
@@ -65,3 +65,8 @@ In this exercise you will learn how to clone the Git repository that contains th
    <p align="center"><img width="640" src="res/pic304.png" alt="Project cloned"> </p>
 
    > This workspace has now a local copy of the cloned code in the Web IDE.  In the next exercise we will take a look into this project.
+
+
+## Next
+
+Continue with [exercise 2](../02-Deploy).
