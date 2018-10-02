@@ -12,16 +12,16 @@ In this exercise you will learn how to clone the Git repository that contains th
 
 ### 1. Log on to Web IDE
 
-1.1. In a first step you need to access the Web IDE of your account. For the hands-on session **CNA376** at SAP TechEd 2018 use the [following link](https://webidecp-jgxcdnv3bs.dispatcher.hana.ondemand.com/) and the credentials from the session intructors.
-<p align="center"><img width="420" src="res/pic100.png" alt="Log on screen"> </p>
+1.1. In a first step you need to access the Web IDE of your account. For the hands-on session **CNA376** at SAP TechEd 2018 use the [following link](https://webidecp-jgxcdnv3bs.dispatcher.hana.ondemand.com/) and the credentials from the session intructors.  Select the `Remember me` checkbox.
+   <p align="center"><img width="420" src="res/pic100.png" alt="Log on screen"> </p>
 
 1.2. In case you are asked to upgrade your account, set the tick at the field `I acknowledge...` and provide your First Name (e.g. CNA376) and your Last Name "xxx".
 
-<p align="center"><img width="420" src="res/pic101.png" alt="Upgrade account"> </p>
+   <p align="center"><img width="420" src="res/pic101.png" alt="Upgrade account"> </p>
 
 1.3. The Web IDE opens up and shows your workspace. The workspace is empty if you use it for the first time.
 
-<p align="center"><img width="640" src="res/pic102.png" alt="Web IDE workspace"> </p>
+   <p align="center"><img width="640" src="res/pic102.png" alt="Web IDE workspace"> </p>
 
 ### 2. Setup workspace settings
 
