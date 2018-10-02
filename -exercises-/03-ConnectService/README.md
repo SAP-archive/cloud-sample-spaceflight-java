@@ -49,7 +49,7 @@ The file explorer always shows the currently active branch:
    In the search field type "OData Service for Business Partner" and press the search icon.
    <p align="center"><img width="480" src="res/pic303b.png" alt="API Hub Search"> </p>
 
-   On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX".  
+   On the next screen switch to the "Details" view. Scroll down to select "Download Specification" and then select "EDMX".
    <p align="center"><img width="480" src="res/pic303c.png" alt="Select OData API"> </p>
 
    Store this file to your local computer. It will end up in the default Downloads folder. Locate the file `API_BUSINESS_PARTNER.edmx` in the File Explorer and rename it to `ODataServiceforBusinessPartner.edmx`.
@@ -233,3 +233,6 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="700" src="res/pic335.png" alt="Query Customers entity"> </p>
 
 
+## Next
+
+Continue with [exercise 4](../04-Reuse).

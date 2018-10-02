@@ -96,3 +96,8 @@ So far the database and the service layer are running. In the next step we will 
 3.5. You can get to the details for each booking, by clicking on one of them.
 
    <p align="center"><img width="640" src="res/pic306.png" alt="Inspect single booking"> </p>
+
+
+## Next
+
+Continue with [exercise 3](../03-ConnectService).
