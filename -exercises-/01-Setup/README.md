@@ -25,15 +25,7 @@ In this exercise you will learn how to clone the Git repository that contains th
 
 ### 2. Setup workspace settings
 
-2.1. Click on the preferences icon on the left and select `Features`. Next, switch `ON` the `SAP HANA Database Devlopment Tools`. Finally click on the `Save` button at the bottom to enable the tools in your workspace.
-
-   <p align="center"><img width="640" src="res/pic201.png" alt="Web IDE workspace"> </p>
-
-   In the pop-up click on **Refresh**, so that the Web IDE can be re-started with the new settings.
-
-   <p align="center"><img width="320" src="res/pic202.png" alt="Refresh Web IDE workspace"> </p>
-
-2.2. In a final step click on `Cloud Foundry` in the `Workspace Preferences` In the field for the `API endpoint` select the first item `https://api.cf.eu10.hana.ondemand.com`. If you are asked to logon, use your user/password for this exercise.
+2.1. Click on `Cloud Foundry` in the `Workspace Preferences`. In the field for the `API endpoint` select the first item `https://api.cf.eu10.hana.ondemand.com`. If you are asked to logon, use your user/password for this exercise.
 
    The values for `Organization` and `Space` will be set automatically to `TechEd2018_CNA376-TechEd2018` and the space your user is assigned to.
 
@@ -45,6 +37,14 @@ In this exercise you will learn how to clone the Git repository that contains th
 
    You will get a confirmation message:
    <p align="center"><img width="320" src="res/pic204.png" alt="Confirmation about stored preferences"> </p>
+
+2.2. Click on the preferences icon on the left and select `Features`. Next, enter `HANA Database Dev` in the search box and switch `ON` the `SAP HANA Database Devlopment Tools`. Finally click on the `Save` button at the bottom to enable the tools in your workspace.
+
+   <p align="center"><img width="640" src="res/pic201.png" alt="Web IDE workspace"> </p>
+
+   In the pop-up click on **Refresh**, so that the Web IDE can be re-started with the new settings.
+
+   <p align="center"><img width="320" src="res/pic202.png" alt="Refresh Web IDE workspace"> </p>
 
 
 ### 3. Clone the code
