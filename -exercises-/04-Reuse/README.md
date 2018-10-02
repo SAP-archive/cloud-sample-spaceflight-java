@@ -11,15 +11,20 @@ In this exercise you'll learn how to reuse CDS model code from other application
 # Exercise description
 
 ## 1. Preparation
-1.1. For this exercise you have to switch to branch `reuse-start` of the Git repository.  Click on the symbol on the right of the browser and click on `Pull` and after that on the `Fetch` symbol.
+For this exercise you have to switch to branch `reuse-start` of the Git repository.
 
-<p align="center"><img width="640" src="res/1.png" alt="New branch"> </p>
+1.1. First, save any work from the previous exercise by committing the changed files in the Git pane.
 
-1.2. Checkout the `reuse-start` branch:
-<p align="center"><img width="480" src="res/2.png" alt="Checkout reuse-start branch"> </p>
+- Stage all files:
+  <p align="center"><img width="320" src="res/1a.png" alt="Staging files to commit"> </p>
+- Then add a commit message and select `Commit`:
+   <p align="center"><img width="320" src="res/1b.png" alt="Commit files"> </p>
 
+   > `Commit` is a local operation in Git, while `Push` would also modify them on the  remote Github repository.  In this exercise we stay with `Commit`.
 
-1.3. Once this has worked, you should see an information at the top right saying `Pull completed.` and `Fetch completed`
+1.2. Create a local branch called `reuse-start`.  Make sure to select `origin/reuse-start` as source branch.
+   <p align="center"><img width="480" src="res/1.png" alt="New local branch"> </p>
+   <p align="center"><img width="480" src="res/2.png" alt="Select source branch"> </p>
 
 > You will find the final state of this exercise in branch `reuse-final`, should you wish to skip the exercise.
 
