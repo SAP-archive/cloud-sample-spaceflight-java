@@ -5,7 +5,9 @@ using {
 
 service BookingService {
 
-    entity Bookings    as projection on flight.Bookings;
+    entity Bookings    as projection on flight.Bookings
+        excluding { CustomerName, EmailAddress }
+    ;
     entity Itineraries as projection on flight.Itineraries;
 
     @readonly entity EarthRoutes   as projection on flight.EarthRoutes;
