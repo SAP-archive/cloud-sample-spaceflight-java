@@ -119,14 +119,18 @@ The file explorer always shows the currently active branch:
    >    - We will use this `Customers` table/entity to cache business partner records that we have retrieved from S/4HANA.  We not only do this for performance reasons, but also because we can conveniently join and query over both 'local' and 'remote' data sets.
    > 4. Finally, in line `31-33` the `Bookings` entity is extended by an association to the `Customers` table from above.  By storing the customer ID with each booking, we link `Bookings` with `Customers` records.
 
-3.3. **Remove comments in file `srv/booking-service.cds`** in the last two lines.
+3.3. **Remove comments in file `srv/booking-service.cds`**
 
+   - In line `9` to enable the `excluding` clause.
+      > Here we remove properties `CustomerName` and `EmailAddress` from the service, since they are now available through our new `Customer` entity.
+   - In the last two lines.
+      > Much like the other `as projection on` lines, the two new lines expose the new `Customers` and `CustomersRemote` entities in the `BookingService`.
+
+   The file should now like this:
    <p align="center"><img width="480" src="res/pic314.png" alt="Remove comments in srv/booking-servicde.cds"> </p>
 
    After you save the file, CDS auto build should now successfully compile our CDS model.
    Should there still be errors shown in `db/index.cds`, close the editors and refresh the browser page.
-
-   > Much like the other `as projection on` lines, the two new lines expose the new `Customers` and `CustomersRemote` entities in the `BookingService`.
 
 3.4. **Build and deploy to the database**
 
