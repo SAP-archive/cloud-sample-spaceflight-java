@@ -8,6 +8,9 @@
 
 In this exercise you will learn how to clone the Git repository that contains the sample project of this tutorial into the Web IDE of the SAP Cloud Platform.
 
+## Notes
+For all exercises please make sure to use **Google Chrome**.
+
 ## Exercise description
 
 ### 1. Log on to Web IDE
