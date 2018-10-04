@@ -214,7 +214,7 @@ The file explorer always shows the currently active branch:
 
 6.1. **Adjust the UI**
 
-   The UI can be adapted when adding/changing Fiori annotations to CDS models. Remove the line comments for the section marked in the following figures:
+   The UI can be adapted when adding/changing Fiori annotations to CDS models. Remove the line comments for the section marked in the following figures.  Also, remove the lines marked with `REMOVE`.
    <p align="center"><img width="480" src="res/pic327.png" alt="Change Customers annotations"> </p>
    <p align="center"><img width="480" src="res/pic328.png" alt="Change Bookings annotations"> </p>
    <p align="center"><img width="480" src="res/pic330.png" alt="Change Bookings line item annotation"> </p>
