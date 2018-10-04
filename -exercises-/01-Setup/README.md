@@ -13,6 +13,8 @@ In this exercise you will learn how to clone the Git repository that contains th
 ### 1. Log on to Web IDE
 
 1.1. In a first step you need to access the Web IDE of your account. For the hands-on session **CNA376** at SAP TechEd 2018 use the [following link](https://webidecp-jgxcdnv3bs.dispatcher.hana.ondemand.com/) and the credentials from the session intructors.  Select the `Remember me` checkbox.
+
+   > Tip: copy the email address to e.g. Notepad.  You will be asked for it a few more times during the exercises.
    <p align="center"><img width="420" src="res/pic100.png" alt="Log on screen"> </p>
 
 1.2. In case you are asked to upgrade your account, set the tick at the field `I acknowledge...` and provide your First Name (e.g. CNA376) and your Last Name "xxx".
