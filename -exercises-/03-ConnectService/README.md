@@ -104,7 +104,7 @@ The file explorer always shows the currently active branch:
 
    Remove the comment markers from all lines.  After selecting all lines, you can use the `Toggle Line Comment` command from the editor context menu, or hit `Ctrl+/`
 
-   **Note**: After you save the file, CDS auto build will yield errors for the project.  No worries, we will fix them in the next step.  The file should look like this:
+   **Note**: After you save the file, **CDS auto build will yield errors** for the project.  No worries, we will fix them in the next step.  The file should look like this:
    <p align="center"><img width="480" src="res/pic313.png" alt="Remove comments in db/index.cds"> </p>
 
    > That seems like a lot of code.  Let's break it down:
