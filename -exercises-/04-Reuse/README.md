@@ -54,14 +54,17 @@ For this exercise you have to switch to branch `reuse-start` of the Git reposito
 - Execute _Build CDS_ on the project
   <p align="center"><img width="640" src="res/9.png" alt="Build cds"> </p>
 
-- Find `node_modules/spaceflight-model` and see the model files
+- Expand `node_modules` folder and see that we got a folder `spaceflight-model` with the imported model files:
   <p align="center"><img width="320" src="res/10.png" alt="Browse node_modules"> </p>
+
+  > All files below `node_modules` are overwritten by the CDS build and not meant to be modified.
 
 2.4. Remove redundant model code
 
+- Collapse `node_modules` folder again to avoid mixing files up with the genuine source files in the application.
+
 - Delete files `common.cds`, `flight-model.cds`, and `space-model.cds`.  These files are now used from the reuse model.
   <p align="center"><img width="480" src="res/7.png" alt="Delete files"> </p>
-
 
 - Remove the first two lines of `index.cds`.  Comment in the last line.
   <p align="center"><img width="860" src="res/6.png" alt="index.cds"> </p>
