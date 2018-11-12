@@ -16,6 +16,8 @@ modules:
    path: srv
    parameters:
       memory: 1G
+   properties:
+      ALLOW_MOCKED_AUTH_HEADER: true   # Allows fetching destinations w/o uaa. Don't use in production!
    provides:
     - name: srv_api
       properties:
