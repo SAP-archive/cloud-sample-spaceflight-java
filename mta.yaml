@@ -47,16 +47,21 @@ modules:
 
 resources:
  - name: spacetravel-hana
+   type: com.sap.xs.hdi-container
    properties:
      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
 
  - name: spacetravel-dest
+   type: org.cloudfoundry.managed-service
    parameters:
       service: destination
       service-plan: lite
-   type: org.cloudfoundry.managed-service
 
  - name: spacetravel-uaa
-   type: org.cloudfoundry.existing-service
-   # create with: cf cs xsuaa application spacetravel-uaa -c '{"xsappname":"spacetravel-uaa-<space>", "tenant-mode":"dedicated" }'
+   type: org.cloudfoundry.managed-service
+   parameters:
+      service: xsuaa
+      service-plan: application
+      config:
+         xsappname: spacetravel-uaa-${space}
+         tenant-mode: dedicated
