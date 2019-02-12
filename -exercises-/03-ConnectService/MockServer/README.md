@@ -14,21 +14,22 @@ The mock server provided by SAP S/4HANA Cloud SDK can be used to test the OData 
 2. Deploy the MTA archive
 
    For your convenience, there is a prebuilt MTA archive for the mock server that can be easily deployed from Web IDE.
-   Find the `.mtar` file below `-mock-server-`, right-click on it, and execute `Deploy`"
+   Find the `.mtar` file below `-mock-server-`, right-click on it, and execute `Deploy to SAP Cloud Foundry`.
    <p align="left"><img width="480" src="res/01-DeployMta.png" alt="Deploy mock server MTA"> </p>
 
-   Enter the credentials for Cloud Foundry:
+   Enter the credentials for SAP Cloud Foundry:
    <p align="left"><img width="480" src="res/02-DeployMtaCredentials.png" alt="Enter deploy credentials" border=1> </p>
 
-   In Web IDE's console view, wait for the deployment to finish.  Copy the application URL from the console to your clipboard.
+   In Web IDE's console view, wait for the deployment to finish.  From the end of the output in the console, copy the application URL to your clipboard.
    <p align="left"><img width="480" src="res/03-DeployMtaURL.png" alt="Copy application URL" border=1> </p>
 
 3. Create a destination in Cloud Cockpit
 
-   In Cloud Cockpit, go to the _Destination_ list for your subaccount.
+   In Cloud Cockpit, go to the _Destinations_ list for your subaccount.
    <p align="left"><img width="480" src="res/04-NewDestination.png" alt="Create destination"> </p>
 
-   > Make sure to have _OrgManager_ permissions, otherwise you won't see the _Destinations_ panel.
+   > In order to access the _Destinations_ item on the subaccount, make sure to be global account member or security administrator.  Otherwise you might need to ask your account administrator to create the destination for you.
+   Find out more about [destination management](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/82ca377549c5421a8199013ea5f0facc.html) on SAP Cloud Foundry.
 
    As destination name, enter `ErpQueryEndpoint`.  As URL, paste the application URL from your clipboard.
    <p align="left"><img width="480" src="res/05-DestinationCredentials.png" alt="Enter destination details" border=1> </p>
