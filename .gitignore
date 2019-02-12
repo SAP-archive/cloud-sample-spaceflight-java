@@ -1,6 +1,5 @@
 .netrc
 .DS_Store
-*.mtar
 *.log
 .che/
 .classpath
