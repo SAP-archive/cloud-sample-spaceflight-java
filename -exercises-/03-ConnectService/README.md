@@ -11,7 +11,7 @@ In this exercise you will learn how to add a remote service to your app that fet
 ## Exercise description
 
 ### 1. Setup Mock Server for SAP S/4HANA
-In case you do not have access to a live SAP S/4HANA system, there is a server that mocks the relevant OData APIs.  Follow [these instructions](MockServer/README.MD) to set it up.
+In case you do not have access to a live SAP S/4HANA system, there is a server that mocks the relevant OData APIs.  Follow [these instructions](MockServer/README.md) to set it up.
 
 ### 2. Switch to a different start branch
 

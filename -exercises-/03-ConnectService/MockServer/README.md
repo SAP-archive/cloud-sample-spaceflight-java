@@ -41,4 +41,4 @@ The mock server provided by SAP S/4HANA Cloud SDK can be used to test the OData 
 ## Next
 From here on, the application uses the server as if it would be a live SAP S/4HANA system.
 
-Continue with the [exercise](../README.MD).
+Continue with the [exercise](../README.md).
