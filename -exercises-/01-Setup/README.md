@@ -8,36 +8,43 @@
 
 In this exercise you will learn how to clone the Git repository that contains the sample project of this tutorial into the Web IDE of the SAP Cloud Platform.
 
+## Prequisites
+
+Make sure to have the following:
+
+1. An SAP Cloud Platform (Cloud Foundry) account containing at least the services:
+   - SAP HANA Database (Standard or Enterprise)
+   - SAP HANA Schemas & HDI Containers (hdi-shared)
+
+2. An SAP Cloud Platform (Neo) account that provides access to at least SAP Web IDE.
+
+You may want use a **free trial account** for SAP Cloud Platform.  Follow this [tutorial to create a trial account](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
+
 ## Notes
 For all exercises please make sure to use **Google Chrome**.
 
 ## Exercise description
 
-### 1. Log on to Web IDE
+### 1. Log on to SAP Web IDE
 
-1.1. Go to [SAP Cloud Platform Trial account](https://account.hanatrial.ondemand.com/) and access the Web IDE of your account. To do this click on the **Neo Trial** and then choose the Services tab on the left pane and click on **SAP Web IDE Full-Stack**.
+- If your are unsure where to find the Web IDE URL, follow this [tutorial](https://developers.sap.com/tutorials/sapui5-webide-open-webide.html).
+- Web IDE opens up and shows your workspace. The workspace is empty if you use it for the first time.
 
-   <p align="center"><img width="420" src="res/pic100.png" alt="Log on screen"> </p>
-
-1.2. In case you are asked to upgrade your account, set the tick at the field `I acknowledge...` and provide your First Name (e.g. CNA376) and your Last Name "xxx".
-
-   <p align="center"><img width="420" src="res/pic101.png" alt="Upgrade account"> </p>
-
-1.3. The Web IDE opens up and shows your workspace. The workspace is empty if you use it for the first time.
-
-   <p align="center"><img width="640" src="res/pic102.png" alt="Web IDE workspace"> </p>
+   <p align="center"><img width="480" src="res/pic102.png" alt="Web IDE workspace"> </p>
 
 ### 2. Setup workspace settings
 
-2.1. Click on `Cloud Foundry` in the `Workspace Preferences`. In the field for the `API endpoint` select the first item `https://api.cf.eu10.hana.ondemand.com`. If you are asked to logon, use your user/password for this exercise.
+2.1. Click on `Cloud Foundry` in the `Workspace Preferences`
 
-   The values for `Organization` and `Space` will be set automatically to `TechEd2018_CNA376-TechEd2018` and the space your user is assigned to.
+   - In the field for the `API endpoint` select the the URL that matches your Cloud Foundry account (usually the first URL).  If you are asked to logon, use your user/password.
 
-   **Do NOT** click the `Reinstall Builder` button as this would affect users working within the same Cloud Foundry space.
+   - Same for the values for `Organization` and `Space`: chose the values matching to your account.
 
-   <p align="center"><img width="640" src="res/pic203.png" alt="Enter Cloud Foundry API endpoint"> </p>
+   - Should the be an error on the page saying that the builder is outed, press the `Reinstall Builder` button.
 
-   **Click on the `Save` button**, even if you haven't changed anything.
+   - Click on the **Save** button, even if you haven't changed anything.
+
+   <p align="center"><img width="480" src="res/pic203.png" alt="Enter Cloud Foundry API endpoint"> </p>
 
    You will get a confirmation message:
    <p align="center"><img width="320" src="res/pic204.png" alt="Confirmation about stored preferences"> </p>
