@@ -78,7 +78,7 @@ For this exercise you have to switch to branch `reuse-start` of the Git reposito
    As usual, use the `Build` menu on the `db` folder.
    <p align="center"><img width="480" src="res/11.png" alt="Build database module"> </p>
 
-<!-- 6. Browse database
+2.7. Browse the database
 
 - Open database explorer:
   <p align="center"><img width="320" src="res/12.png" alt="index.cds"> </p>
@@ -87,7 +87,7 @@ For this exercise you have to switch to branch `reuse-start` of the Git reposito
 
   <p align="center"><img width="640" src="res/13.png" alt="index.cds"> </p>
 
-  These are admin data from `node_modules/@sap/cds/common.cds`, which we inherit through `node_modules/spaceflight-model/db/common.cds`. -->
+  These are admin data from `node_modules/@sap/cds/common.cds`, which we inherit through `node_modules/spaceflight-model/db/common.cds`.
 
 2.6. Restart the Java application
 

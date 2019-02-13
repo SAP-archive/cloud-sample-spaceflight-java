@@ -28,7 +28,7 @@ In this exercise you will have a look into the data model of the application and
 
    <p align="center"><img width="640" src="res/pic103.png" alt="Console with deployment output"> </p>
 
-<!-- 1.4. Let's take a look into what was deployed. Right-click again on the `db` folder and select `Open HDI container`.  This will open up the SAP HANA database explorer.
+1.4. Let's take a look into what was deployed. Right-click again on the `db` folder and select `Open HDI container`.  This will open up the SAP HANA database explorer.
 
    <p align="center"><img width="640" src="res/pic104.png" alt="Open HDI container"> </p>
 
@@ -47,7 +47,7 @@ In this exercise you will have a look into the data model of the application and
 
    > The data you see here is maintained in the resource folder `db > src > csv` and was deployed along with the table definitions.
        <p align="center"><img width="860" src="res/pic113.png" alt="CSV files in db folder"> </p>
- -->
+
 
 ### 2. Run the OData service
 
