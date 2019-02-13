@@ -14,10 +14,10 @@ The mock server provided by SAP S/4HANA Cloud SDK can be used to test the OData 
 2. Deploy the MTA archive
 
    - For your convenience, there is a prebuilt MTA archive for the mock server that can be easily deployed from Web IDE.
-     Find the `.mtar` file below `-mock-server-`, right-click on it, and execute `Deploy to SAP Cloud Foundry`.
+     Find the `.mtar` file below `-mock-server-`, right-click on it, and execute `Deploy to SAP Cloud Platform`.
      <p align="left"><img width="480" src="res/01-DeployMta.png" alt="Deploy mock server MTA"> </p>
 
-   - Enter the credentials for SAP Cloud Foundry:
+   - Enter the credentials for SAP Cloud Platform:
      <p align="left"><img width="480" src="res/02-DeployMtaCredentials.png" alt="Enter deploy credentials" border=1> </p>
 
    - In Web IDE's console view, wait for the deployment to finish.  From the end of the output in the console, copy the application URL to your clipboard.
@@ -38,6 +38,8 @@ The mock server provided by SAP S/4HANA Cloud SDK can be used to test the OData 
 
    - After having saved the destination, click on _Check Connection_ to verify the server responds with return code `200 OK`.
      <p align="left"><img width="480" src="res/06-CheckConnection.png" alt="Check destination connection"> </p>
+
+     > If you get an error, make sure you haved entered the proper URL.  Open it in a browser window to verify the application is up and running.
 
 ## Next
 From here on, the application uses the server as if it would be a live SAP S/4HANA system.

@@ -7,7 +7,7 @@ Timeline is tight and the legal requirements of 20 planets need to be considered
 
 ## Exercises
 
-See the [exercises folder](https://github.com/SAP/cloud-sample-spaceflight-java/tree/master/-exercises-).
+See the [exercises folder](https://github.com/SAP/cloud-sample-spaceflight-java/tree/master/-exercises-/README.md).
 
 ## Requirements
 
