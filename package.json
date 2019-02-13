@@ -2,7 +2,7 @@
   "name": "spaceflight",
   "version": "0.1.0",
   "dependencies": {
-    "@sap/cds": "3.0.0"
+    "@sap/cds": "^3.5"
   },
   "scripts": {
     "build": "cds build --clean"
