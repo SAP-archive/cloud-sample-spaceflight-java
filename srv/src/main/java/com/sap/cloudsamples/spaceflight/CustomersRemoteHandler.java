@@ -2,7 +2,6 @@ package com.sap.cloudsamples.spaceflight;
 
 import java.util.List;
 
-import com.sap.cloud.sdk.cloudplatform.ScpCfCloudPlatformFacade;
 import com.sap.cloud.sdk.odatav2.connectivity.ODataException;
 import com.sap.cloud.sdk.service.prov.api.operations.Query;
 import com.sap.cloud.sdk.service.prov.api.operations.Read;
@@ -15,10 +14,6 @@ import com.sap.cloud.sdk.service.prov.api.response.ReadResponse;
  * Request handler for <code>BookingService.CustomersRemote</code> entity.
  */
 public class CustomersRemoteHandler {
-
-	static {
-		System.out.println(new ScpCfCloudPlatformFacade().getCloudPlatform().getXsuaaServiceCredentialsList());
-	}
 
 	private static final String CUSTOMERSREMOTE = "CustomersRemote";
 
