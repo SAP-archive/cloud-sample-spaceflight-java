@@ -49,7 +49,7 @@ For all exercises please make sure to use **Google Chrome**.
    You will get a confirmation message:
    <p align="center"><img width="320" src="res/pic204.png" alt="Confirmation about stored preferences"> </p>
 
-2.2. Click on the preferences icon on the left and select `Features`. Next, enter `HANA Database Dev` in the search box and switch `ON` the `SAP HANA Database Devlopment Tools`. Finally click on the `Save` button at the bottom to enable the tools in your workspace.
+2.2. Click on the preferences icon on the left and select `Extensions`. Next, enter `HANA Database Dev` in the search box and switch `ON` the `SAP HANA Database Devlopment Tools`. Finally click on the `Save` button at the bottom to enable the tools in your workspace.
 
    <p align="center"><img width="640" src="res/pic201.png" alt="Web IDE workspace"> </p>
 
