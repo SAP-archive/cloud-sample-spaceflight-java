@@ -25,7 +25,7 @@ The mock server provided by SAP S/4HANA Cloud SDK can be used to test the OData 
 
 3. Create a destination in Cloud Cockpit
 
-   - In Cloud Cockpit, go to the _Destinations_ list for your subaccount.
+   - In Cloud Cockpit, go to Cloud Foundry environment and then to the subaccount your application will be deployed to.  There, open the _Destinations_ page.
      <p align="left"><img width="480" src="res/04-NewDestination.png" alt="Create destination"> </p>
 
      > In order to access the _Destinations_ item on the subaccount, make sure to be global account member or security administrator.  Otherwise you might need to ask your account administrator to create the destination for you.
