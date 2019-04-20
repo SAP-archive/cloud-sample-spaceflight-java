@@ -36,9 +36,10 @@ In this exercise you will have a look into the data model of the application and
 
    <p align="center"><img width="480" src="res/pic105.png" alt="Database explorer message"> </p>
 
-1.5. Click on the `Tables` icon on the left, select table `TECHED_FLIGHT_TRIP_BOOKINGS`, which opens the table editor.
+1.5. Click on the `Views` icon on the left, select view `BOOKINGSERVICE_BOOKINGS`, which opens the view editor.
 
-   <p align="center"><img width="860" src="res/pic110.png" alt="See table definition"> </p>
+   <!-- <p align="center"><img width="860" src="res/pic110.png" alt="See table definition"> </p> -->
+   <p align="center"><img width="860" src="res/pic110a.png" alt="See viewa definition"> </p>
 
 1.6. If you want to see the table data, click on the `Open Data` button on the top right.
 

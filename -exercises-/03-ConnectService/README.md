@@ -117,11 +117,12 @@ The file explorer always shows the currently active branch:
 
 5.6. **Browse the database**
 
-   On the `db` folder, select `Open HDI Container`, which will lead you to the deployed tables.
-   Click on the `Tables` item in the tree.
+   On the `db` folder, select `Open HDI Container`, which will lead you to the deployed tables and views.
+   Click on the `Views` item in the tree.
    <p align="center"><img width="480" src="res/pic326a.png" alt="Browse the database"> </p>
 
-   > Note that there is a new table `..._CUSTOMERS` for the `Customers` entity.  Also, in table `..._BOOKINGS` you can see a new column `CUSTOMER_ID` holding the foreign key to the `CUSTOMERS` table.  In the next section you will see how this new table is filled with data from S/4HANA.
+   > Note that there is a new table `..._CUSTOMERS` for the `Customers` entity.  Also, in table `..._BOOKINGS` you can see a new column `CUSTOMER_ID` holding the foreign key to `CUSTOMERS`.
+   In the next section you will see how this new table is filled with data from S/4HANA.
 
 
 ### 6. Call S/4 in the Java code
