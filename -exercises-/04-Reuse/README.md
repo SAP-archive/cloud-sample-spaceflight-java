@@ -1,5 +1,7 @@
 # Exercise 04: How to consume a reuse model in your app
 
+**Note** This exercise does not work on the hanatrial workspace.
+
 ## Estimated time
 
 25 minutes

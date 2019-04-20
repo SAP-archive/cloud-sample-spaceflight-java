@@ -202,6 +202,6 @@ The file explorer always shows the currently active branch:
    <p align="center"><img width="700" src="res/pic335.png" alt="Query Customers entity"> </p>
 
 
-## Next
+<!-- ## Next
 
-Continue with [exercise 4](../04-Reuse).
+Continue with [exercise 4](../04-Reuse). -->
