@@ -25,7 +25,6 @@ modules:
       properties:
          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
             {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
-    - name: spacetravel-dest
     - name: spacetravel-uaa
 
  - name: spacetravel-app
@@ -50,12 +49,6 @@ resources:
    type: com.sap.xs.hdi-container
    properties:
      hdi-container-name: ${service-name}
-
- - name: spacetravel-dest
-   type: org.cloudfoundry.managed-service
-   parameters:
-      service: destination
-      service-plan: lite
 
  - name: spacetravel-uaa
    type: org.cloudfoundry.managed-service
