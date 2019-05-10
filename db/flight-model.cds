@@ -102,17 +102,17 @@ entity EarthRoutes {
       DestinationAirport : Association to Airports not null;
       Airline            : Association to Airlines;
       Distance           : Integer;
-      Equipment          : {
-        aircraft1 : Association to AircraftCodes;
-        aircraft2 : Association to AircraftCodes;
-        aircraft3 : Association to AircraftCodes;
-        aircraft4 : Association to AircraftCodes;
-        aircraft5 : Association to AircraftCodes;
-        aircraft6 : Association to AircraftCodes;
-        aircraft7 : Association to AircraftCodes;
-        aircraft8 : Association to AircraftCodes;
-        aircraft9 : Association to AircraftCodes;
-      };
+      // Equipment          : {  // redirections for targets in sub elements not supported yet
+        Equipment_aircraft1 : Association to AircraftCodes;
+        Equipment_aircraft2 : Association to AircraftCodes;
+        Equipment_aircraft3 : Association to AircraftCodes;
+        Equipment_aircraft4 : Association to AircraftCodes;
+        Equipment_aircraft5 : Association to AircraftCodes;
+        Equipment_aircraft6 : Association to AircraftCodes;
+        Equipment_aircraft7 : Association to AircraftCodes;
+        Equipment_aircraft8 : Association to AircraftCodes;
+        Equipment_aircraft9 : Association to AircraftCodes;
+    //  };
 };
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -141,13 +141,13 @@ entity EarthRoutes {
 entity Itineraries {
   key ID    : String(10);
   Name      : String(100) @title: "Itinerary";
-  EarthLegs : {
-    leg1  : Association to EarthRoutes;
-    leg2  : Association to EarthRoutes;
-    leg3  : Association to EarthRoutes;
-    leg4  : Association to EarthRoutes;
-    leg5  : Association to EarthRoutes;
-  };
+  // EarthLegs : { // redirections for targets in sub elements not supported yet
+    EarthLegs_leg1  : Association to EarthRoutes;
+    EarthLegs_leg2  : Association to EarthRoutes;
+    EarthLegs_leg3  : Association to EarthRoutes;
+    EarthLegs_leg4  : Association to EarthRoutes;
+    EarthLegs_leg5  : Association to EarthRoutes;
+  // };
   Bookings  : Association to many Bookings on Bookings.Itinerary=$self;
 };
 
