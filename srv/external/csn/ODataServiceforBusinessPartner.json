@@ -327,35 +327,35 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressEmailAddressType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_FaxNumber": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressFaxNumberType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_MobilePhoneNumber": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressPhoneNumberType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_PhoneNumber": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressPhoneNumberType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_URLAddress": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressHomePageURLType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }
@@ -495,6 +495,31 @@
                 "AuthorizationGroup": {
                     "type": "cds.String",
                     "length": 4
+                }
+            }
+        },
+        "API_BUSINESS_PARTNER.A_BuPaIndustryType": {
+            "kind": "entity",
+            "@cds.persistence.skip": true,
+            "elements": {
+                "IndustrySector": {
+                    "key": true,
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "IndustrySystemType": {
+                    "key": true,
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "BusinessPartner": {
+                    "key": true,
+                    "type": "cds.String",
+                    "length": 10
+                },
+                "IsStandardIndustry": {
+                    "type": "cds.String",
+                    "length": 1
                 }
             }
         },
@@ -698,46 +723,57 @@
                     "type": "cds.String",
                     "length": 20
                 },
+                "TradingPartner": {
+                    "type": "cds.String",
+                    "length": 6
+                },
                 "to_BuPaIdentification": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BuPaIdentificationType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
+                    }
+                },
+                "to_BuPaIndustry": {
+                    "type": "cds.Association",
+                    "target": "API_BUSINESS_PARTNER.A_BuPaIndustryType",
+                    "cardinality": {
+                        "max": "*"
                     }
                 },
                 "to_BusinessPartnerAddress": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BusinessPartnerAddressType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_BusinessPartnerBank": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BusinessPartnerBankType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_BusinessPartnerContact": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BusinessPartnerContactType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_BusinessPartnerRole": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BusinessPartnerRoleType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_BusinessPartnerTax": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BusinessPartnerTaxNumberType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_Customer": {
@@ -920,42 +956,42 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BuPaAddressUsageType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_EmailAddress": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressEmailAddressType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_FaxNumber": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressFaxNumberType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_MobilePhoneNumber": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressPhoneNumberType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_PhoneNumber": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressPhoneNumberType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_URLAddress": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_AddressHomePageURLType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }
@@ -1073,7 +1109,7 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_BPContactToAddressType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_ContactRelationship": {
@@ -1125,6 +1161,10 @@
                 "BPTaxNumber": {
                     "type": "cds.String",
                     "length": 20
+                },
+                "BPTaxLongNumber": {
+                    "type": "cds.String",
+                    "length": 60
                 },
                 "AuthorizationGroup": {
                     "type": "cds.String",
@@ -1270,14 +1310,14 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_CustomerCompanyType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_CustomerSalesArea": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_CustomerSalesAreaType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }
@@ -1408,14 +1448,14 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_CustomerDunningType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_WithHoldingTax": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_CustomerWithHoldingTaxType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }
@@ -1624,14 +1664,14 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_CustSalesPartnerFuncType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_SalesAreaTax": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_CustomerSalesAreaTaxType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }
@@ -1926,14 +1966,14 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_SupplierCompanyType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_SupplierPurchasingOrg": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_SupplierPurchasingOrgType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }
@@ -2085,14 +2125,14 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_SupplierDunningType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 },
                 "to_SupplierWithHoldingTax": {
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_SupplierWithHoldingTaxType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }
@@ -2141,6 +2181,14 @@
                 "DunningClerk": {
                     "type": "cds.String",
                     "length": 2
+                },
+                "AuthorizationGroup": {
+                    "type": "cds.String",
+                    "length": 4
+                },
+                "SupplierAccountGroup": {
+                    "type": "cds.String",
+                    "length": 4
                 }
             }
         },
@@ -2302,7 +2350,7 @@
                     "type": "cds.Association",
                     "target": "API_BUSINESS_PARTNER.A_SupplierPartnerFuncType",
                     "cardinality": {
-                        "targetMax": "*"
+                        "max": "*"
                     }
                 }
             }

@@ -7,10 +7,5 @@
   "scripts": {
     "build": "cds build --clean"
   },
-  "license": "SEE LICENSE IN LICENSE",
-  "cds": {
-    "cdsc": {
-      "newCsn": true
-    }
-  }
+  "license": "SEE LICENSE IN LICENSE"
 }
