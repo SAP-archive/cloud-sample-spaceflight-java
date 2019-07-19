@@ -1,4 +1,4 @@
-## Description
+# Description
 This repository contains the sample code for a 'space travel' application.
 
 ### Scenario
