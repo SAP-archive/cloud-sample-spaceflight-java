@@ -1,33 +1,17 @@
-# Description
-This repository contains the sample code for a 'space travel' application.
-
-### Scenario
-You are working in the IT department of the space travel agency SPICY (SPace Itineraries CompanY) and are asked by management to develop the best-of-breed enterprise-grade booking app.
-Timeline is tight and the legal requirements of 20 planets need to be considered.  You start with the SAP Cloud Platform that will bring you where no app developer has gone before.
-
 ## Exercises
 
-See the [exercises folder](https://github.com/SAP/cloud-sample-spaceflight-java/tree/master/-exercises-/README.md).
+We longer support the initial 'space travel' application in this repository. 
 
-## Requirements
-
-- An SAP Cloud Platform (Cloud Foundry) account containing at least the services:
-   - SAP HANA Database (Standard or Enterprise)
-   - SAP HANA Schemas & HDI Containers (hdi-shared)
-
-- An SAP Cloud Platform (Neo) account that provides access to at least SAP Web IDE.
-
-You may want use a **free trial account** for SAP Cloud Platform.  Follow this [tutorial to create a trial account](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
-
-
-## Known Issues
-None
+If you’re interested in building business applications using the CAP Java SDK, we recommend the [CAP Samples for Java](https://github.com/SAP-samples/cloud-cap-samples-java). The application in this project enables browsing books, managing books, and managing orders. The following features will be demonstrated:
+   - Framework and Infrastructure-related Features
+   - Domain Model related Features
+   - Service Model related Features
+   - User Interface related Features
 
 ## Support
 
-This project is provided "as-is": there is no guarantee that raised issues will be answered or addressed in future releases.
-
+Check out the CAP documentation [here](https://cap.cloud.sap/). In case you find a bug or need support, please [open an issue in here](https://github.com/SAP-samples/cloud-cap-samples-java/issues/new).
 
 ## License
 
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
