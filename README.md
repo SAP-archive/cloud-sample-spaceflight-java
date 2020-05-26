@@ -1,12 +1,12 @@
-## Exercises
-
-We longer support the initial 'space travel' application in this repository. 
+We longer maintain the 'space travel' application in this repository. 
 
 If you’re interested in building business applications using the CAP Java SDK, we recommend the [CAP Samples for Java](https://github.com/SAP-samples/cloud-cap-samples-java). The application in this project enables browsing books, managing books, and managing orders. The following features will be demonstrated:
    - Framework and Infrastructure-related Features
    - Domain Model related Features
    - Service Model related Features
    - User Interface related Features
+
+If you still need to check out the previous content, see [here](https://github.com/SAP-samples/cloud-sample-spaceflight-java/tree/attic).
 
 ## Support
 
