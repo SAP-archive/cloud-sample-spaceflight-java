@@ -1,3 +1,6 @@
+![](https://img.shields.io/badge/STATUS-NOT%20CURRENTLY%20MAINTAINED-red.svg?longCache=true&style=flat)
+
+# Important Notice
 We longer maintain the 'space travel' application in this repository. 
 
 If you’re interested in building business applications using the CAP Java SDK, we recommend the [CAP Samples for Java](https://github.com/SAP-samples/cloud-cap-samples-java). The application in this project enables browsing books, managing books, and managing orders. The following features will be demonstrated:
